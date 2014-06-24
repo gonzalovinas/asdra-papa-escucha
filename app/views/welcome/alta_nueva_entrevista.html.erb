@@ -146,7 +146,7 @@
   <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
 
   <p>
-    <label for="observaciones">Obsrevaciones</label>
+    <label for="observaciones">Observaciones</label>
     <textarea rows="4" cols="50" id="observaciones">
     </textarea>
   </p>
@@ -174,19 +174,23 @@
                                 data : postData,
                                 success:function(data, textStatus, jqXHR)
                                 {
-                                    debugger;
-                                    alert(data);
+                                    if(data.status==="OK") {
+                                        $("#modal_entrevista_alta_exitosa").dialog({
+                                            modal: true,
+                                            buttons: {
+                                                Ok: function () {
+                                                    $(this).dialog("close");
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        mostrar_error_tecnico();
+                                    }
                                 },
                                 error: function(jqXHR, textStatus, errorThrown)
                                 {
-                                    $( "#modal_error_tecnico" ).dialog({
-                                        modal: true,
-                                        buttons: {
-                                            Ok: function() {
-                                                $( this ).dialog( "close" );
-                                            }
-                                        }
-                                    });
+                                    mostrar_error_tecnico();
                                 }
                             });
                     e.preventDefault(); //STOP default action
@@ -210,4 +214,6 @@
     });
 </script>
 
-
+<div id="modal_entrevista_alta_exitosa" title="Mensaje" style="display:none;">
+  <p>La entrevista ha sido dada de alta en forma exitosa!</p>
+</div>

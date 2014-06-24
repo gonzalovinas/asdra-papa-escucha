@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
   end
 
   def do_alta_nueva_entrevista
-    render :json => {:status=>"Mensaje Recibido"}
+    render :json => {:status=>"OK"}
   end
 
 end
