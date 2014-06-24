@@ -8,19 +8,53 @@
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= csrf_meta_tags %>
+ <!-- <%= csrf_meta_tags %> -->
+
+
 
   <script>
-      $(function() {
-          $( "#tabs" ).tabs();
+      $(document).ready(function() {
+          $(function () {
+              $("#tabs").tabs();
+          });
       });
   </script>
 
 </head>
 <body>
 
-<%= yield %>
+<center>
 
+  <a href="http://asdra.org.ar/"><img src="/assets/company-logo.png">
+  </a>
+
+</center>
+
+<div id="tabs" >
+  <ul>
+    <li><a href="/welcome/resumen">Resumen</a></li>
+    <li><a href="#tab-consultas">Consultas</a></li>
+    <li><a href="/welcome/alta_nueva_entrevista">Alta de Nueva Entrevista</a></li>
+    <li><a href="#tab-reportes">Reportes</a></li>
+    <li><a href="#tab-administracion">Administración</a></li>
+  </ul>
+  <div id="tab-resumen">
+  </div>
+  <div id="tab-consultas">
+  </div>
+  <div id="tab-alta">
+  </div>
+  <div id="tab-reportes">
+  </div>
+  <div id="tab-administracion">
+  </div>
+
+</div>
+
+
+<div id="modal_error_tecnico" title="Error" style="display:none;">
+  <p>Ha ocurrido un error técnico. Contacte al administrador del sistema.</p>
+</div>
 </body>
 
 </html>

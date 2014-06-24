@@ -1,0 +1,20 @@
+<h1>Ultimos Mensajes</h1>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Mensaje</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @mensajes_novedades.each do |mensaje_novedad| %>
+      <tr>
+        <td><%= mensaje_novedad.fecha %></td>
+        <td><%= mensaje_novedad.mensaje %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br>

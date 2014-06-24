@@ -1,0 +1,213 @@
+<h1>Alta de Nueva Entrevista</h1>
+<form action="/welcome/do_alta_nueva_entrevista" method="post" id="alta_nueva_entrevista">
+
+  <p>
+    <label for="fecha_llamada">Fecha Llamada</label>
+    <input type="text" name="fecha_llamada" id="fecha_llamada" />
+  </p>
+
+  <p>
+    <label for="fecha_entrevista">Fecha Entrevista</label>
+    <input type="text" name="fecha_entrevista" id="fecha_entrevista" />
+  </p>
+
+  <p>
+    <label for="lugar">Lugar</label>
+    <input type="text" name="lugar" id="lugar" />
+  </p>
+
+  <p>
+    <label for="mama_escucha">Mamá Escucha</label>
+    <input type="text" name="mama_escucha" id="mama_escucha" />
+  </p>
+
+  <p>
+    <label for="papa_escucha">Papá Escucha</label>
+    <input type="text" name="papa_escucha" id="papa_escucha" />
+  </p>
+
+  <p>
+    <label for="como_supo">¿Como supo de ASDRA?</label>
+    <input type="text" name="como_supo" id="como_supo" />
+  </p>
+
+  <p>
+    <label for="papa_nombre_apellido">Nombre y Apellido del Papá</label>
+    <input type="text" name="papa_nombre_apellido" id="papa_nombre_apellido" />
+  </p>
+
+  <p>
+    <label for="papa_edad">Edad del Papá</label>
+    <input type="text" name="papa_edad" id="papa_edad" />
+  </p>
+
+  <p>
+    <label for="papa_ocupacion">Ocupación del Papá</label>
+    <input type="text" name="papa_ocupacion" id="papa_ocupacion" />
+  </p>
+
+  <p>
+    <label for="papa_domicilio">Domicilio del Papá</label>
+    <input type="text" name="papa_domicilio" id="papa_domicilio" />
+  </p>
+
+  <p>
+    <label for="papa_telefonos">Telefonos del Papá</label>
+    <input type="text" name="papa_telefonos" id="papa_telefonos" />
+  </p>
+
+  <p>
+    <label for="papa_correo">Correo del Papá</label>
+    <input type="text" name="papa_correo" id="papa_correo" />
+  </p>
+
+  <p>
+    <label for="mama_nombre_apellido">Nombre y Apellido de la Mamá</label>
+    <input type="text" name="mama_nombre_apellido" id="mama_nombre_apellido" />
+  </p>
+
+  <p>
+    <label for="mama_edad">Edad de la Mamá</label>
+    <input type="text" name="mama_edad" id="mama_edad" />
+  </p>
+
+  <p>
+    <label for="mama_ocupacion">Ocupación de la Mamá</label>
+    <input type="text" name="mama_ocupacion" id="mama_ocupacion" />
+  </p>
+
+  <p>
+    <label for="mama_domicilio">Domicilio de la Mamá</label>
+    <input type="text" name="mama_domicilio" id="mama_domicilio" />
+  </p>
+
+  <p>
+    <label for="mama_telefonos">Telefonos de la Mamá</label>
+    <input type="text" name="mama_telefonos" id="mama_telefonos" />
+  </p>
+
+  <p>
+    <label for="mama_correo">Correo de la Mamá</label>
+    <input type="text" name="mama_correo" id="mama_correo" />
+  </p>
+
+  <p>
+    <label for="sexo">Sexo</label>
+    <select id="sexo">
+      <option value="X"></option>
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select>
+  </p>
+
+  <p>
+    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+    <input type="text" name="fecha_nacimiento" id="fecha_nacimiento" />
+  </p>
+
+  <p>
+    <label for="institucion_nacimiento">Institucion Nacimiento</label>
+    <input type="text" name="institucion_nacimiento" id="institucion_nacimiento" />
+  </p>
+
+  <p>
+    <label for="observacion_institucion">Observaciones de la Institución</label>
+    <textarea rows="4" cols="50" id="observacion_institucion">
+    </textarea>
+  </p>
+
+  <p>
+    <label for="meses_nacimiento">Meses de Nacimiento</label>
+    <input type="text" name="meses_nacimiento" id="meses_nacimiento" />
+  </p>
+
+  <p>
+    <label for="parto_normal">Parto Normal</label>
+    <input type="checkbox" name="parto_normal" id="parto_normal" />
+  </p>
+
+  <p>
+    <label for="sabia_sdown">Sabía que tiene S. Down</label>
+    <input type="checkbox" name="sabia_sdown" id="sabia_sdown" />
+  </p>
+
+  <p>
+    <label for="recepcion_flia">¿Cómo lo recibio la familia?</label>
+    <textarea rows="4" cols="50" id="recepcion_flia">
+    </textarea>
+  </p>
+
+  <p>
+    <label for="patologia_agregada">Patología Agregada</label>
+    <textarea rows="4" cols="50" id="patologia_agregada">
+    </textarea>
+  </p>
+
+  <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
+
+  <p>
+    <label for="observaciones">Obsrevaciones</label>
+    <textarea rows="4" cols="50" id="observaciones">
+    </textarea>
+  </p>
+
+
+
+
+
+
+  <p>
+    <input type="button" name="submit" value="Dar de Alta" id="submitbutton" onClick="enviar_formulario(this);"/>
+  </p>
+</form>
+
+<script>
+    function enviar_formulario(sender) {
+        $('#alta_nueva_entrevista').submit(function(e) {
+                    var postData = $(this).serializeArray();
+                    var formURL = $(this).attr("action");
+
+                    $.ajax(
+                            {
+                                url : formURL,
+                                type: "POST",
+                                data : postData,
+                                success:function(data, textStatus, jqXHR)
+                                {
+                                    debugger;
+                                    alert(data);
+                                },
+                                error: function(jqXHR, textStatus, errorThrown)
+                                {
+                                    $( "#modal_error_tecnico" ).dialog({
+                                        modal: true,
+                                        buttons: {
+                                            Ok: function() {
+                                                $( this ).dialog( "close" );
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                    e.preventDefault(); //STOP default action
+                    e.unbind(); //unbind. to stop multiple form submit.
+
+                }
+        );
+
+        $('#alta_nueva_entrevista').submit();
+    }
+
+    $(function() {
+        $( '#fecha_llamada' ).datepicker();
+        $( '#fecha_entrevista' ).datepicker();
+        $( '#fecha_nacimiento' ).datepicker();
+        $( '#meses_nacimiento' ).spinner({
+            max: 9,
+            min: 5
+        });
+
+    });
+</script>
+
+
