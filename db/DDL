@@ -1,0 +1,40 @@
+CREATE TABLE entrevistas
+(
+    r_id INTEGER PRIMARY KEY NOT NULL,
+    fecha_llamada TEXT NOT NULL,
+    fecha_entrevista TEXT NOT NULL,
+    lugar TEXT NOT NULL,
+    mama_escucha TEXT NOT NULL,
+    papa_escucha TEXT NOT NULL,
+    como_supo TEXT NOT NULL,
+    papa_nombre_apellido TEXT NOT NULL,
+    papa_edad TEXT NOT NULL,
+    papa_ocupacion TEXT NOT NULL,
+    papa_domicilio TEXT NOT NULL,
+    papa_telefonos TEXT NOT NULL,
+    papa_correo TEXT NOT NULL,
+    mama_nombre_apellido TEXT NOT NULL,
+    mama_edad TEXT NOT NULL,
+    mama_ocupacion TEXT NOT NULL,
+    mama_domicilio TEXT NOT NULL,
+    mama_telefonos TEXT NOT NULL,
+    mama_correo TEXT NOT NULL,
+    sexo INTEGER NOT NULL,
+    fecha_nacimiento TEXT NOT NULL,
+    institucion_nacimiento TEXT NOT NULL,
+    observacion_institucion TEXT NOT NULL,
+    meses_nacimiento INTEGER NOT NULL,
+    parto_normal INTEGER NOT NULL,
+    sabia_sdown INTEGER NOT NULL,
+    recepcion_flia TEXT NOT NULL,
+    patologia_agregada TEXT NOT NULL,
+    observaciones TEXT NOT NULL
+);
+CREATE TABLE mensajes_novedades
+(
+    r_id INTEGER PRIMARY KEY NOT NULL,
+    fecha TEXT NOT NULL,
+    mensaje TEXT NOT NULL
+);
+INSERT INTO mensajes_novedades
+(fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Esscucha, ahora Web!');

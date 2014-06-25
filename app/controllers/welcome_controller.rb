@@ -8,12 +8,4 @@ class WelcomeController < ApplicationController
     render :action => "resumen", :layout=> false
   end
 
-  def alta_nueva_entrevista
-    render :action => "alta_nueva_entrevista", :layout=> false
-  end
-
-  def do_alta_nueva_entrevista
-    render :json => {:status=>"OK"}
-  end
-
 end

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'welcome/resumen'
-  get 'welcome/alta_nueva_entrevista'
-  post 'welcome/do_alta_nueva_entrevista'
+
+  get 'entrevista/alta_nueva_entrevista'
+  post 'entrevista/do_alta_nueva_entrevista'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

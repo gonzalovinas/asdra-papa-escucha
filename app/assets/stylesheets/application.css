@@ -14,16 +14,11 @@
  *= require_self
  */
 
-tabs-nobg {
-    padding: 0px;
+.contenido-tab  {
+    font-size:80%;
 }
-tabs-nobg .ui-tabs-nav {
-    background: transparent;
-    border-width: 0px 0px 1px 0px;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-}
-tabs-nobg .ui-tabs-panel {
-    margin: 0em 0.2em 0.2em 0.2em;
+
+.contenido-tab legend {
+    font-weight: bold;
+    color: #0078e7;
 }

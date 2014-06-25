@@ -6,8 +6,11 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
+  <link rel="icon"
+        type="image/png"
+        href="http://www.hostalestacion.com/images/telefono.png">
  <!-- <%= csrf_meta_tags %> -->
 
 
@@ -37,7 +40,8 @@
 
 <center>
 
-  <a href="http://asdra.org.ar/"><img src="/assets/company-logo.png">
+  <a href="http://asdra.org.ar/">
+    <img src="/assets/company-logo.png">
   </a>
 
 </center>
@@ -45,20 +49,19 @@
 <div id="tabs" >
   <ul>
     <li><a href="/welcome/resumen">Resumen</a></li>
-    <li><a href="#tab-consultas">Consultas</a></li>
-    <li><a href="/welcome/alta_nueva_entrevista">Alta de Nueva Entrevista</a></li>
+    <li><a href="#tab-consulta-entrevista">Consulta(s) Entrevista(s)</a></li>
+    <li><a href="/entrevista/alta_nueva_entrevista">Alta de Nueva Entrevista</a></li>
     <li><a href="#tab-reportes">Reportes</a></li>
     <li><a href="#tab-administracion">Administración</a></li>
   </ul>
-  <div id="tab-resumen">
-  </div>
-  <div id="tab-consultas">
-  </div>
-  <div id="tab-alta">
+  <div id="tab-consulta-entrevista">
+    <p>...Funcionalidad en desarrollo...</p>
   </div>
   <div id="tab-reportes">
+    <p>...Funcionalidad en desarrollo...</p>
   </div>
   <div id="tab-administracion">
+    <p>...Funcionalidad en desarrollo...</p>
   </div>
 
 </div>
@@ -68,5 +71,7 @@
   <p>Ha ocurrido un error técnico. Contacte al administrador del sistema.</p>
 </div>
 </body>
+
+
 
 </html>
