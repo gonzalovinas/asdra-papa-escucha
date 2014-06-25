@@ -1,13 +1,15 @@
 <div class="contenido-tab">
 
   <form action="/entrevista/do_alta_nueva_entrevista" method="post" id="alta_nueva_entrevista"
-class="pure-form  pure-form-stacked ">
+class="pure-form  pure-form-stacked" >
+    <input type="submit" class="pure-button pure-button-primary" name="submit" value="Dar de Alta" id="submitbutton"/>
+    <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
    <fieldset>
    <legend>Datos de la Entrevista</legend>
 
    <label for="fecha_llamada">Fecha Llamada</label>
-   <input type="text"  name="fecha_llamada" id="fecha_llamada" />
+   <input type="text"  name="fecha_llamada" id="fecha_llamada"/>
    <label for="fecha_entrevista">Fecha Entrevista</label>
    <input type="text"  name="fecha_entrevista" id="fecha_entrevista" />
    <label for="lugar">Lugar</label>
@@ -62,7 +64,7 @@ class="pure-form  pure-form-stacked ">
       
         <label for="sexo">Sexo</label>
         <select id="sexo">
-          <option value="X"></option>
+          <option value=""></option>
           <option value="M">Masculino</option>
           <option value="F">Femenino</option>
         </select>
@@ -96,50 +98,59 @@ class="pure-form  pure-form-stacked ">
       </textarea>
     </fieldset>
 
-    <input type="button" class="pure-button pure-button-primary" name="submit" value="Dar de Alta" id="submitbutton" onClick="enviar_formulario(this);"/>
+
 
 </form>
 
 <script>
-    function enviar_formulario(sender) {
-        $('#alta_nueva_entrevista').submit(function(e) {
-                    var postData = $(this).serializeArray();
-                    var formURL = $(this).attr("action");
 
-                    $.ajax(
-                            {
-                                url : formURL,
-                                type: "POST",
-                                data : postData,
-                                success:function(data, textStatus, jqXHR)
-                                {
-                                    if(data.status==="OK") {
-                                        $("#modal_entrevista_alta_exitosa").dialog({
-                                            modal: true,
-                                            buttons: {
-                                                Ok: function () {
-                                                    $(this).dialog("close");
-                                                }
-                                            }
-                                        });
-                                    }
-                                    else {
-                                        mostrar_error_tecnico();
-                                    }
-                                },
-                                error: function(jqXHR, textStatus, errorThrown)
-                                {
-                                    mostrar_error_tecnico();
-                                }
-                            });
-                    e.preventDefault(); //STOP default action
-                    e.unbind(); //unbind. to stop multiple form submit.
+    $("#alta_nueva_entrevista").submit(function(e) {
+        //var postData = JSON.stringify($(this).serializeArray());
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
 
+        $.ajax({
+            url : formURL,
+            type: "POST",
+            data : postData,
+            //contentType:"application/json; charset=utf-8",
+            // dataType:"json",
+            success:function(data, textStatus, jqXHR) {
+                if(data.status==="OK") {
+                    $("#modal_entrevista_alta_exitosa").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
                 }
-        );
+                else {
+                    mostrar_error_tecnico();
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                mostrar_error_tecnico();
+            }
+        });
 
-        $('#alta_nueva_entrevista').submit();
-    }
+        e.preventDefault();
+        //e.unbind();
+
+    });
+
+    $("#alta_nueva_entrevista").validate({
+        invalidHandler: function(event, validator) {
+            alert('invalido');
+        },
+        submitHandler: function() {
+            alert('valido');
+        },
+        rules: {
+            "fecha_llamada" : { required: true }
+        }
+    });
 
     $(function() {
         $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
@@ -149,12 +160,11 @@ class="pure-form  pure-form-stacked ">
             max: 9,
             min: 5
         });
-
     });
 </script>
 
 <div id="modal_entrevista_alta_exitosa" title="Mensaje" style="display:none;">
-  La entrevista ha sido dada de alta en forma exitosa!<!--</p>-->
+  La entrevista ha sido dada de alta en forma exitosa!
 </div>
 
 </div>

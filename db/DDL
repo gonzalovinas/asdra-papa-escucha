@@ -1,6 +1,6 @@
 CREATE TABLE entrevistas
 (
-    r_id INTEGER PRIMARY KEY NOT NULL,
+    r_id INTEGER PRIMARY KEY ,
     fecha_llamada TEXT NOT NULL,
     fecha_entrevista TEXT NOT NULL,
     lugar TEXT NOT NULL,
@@ -32,9 +32,9 @@ CREATE TABLE entrevistas
 );
 CREATE TABLE mensajes_novedades
 (
-    r_id INTEGER PRIMARY KEY NOT NULL,
+    r_id INTEGER PRIMARY KEY ,
     fecha TEXT NOT NULL,
     mensaje TEXT NOT NULL
 );
 INSERT INTO mensajes_novedades
-(fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Esscucha, ahora Web!');
+(fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!');
