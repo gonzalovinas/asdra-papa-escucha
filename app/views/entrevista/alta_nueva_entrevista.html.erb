@@ -9,17 +9,17 @@ class="pure-form  pure-form-stacked" >
    <legend>Datos de la Entrevista</legend>
 
    <label for="fecha_llamada">Fecha Llamada</label>
-   <input type="text"  name="fecha_llamada" id="fecha_llamada"/>
+   <input type="text"  name="fecha_llamada" id="fecha_llamada" placeholder="<%=Time.now.strftime('%d-%m-%Y') %>"/>
    <label for="fecha_entrevista">Fecha Entrevista</label>
-   <input type="text"  name="fecha_entrevista" id="fecha_entrevista" />
+   <input type="text"  name="fecha_entrevista" id="fecha_entrevista" placeholder="<%=Time.now.strftime('%d-%m-%Y') %>"/>
    <label for="lugar">Lugar</label>
-   <input type="text"  name="lugar" id="lugar" />
+   <input type="text"  name="lugar" id="lugar" placeholder="Ciudad Autónoma de Buenos Aires"/>
    <label for="mama_escucha">Mamá Escucha</label>
    <input type="text"  name="mama_escucha" id="mama_escucha" />
    <label for="papa_escucha">Papá Escucha</label>
    <input type="text"  name="papa_escucha" id="papa_escucha" />
    <label for="como_supo">¿Como supo de ASDRA?</label>
-   <input type="text"  name="como_supo" id="como_supo" />
+   <input type="text"  name="como_supo" id="como_supo" placeholder="Se enteró por..."/>
 
   </fieldset>
 
@@ -69,7 +69,7 @@ class="pure-form  pure-form-stacked" >
           <option value="F">Femenino</option>
         </select>
         <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-        <input type="text"  name="fecha_nacimiento" id="fecha_nacimiento" />
+        <input type="text"  name="fecha_nacimiento" id="fecha_nacimiento" placeholder="<%=Time.now.strftime('%d-%m-%Y') %>"/>
         <label for="institucion_nacimiento">Institucion Nacimiento</label>
         <input type="text"  name="institucion_nacimiento" id="institucion_nacimiento" />
         <label for="observacion_institucion">Observaciones de la Institución</label>
@@ -158,9 +158,42 @@ class="pure-form  pure-form-stacked" >
             alert('valido');
         },
         rules: {
-            "fecha_llamada" : { required: true }
+            "fecha_llamada"     : { required: true },
+            "fecha_entrevista"  : { required: true },
+            "lugar"             : { required: true },
+            "mama_escucha"      : { required: true },
+            "papa_escucha"      : { required: true },
+            "como_supo"         : { required: true },
+            "papa_nombre_apellido" : { required: true },
+            "papa_edad"         : { required: true },
+            "papa_ocupacion"    : { required: true },
+            "papa_domicilio"    : { required: true },
+            "papa_telefonos"    : { required: true },
+            "papa_corre"        : { required: true }
         }
     });
+
+    $.validator.messages.required = 'Este campo es de carga obligatoria.';
+
+    $.datepicker.regional['nl'] = {clearText: 'Effacer', clearStatus: '',
+        closeText: 'sluiten', closeStatus: 'Onveranderd sluiten ',
+        prevText: 'anterior', prevStatus: 'Zie de vorige maand',
+        nextText: 'siguiente', nextStatus: 'Zie de volgende maand',
+        currentText: 'Huidige', currentStatus: 'Bekijk de huidige maand',
+        monthNames: ['enero','febrero','marzo','abril','mayo','junio',
+            'julio','augosto','septiembre','octubre','noviembre','diciembre'],
+        monthNamesShort: ['ene','feb','mar','abr','may','jun',
+            'jul','aug','sep','oct','nov','dec'],
+        weekHeader: 'Sm', weekStatus: '',
+        dayNames: ['domingo','lunes','martes','miércoles','jueves','sabado','domingo'],
+        dayNamesShort: ['do', 'lu','ma','mi','ju','vi','sa'],
+        dayNamesMin: ['do', 'lu','ma','mi','ju','vi','sa'],
+        dayStatus: 'Gebruik DD als de eerste dag van de week', dateStatus: 'Kies DD, MM d',
+        dateFormat: 'dd/mm/yy', firstDay: 1,
+        initStatus: 'Kies een datum', isRTL: false};
+
+    $.datepicker.setDefaults($.datepicker.regional['nl']);
+
 
     $(function() {
         $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
