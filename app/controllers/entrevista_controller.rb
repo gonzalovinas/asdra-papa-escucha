@@ -44,7 +44,59 @@ class EntrevistaController < ApplicationController
 
     ne.save
 
-    render :json => {:status => "OK"}
+    render :json => {:status => "OK"}, :layout=> false
   end
 
+  def buscar_entrevistas
+    render :action => "buscar_entrevistas", :layout=> false
+  end
+
+  def do_buscar_entrevistas
+    r = Entrevista.all.pluck(
+        :fecha_entrevista,
+        :fecha_llamada,
+        :lugar,
+        :mama_escucha,
+        :papa_escucha,
+        :como_supo,
+        :papa_nombre_apellido,
+        :papa_edad,
+        :papa_ocupacion,
+        :papa_telefonos,
+        :papa_correo,
+        :mama_nombre_apellido,
+        :mama_edad,
+        :mama_ocupacion,
+        :mama_domicilio,
+        :mama_telefonos,
+        :mama_correo,
+        :sexo,
+        :fecha_nacimiento,
+        :institucion_nacimiento,
+        :observacion_institucion,
+        :meses_nacimiento,
+        :parto_normal,
+        :sabia_sdown,
+        :recepcion_flia,
+        :patologia_agregada,
+        :observaciones
+    )
+
+    return_data = {}
+
+    return_data[:page] = 1
+
+    return_data[:total] = r.size
+
+    r2 = []
+
+    r.each do | e |
+      r2  << {:cell=>e}
+    end
+
+    return_data[:rows] = r2
+
+    render :json => return_data, :layout=> false
+
+  end
 end

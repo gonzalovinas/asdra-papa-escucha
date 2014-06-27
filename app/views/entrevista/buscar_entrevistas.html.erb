@@ -1,0 +1,44 @@
+<div class="contenido-tab">
+  <table id="flex1" style="display:none"></table>
+
+</div>
+
+<script type="text/javascript">
+
+    $("#flex1").flexigrid({
+                url: 'entrevista/do_buscar_entrevistas',
+                dataType: 'json',
+                colModel : [
+                    { display: 'Fecha Entrevista', name: 'fecha_entrevista', width : 70, sortable : true, align: 'left' },
+                    { display: 'Fecha Llamada', name: 'fecha_llamada', width : 70, sortable : true, align: 'left' },
+                    { display: 'Lugar', name: 'lugar', width : 70, sortable : true, align: 'left' },
+                    { display: 'Mamá Escucha', name: 'mama_escucha', width : 70, sortable : true, align: 'left' },
+                    { display: 'Papá Escucha', name: 'papa_escucha', width : 70, sortable : true, align: 'left' },
+                    { display: '¿Como supo?', name: 'como_supo', width : 70, sortable : true, align: 'left' },
+                    { display: 'Nombre y Apellido Papá', name: 'papa_nombre_apellido', width : 70, sortable : true, align: 'left' },
+                    { display: 'Edad Papá', name: 'papa_edad', width : 70, sortable : true, align: 'left' },
+                    { display: 'Ocupación Papá', name: 'papa_ocupacion', width : 70, sortable : true, align: 'left' },
+                    { display: 'Domicilio Papá', name: 'papa_domicilio', width : 70, sortable : true, align: 'left' },
+                    { display: 'Telefonos Papá', name: 'papa_telefonos', width : 70, sortable : true, align: 'left' },
+                    { display: 'Correo Papá', name: 'papa_telefonos', width : 70, sortable : true, align: 'left' }
+
+                ],
+                buttons : [
+                    {name: 'Modificar', bclass: 'add' },
+                    {separator: true}
+                ],
+                searchitems : [
+                    {display: 'Fecha Entrevista', name : 'fecha_entrevista'}
+                ],
+                sortname: "fecha_entrevista",
+                sortorder: "asc",
+                usepager: true,
+                useRp: false,
+                rp: 20,
+                showTableToggleBtn: false,
+                resizable: false,
+                singleSelect: true
+            }
+    );
+
+</script>

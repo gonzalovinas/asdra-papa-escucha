@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def resumen
-    @mensajes_novedades = MensajesNovedades.last(5)
+    @mensajes_novedades = MensajesNovedades.last(5).reverse
     render :action => "resumen", :layout=> false
   end
 

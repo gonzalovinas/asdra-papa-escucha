@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   get 'welcome/resumen'
 
   get 'entrevista/alta_nueva_entrevista'
+
   post 'entrevista/do_alta_nueva_entrevista'
+
+  post 'entrevista/do_buscar_entrevistas'
+
+  get 'entrevista/buscar_entrevistas'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,19 +1,17 @@
-<h1>Ultimos Mensajes</h1>
 
+<h1>Ultimos Mensajes <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678060-rss-20.png" alt="Novedades RSS" title="Suscribir a las novedades RSS"/></h1>
 <table>
   <tr>
-    <th>Fecha</th>
-    <th>Mensaje</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
   <% @mensajes_novedades.each do |mensaje_novedad| %>
       <tr>
-        <td><%= mensaje_novedad.fecha %></td>
-        <td><%= mensaje_novedad.mensaje %></td>
+        <td>@<%= mensaje_novedad.fecha %></td>
+        <td> :: <%= mensaje_novedad.mensaje %></td>
       </tr>
+      <p></p>
   <% end %>
 </table>
 

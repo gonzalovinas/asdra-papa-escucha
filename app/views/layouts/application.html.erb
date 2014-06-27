@@ -3,46 +3,12 @@
 <head>
   <title>Bienvenido a Papá Escucha</title>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/flick/jquery-ui.css">
-  <script src="  http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="icon"
-        type="image/png"
-        href="http://www.hostalestacion.com/images/telefono.png">
- <!-- <%= csrf_meta_tags %> -->
-
-
-
-  <script>
-      $(document).ready(function() {
-          $(function () {
-              $("#tabs").tabs();
-          });
-      });
-
-     function mostrar_error_tecnico() {
-          $("#modal_error_tecnico").dialog({
-              modal: true,
-              buttons: {
-                  Ok: function () {
-                      $(this).dialog("close");
-                  }
-              }
-          });
-      }
-
-  </script>
-
+  <link rel="icon" type="image/png" href="http://www.hostalestacion.com/images/telefono.png">
 </head>
 <body>
 
@@ -57,15 +23,12 @@
 <div id="tabs" >
   <ul>
     <li><a href="/welcome/resumen">Resumen</a></li>
-    <li><a href="#tab-consulta-entrevista">Consulta(s) Entrevista(s)</a></li>
+    <li><a href="/entrevista/buscar_entrevistas">Consulta(s) Entrevista(s)</a></li>
     <li><a href="/entrevista/alta_nueva_entrevista">Alta de Nueva Entrevista</a></li>
     <li><a href="#tab-reportes">Reportes</a></li>
     <li><a href="#tab-administracion">Administración</a></li>
   </ul>
-  <div id="tab-consulta-entrevista">
-    <p>...Funcionalidad en desarrollo...</p>
-  </div>
-  <div id="tab-reportes">
+   <div id="tab-reportes">
     <p>...Funcionalidad en desarrollo...</p>
   </div>
   <div id="tab-administracion">
@@ -74,12 +37,43 @@
 
 </div>
 
-
 <div id="modal_error_tecnico" title="Error" style="display:none;">
   <p>Ha ocurrido un error técnico. Contacte al administrador del sistema.</p>
 </div>
+
+
 </body>
 
+<!--http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+<!-- <%= csrf_meta_tags %> -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(function () {
+            $("#tabs").tabs();
+        });
+    });
+
+    function mostrar_error_tecnico() {
+        $("#modal_error_tecnico").dialog({
+            modal: true,
+            buttons: {
+                Ok: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
+
+</script>
 
 
 </html>
