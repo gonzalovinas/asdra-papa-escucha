@@ -1,9 +1,7 @@
 <div class="contenido-tab">
 
-  <form action="/entrevista/do_alta_nueva_entrevista" method="post" id="alta_nueva_entrevista"
+  <form action="" method="post" id="alta_nueva_entrevista"
 class="pure-form  pure-form-stacked" >
-    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta" id="submitbutton"/>
-    <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
    <fieldset>
    <legend>Datos de la Entrevista</legend>
@@ -19,7 +17,8 @@ class="pure-form  pure-form-stacked" >
    <label for="papa_escucha">Papá Escucha</label>
    <input type="text"  name="papa_escucha" id="papa_escucha" />
    <label for="como_supo">¿Como supo de ASDRA?</label>
-   <input type="text"  name="como_supo" id="como_supo" placeholder="Se enteró por..."/>
+   <textarea rows="4" cols="50" id="como_supo" placeholder="Se enteró por..." name="como_supo">
+   </textarea>
 
   </fieldset>
 
@@ -63,7 +62,7 @@ class="pure-form  pure-form-stacked" >
       <legend>Datos del Nacimiento</legend>
       
         <label for="sexo">Sexo</label>
-        <select id="sexo">
+        <select id="sexo" name="sexo">
           <option value=""></option>
           <option value="M">Masculino</option>
           <option value="F">Femenino</option>
@@ -73,19 +72,19 @@ class="pure-form  pure-form-stacked" >
         <label for="institucion_nacimiento">Institucion Nacimiento</label>
         <input type="text"  name="institucion_nacimiento" id="institucion_nacimiento" />
         <label for="observacion_institucion">Observaciones de la Institución</label>
-        <textarea rows="4" cols="50" id="observacion_institucion">
+        <textarea rows="4" cols="50" name="observacion_institucion" id="observacion_institucion" placeholder="Agregue aqui sus observaciones de la institución...">
         </textarea>
         <label for="meses_nacimiento">Meses de Nacimiento</label>
         <input type="text"  name="meses_nacimiento" id="meses_nacimiento" />
-        <label for="parto_normal">Parto Normal</label>
+        <label for="parto_normal">¿Parto Normal?</label>
         <input type="checkbox" class="pure-checkbox" name="parto_normal" id="parto_normal" />
-        <label for="sabia_sdown">Sabía que tiene S. Down</label>
+        <label for="sabia_sdown">¿Sabía que tiene S. Down?</label>
         <input type="checkbox" class="pure-checkbox" name="sabia_sdown" id="sabia_sdown" />
         <label for="recepcion_flia">¿Cómo lo recibio la familia?</label>
-        <textarea rows="4" cols="50" id="recepcion_flia">
+        <textarea rows="4" cols="50" id="recepcion_flia" name="recepcion_flia">
         </textarea>
         <label for="patologia_agregada">Patología Agregada</label>
-        <textarea rows="4" cols="50" id="patologia_agregada">
+        <textarea rows="4" cols="50" placeholder="Agregue aqui patalogías adicionales..." id="patologia_agregada" name="patologia_agregada">
         </textarea>
 
     </fieldset>
@@ -94,10 +93,12 @@ class="pure-form  pure-form-stacked" >
 
       <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
       <legend>Observaciones</legend>
-      <textarea rows="4" cols="50" id="observaciones">
+      <textarea rows="4" cols="50" placeholder="Agregue aqui sus observaciones generales acerca de la entrevista..." id="observaciones" name="observaciones">
       </textarea>
     </fieldset>
 
+    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta" id="submitbutton"/>
+    <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
 
 </form>
@@ -111,8 +112,9 @@ class="pure-form  pure-form-stacked" >
 
         if(!$("#alta_nueva_entrevista").valid()) return;
 
-        var postData = $("#alta_nueva_entrevista").serializeArray();
-        var formURL = "entrevista/alta_nueva_entrevista";
+        var postData = $("#alta_nueva_entrevista").find('input, select, textarea, button').serializeArray();
+
+        var formURL = "entrevista/do_alta_nueva_entrevista";
 
             $.ajax({
                 url : formURL,
@@ -158,22 +160,35 @@ class="pure-form  pure-form-stacked" >
             alert('valido');
         },
         rules: {
-            "fecha_llamada"     : { required: true },
-            "fecha_entrevista"  : { required: true },
-            "lugar"             : { required: true },
-            "mama_escucha"      : { required: true },
-            "papa_escucha"      : { required: true },
-            "como_supo"         : { required: true },
-            "papa_nombre_apellido" : { required: true },
-            "papa_edad"         : { required: true },
+            "fecha_llamada"     : { required: true, minlength: 10},
+            "fecha_entrevista"  : { required: true, minlength: 10},
+            "lugar"             : { required: true, minlength: 3 },
+            "mama_escucha"      : { required: true, minlength: 3 },
+            "papa_escucha"      : { required: true, minlength: 3 },
+            "como_supo"         : { required: true, minlength: 3 },
+            "papa_nombre_apellido" : { required: true, minlength: 3 },
+            "papa_edad"         : { required: true, minlength: 2 },
             "papa_ocupacion"    : { required: true },
             "papa_domicilio"    : { required: true },
             "papa_telefonos"    : { required: true },
-            "papa_corre"        : { required: true }
+            "papa_correo"       : { required: true, email: true },
+            "mama_nombre_apellido" : { required: true },
+            "mama_edad"         : { required: true, minlength: 2 },
+            "mama_ocupacion"    : { required: true },
+            "mama_domicilio"    : { required: true },
+            "mama_telefonos"    : { required: true },
+            "mama_correo"       : { required: true, email: true },
+            "sexo"              : { required: true },
+            "fecha_nacimiento"  : { required: true },
+            "institucion_nacimiento"  : { required: true },
+            "observacion_institucion" : { required: true },
+            "meses_nacimiento"  : { required: true },
+            "recepcion_flia"    : { required: true }
         }
     });
 
     $.validator.messages.required = 'Este campo es de carga obligatoria.';
+    $.validator.messages.email    = 'La dirección de correo no esta bien escrita ej: nombre@dominio.';
 
     $.datepicker.regional['nl'] = {clearText: 'Effacer', clearStatus: '',
         closeText: 'sluiten', closeStatus: 'Onveranderd sluiten ',
@@ -199,6 +214,14 @@ class="pure-form  pure-form-stacked" >
         $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
         $( '#fecha_entrevista' ).datepicker({ dateFormat: 'dd-mm-yy' });
         $( '#fecha_nacimiento' ).datepicker({ dateFormat: 'dd-mm-yy' });
+        $( '#papa_edad' ).spinner({
+            max: 120,
+            min: 12
+        });
+        $( '#mama_edad' ).spinner({
+            max: 120,
+            min: 12
+        });
         $( '#meses_nacimiento' ).spinner({
             max: 9,
             min: 5
