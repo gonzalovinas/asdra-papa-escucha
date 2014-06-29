@@ -34,3 +34,9 @@ label.error {
 .ui-datepicker {
     font-size: small;
 }
+
+.my-n3t-event-day {
+    padding:1px 1px;
+    border:1px solid #bba595;
+    border-top:none;
+}

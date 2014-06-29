@@ -157,7 +157,6 @@ class="pure-form  pure-form-stacked" >
             );
         },
         submitHandler: function() {
-            alert('valido');
         },
         rules: {
             "fecha_llamada"     : { required: true, minlength: 10},
@@ -187,28 +186,6 @@ class="pure-form  pure-form-stacked" >
         }
     });
 
-    $.validator.messages.required = 'Este campo es de carga obligatoria.';
-    $.validator.messages.email    = 'La dirección de correo no esta bien escrita ej: nombre@dominio.';
-
-    $.datepicker.regional['nl'] = {clearText: 'Effacer', clearStatus: '',
-        closeText: 'sluiten', closeStatus: 'Onveranderd sluiten ',
-        prevText: 'anterior', prevStatus: 'Zie de vorige maand',
-        nextText: 'siguiente', nextStatus: 'Zie de volgende maand',
-        currentText: 'Huidige', currentStatus: 'Bekijk de huidige maand',
-        monthNames: ['enero','febrero','marzo','abril','mayo','junio',
-            'julio','augosto','septiembre','octubre','noviembre','diciembre'],
-        monthNamesShort: ['ene','feb','mar','abr','may','jun',
-            'jul','aug','sep','oct','nov','dec'],
-        weekHeader: 'Sm', weekStatus: '',
-        dayNames: ['domingo','lunes','martes','miércoles','jueves','sabado','domingo'],
-        dayNamesShort: ['do', 'lu','ma','mi','ju','vi','sa'],
-        dayNamesMin: ['do', 'lu','ma','mi','ju','vi','sa'],
-        dayStatus: 'Gebruik DD als de eerste dag van de week', dateStatus: 'Kies DD, MM d',
-        dateFormat: 'dd/mm/yy', firstDay: 1,
-        initStatus: 'Kies een datum', isRTL: false};
-
-    $.datepicker.setDefaults($.datepicker.regional['nl']);
-
 
     $(function() {
         $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
@@ -227,6 +204,7 @@ class="pure-form  pure-form-stacked" >
             min: 5
         });
     });
+
 </script>
 
 <div id="modal_entrevista_alta_exitosa" title="Mensaje" style="display:none;">
@@ -235,7 +213,7 @@ class="pure-form  pure-form-stacked" >
 
 
   <div id="modal_entrevista_alta_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
-    La entrevista no puede ser dada de alta porque algunos campos son obligatorios y no fueron completados, revise estos y luego vuelva a aceptar.
+    La entrevista no puede ser dada de alta porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
   </div>
 
 </div>

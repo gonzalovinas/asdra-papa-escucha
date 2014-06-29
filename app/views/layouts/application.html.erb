@@ -22,18 +22,26 @@
 
 <div id="tabs" >
   <ul>
-    <li><a href="/welcome/resumen">Resumen</a></li>
+    <li><a href="/welcome/resumen">Últimas Novedades</a></li>
     <li><a href="/entrevista/buscar_entrevistas">Consulta(s) Entrevista(s)</a></li>
     <li><a href="/entrevista/alta_nueva_entrevista">Alta de Nueva Entrevista</a></li>
     <li><a href="#tab-reportes">Reportes</a></li>
     <li><a href="#tab-administracion">Administración</a></li>
   </ul>
-   <div id="tab-reportes">
-    <p>...Funcionalidad en desarrollo...</p>
+
+  <div id="tab-reportes">
+    ...Los Reportes aun no estan disponibles, estan siendo desarrollados...
   </div>
   <div id="tab-administracion">
-    <p>...Funcionalidad en desarrollo...</p>
+    <ul>
+      <li><a href="#tab-admin-padres">Padres</a></li>
+      <li><a href="/administracion/mensaje_novedad">Mensajes de Novedades</a></li>
+    </ul>
+    <div id="tab-admin-padres" >
+      <p>...La administración de los Padres no esta disponible, esta siendo desarrollada...</p>
+    </div>
   </div>
+
 
 </div>
 
@@ -50,6 +58,9 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 
@@ -59,6 +70,7 @@
     $(document).ready(function() {
         $(function () {
             $("#tabs").tabs();
+            $("#tab-administracion").tabs();
         });
     });
 
@@ -72,6 +84,30 @@
             }
         });
     }
+
+
+    $.validator.messages.required = 'Este campo es de carga obligatoria.';
+    $.validator.messages.email    = 'La dirección de correo no esta bien escrita ej: nombre@dominio.';
+
+    $.datepicker.regional['es'] = {clearText: 'Effacer', clearStatus: '',
+        closeText: 'sluiten', closeStatus: 'Onveranderd sluiten ',
+        prevText: 'anterior', prevStatus: 'Zie de vorige maand',
+        nextText: 'siguiente', nextStatus: 'Zie de volgende maand',
+        currentText: 'Huidige', currentStatus: 'Bekijk de huidige maand',
+        monthNames: ['enero','febrero','marzo','abril','mayo','junio',
+            'julio','augosto','septiembre','octubre','noviembre','diciembre'],
+        monthNamesShort: ['ene','feb','mar','abr','may','jun',
+            'jul','aug','sep','oct','nov','dec'],
+        weekHeader: 'Sm', weekStatus: '',
+        dayNames: ['domingo','lunes','martes','miércoles','jueves','sabado','domingo'],
+        dayNamesShort: ['do', 'lu','ma','mi','ju','vi','sa'],
+        dayNamesMin: ['do', 'lu','ma','mi','ju','vi','sa'],
+        dayStatus: 'Gebruik DD als de eerste dag van de week', dateStatus: 'Kies DD, MM d',
+        dateFormat: 'dd/mm/yy', firstDay: 1,
+        initStatus: 'Kies een datum', isRTL: false};
+
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+
 
 </script>
 

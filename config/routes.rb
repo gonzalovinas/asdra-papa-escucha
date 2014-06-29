@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'welcome/resumen'
 
+  get 'welcome/mensajes_novedades_rss'
+
   get 'entrevista/alta_nueva_entrevista'
 
   post 'entrevista/do_alta_nueva_entrevista'
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
 
   get 'entrevista/buscar_entrevistas'
 
+  get 'administracion/mensaje_novedad'
+
+  post 'administracion/do_alta_nuevo_mensaje_novedad'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

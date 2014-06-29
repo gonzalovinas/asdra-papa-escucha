@@ -1,18 +1,38 @@
 
-<h1>Ultimos Mensajes <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678060-rss-20.png" alt="Novedades RSS" title="Suscribir a las novedades RSS"/></h1>
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-  </tr>
 
-  <% @mensajes_novedades.each do |mensaje_novedad| %>
-      <tr>
-        <td>@<%= mensaje_novedad.fecha %></td>
-        <td> :: <%= mensaje_novedad.mensaje %></td>
-      </tr>
-      <p></p>
-  <% end %>
-</table>
+<link rel="stylesheet" href="http://asdra.org.ar/wp-content/plugins/the-events-calendar/resources/events.css?ver=3.9.1">
 
-<br>
+<div class="contenido-tab pure-form  pure-form-stacked" >
+  <fieldset>
+    <legend>Ultimas Novedades
+
+      <a href="/welcome/mensajes_novedades_rss">
+        <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678060-rss-20.png" alt="Novedades RSS" title="Suscribir a las novedades RSS"/>
+      </a>
+    </legend>
+
+
+    <ul class="upcoming">
+
+      <% @mensajes_novedades.each do |mensaje_novedad| %>
+          <article class="n3t-event">
+            <div class="n3t-event-date">
+              <div class="n3t-event-month">
+                <%= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][DateTime.parse(mensaje_novedad.fecha).month] %></div>
+              <div class="my-n3t-event-day" id="day_number"><%= DateTime.parse(mensaje_novedad.fecha).day %></div>
+            </div>
+            <div class="n3t-event-content" >
+              <%= DateTime.parse(mensaje_novedad.fecha).strftime("%H:%M:%S") %>
+              <br>
+              <div style="font-size: large">
+                <%= mensaje_novedad.mensaje %>
+              </div>
+            </div>
+          </article>
+      <% end %>
+
+    </ul>
+
+  </fieldset>
+
+</div>
