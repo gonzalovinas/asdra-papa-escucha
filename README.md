@@ -1,6 +1,6 @@
 Sistema Interno de Gestión de Entrevistas "Papá Escucha" de ASDRA
 
-Este sistema es un regalo que le he hecho a mi vecino Horacio Rigoli, quien trabaja con la gente de ASDRA y
+Este sistema es un regalo que le he hecho a mi vecino Horacio Rigamonti (horacio@rigamonti.com.ar), quien trabaja con la gente de ASDRA y
 al comentarme su necesidad de pasar de manejar una base de datos MS-ACCESS que se enviaban entre los padres
 por correo electrónico surgio la idea de llevarlo a la Web.
 
