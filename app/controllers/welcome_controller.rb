@@ -7,6 +7,10 @@ class WelcomeController < ApplicationController
 
   def resumen
     @mensajes_novedades = MensajesNovedades.last(5).reverse
+    @cantidad_entrevistas = Entrevista.count
+
+    @cantidad_padres_escuchan = PadresEscuchan.where(:tipo => "P").count
+    @cantidad_madres_escuchan = PadresEscuchan.where(:tipo => "M").count
 
     render :action => "resumen", :layout => false
   end

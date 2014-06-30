@@ -15,4 +15,5 @@ class AdministracionController < ApplicationController
     render :json => {:status => "OK"}, :layout=> false
   end
 
+
 end

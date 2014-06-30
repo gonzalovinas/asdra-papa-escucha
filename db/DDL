@@ -38,3 +38,11 @@ CREATE TABLE mensajes_novedades
 );
 INSERT INTO mensajes_novedades
 (fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!');
+
+create table padres_escuchan (
+  r_id INTEGER PRIMARY KEY,
+  apellido TEXT NOT NULL,
+  nombres TEXT NOT NULL,
+  correo TEXT NOT NULL,
+  tipo TEXT NOT NULL
+);
