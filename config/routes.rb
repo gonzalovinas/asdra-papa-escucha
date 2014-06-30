@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'administracion/mensaje_novedad'
 
   post 'administracion/do_alta_nuevo_mensaje_novedad'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

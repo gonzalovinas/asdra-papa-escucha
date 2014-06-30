@@ -1,4 +1,6 @@
+<%
 
+%>
 
 <link rel="stylesheet" href="http://asdra.org.ar/wp-content/plugins/the-events-calendar/resources/events.css?ver=3.9.1">
 
@@ -18,7 +20,7 @@
           <article class="n3t-event">
             <div class="n3t-event-date">
               <div class="n3t-event-month">
-                <%= ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][DateTime.parse(mensaje_novedad.fecha).month] %></div>
+                <%= I18n.t("date.abbr_month_names")[DateTime.parse(mensaje_novedad.fecha).month] %></div>
               <div class="my-n3t-event-day" id="day_number"><%= DateTime.parse(mensaje_novedad.fecha).day %></div>
             </div>
             <div class="n3t-event-content" >

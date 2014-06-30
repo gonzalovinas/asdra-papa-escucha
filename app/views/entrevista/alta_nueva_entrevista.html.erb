@@ -3,6 +3,17 @@
   <form action="" method="post" id="alta_nueva_entrevista"
 class="pure-form  pure-form-stacked" >
 
+    <div id="tabs-alta-nueva-entrevista" >
+      <ul>
+        <li><a href="#tab-datos-entrevista">Paso 1 - La Entrevista</a></li>
+        <li><a href="#tab-datos-papa">Paso 2 - El Papá</a></li>
+        <li><a href="#tab-datos-mama">Paso 3 - La Mamá</a></li>
+        <li><a href="#tab-datos-nacimiento">Paso 4 - El Nacimiento</a></li>
+        <li><a href="#tab-observaciones-generales">Paso 5 - Obsrevaciones</a></li>
+      </ul>
+
+   <div id="tab-datos-entrevista">
+
    <fieldset>
    <legend>Datos de la Entrevista</legend>
 
@@ -20,11 +31,13 @@ class="pure-form  pure-form-stacked" >
    <textarea rows="4" cols="50" id="como_supo" placeholder="Se enteró por..." name="como_supo">
    </textarea>
 
-  </fieldset>
+   </fieldset>
+   </div>
 
-    <fieldset>
-    <legend>Datos del Papá</legend>
+   <div id="tab-datos-papa">
 
+   <fieldset>
+   <legend>Datos del Papá</legend>
 
     <label for="papa_nombre_apellido">Nombre y Apellido del Papá</label>
     <input type="text"  name="papa_nombre_apellido" id="papa_nombre_apellido" />
@@ -40,6 +53,10 @@ class="pure-form  pure-form-stacked" >
     <input type="text"  name="papa_correo" id="papa_correo" />
 
     </fieldset>
+
+        </div>
+
+    <div id="tab-datos-mama">
 
     <fieldset>
       <legend>Datos de la Mamá</legend>
@@ -57,6 +74,10 @@ class="pure-form  pure-form-stacked" >
         <label for="mama_correo">Correo de la Mamá</label>
         <input type="text"  name="mama_correo" id="mama_correo" />
     </fieldset>
+
+    </div>
+
+    <div id="tab-datos-nacimiento">
 
     <fieldset>
       <legend>Datos del Nacimiento</legend>
@@ -89,6 +110,10 @@ class="pure-form  pure-form-stacked" >
 
     </fieldset>
 
+      </div>
+
+    <div id="tab-observaciones-generales">
+
     <fieldset>
 
       <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
@@ -97,13 +122,23 @@ class="pure-form  pure-form-stacked" >
       </textarea>
     </fieldset>
 
-    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta" id="submitbutton"/>
+    </div>
+
+    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta esta Entrevista" id="submitbutton"/>
     <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
+    </div>
 
 </form>
 
   <script type="text/javascript">
+
+      $(document).ready(function() {
+          $(function () {
+              $("#tabs-alta-nueva-entrevista").tabs();
+          });
+      });
+
 
     function enviar_formulario(sender) {
 
@@ -144,6 +179,14 @@ class="pure-form  pure-form-stacked" >
     }
 
 
+      jQuery.validator.addMethod('fecha_retroactiva',
+              function(currentValue, validatedElement, args) {
+                  return $("#" + args[0]).val() <= $("#" + args[1]).val();
+              },
+              'La Fecha de Llamada de una Entrevista debe ser el mismo día o posterior al de Fecha de Entrevista.'
+      );
+
+
     $("#alta_nueva_entrevista").validate({
         invalidHandler: function(event, validator) {
             $("#modal_entrevista_alta_fallida_revisar_campos_obligatorios").dialog({
@@ -160,7 +203,11 @@ class="pure-form  pure-form-stacked" >
         },
         rules: {
             "fecha_llamada"     : { required: true, minlength: 10},
-            "fecha_entrevista"  : { required: true, minlength: 10},
+            "fecha_entrevista"  : {
+                required: true,
+                minlength: 10,
+                fecha_retroactiva: ["fecha_llamada", "fecha_entrevista"]
+            },
             "lugar"             : { required: true, minlength: 3 },
             "mama_escucha"      : { required: true, minlength: 3 },
             "papa_escucha"      : { required: true, minlength: 3 },
@@ -203,6 +250,7 @@ class="pure-form  pure-form-stacked" >
             max: 9,
             min: 5
         });
+
     });
 
 </script>
