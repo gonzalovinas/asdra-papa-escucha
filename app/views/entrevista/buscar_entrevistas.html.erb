@@ -25,9 +25,10 @@
 
                 ],
                 buttons : [
-                    {name: 'Modificar', bclass: 'update', onpress : comandosGrillaEntrevistas},
-                    {name: 'Consultar', bclass: 'query', onpress : comandosGrillaEntrevistas},
-                    {name: 'Notificar', bclass: 'notify', onpress : comandosGrillaEntrevistas},
+                    {name: 'Modificar', bclass: 'update', onpress : comandosGrillaEntrevistas },
+                    {name: 'Consultar', bclass: 'query' , onpress : comandosGrillaEntrevistas },
+                    {name: 'Notificar', bclass: 'notify', onpress : comandosGrillaEntrevistas },
+                    {name: 'Imprimir' , bclass: 'print' , onpress : comandosGrillaEntrevistas },
                     {separator: true}
                 ],
                 searchitems : [
@@ -67,13 +68,16 @@
 
         switch(command) {
             case "Modificar":
-                alert('Modificando Entrevista: ' + id);
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                //alert('Modificando Entrevista: ' + id);
                 break;
             case "Consultar":
-                alert('Consultado Entrevista: ' + id);
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                //alert('Consultado Entrevista: ' + id);
                 break;
             case "Notificar":
-                alert('Las ' + rows_selected + ' Entrevistas seleccionadas fueron notificadas.');
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                //alert('Las ' + rows_selected + ' Entrevistas seleccionadas fueron notificadas.');
                 break;
         }
     }

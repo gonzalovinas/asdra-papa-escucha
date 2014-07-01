@@ -37,5 +37,9 @@ class AdministracionController < ApplicationController
     }, :layout=> false
   end
 
+  def configuracion
+    render :action => "configuracion", :layout=> false
+  end
+
 
 end
