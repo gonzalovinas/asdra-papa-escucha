@@ -41,7 +41,7 @@ INSERT INTO mensajes_novedades
 
 create table padres_escuchan (
   r_id INTEGER PRIMARY KEY,
-  apellido TEXT NOT NULL,
+  apellidos TEXT NOT NULL,
   nombres TEXT NOT NULL,
   correo TEXT NOT NULL,
   tipo TEXT NOT NULL

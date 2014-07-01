@@ -15,5 +15,23 @@ class AdministracionController < ApplicationController
     render :json => {:status => "OK"}, :layout=> false
   end
 
+  def do_alta_nuevo_padre_escucha
+    pe = PadresEscuchan.new
+
+    pe.apellidos= params[:apellidos]
+    pe.nombres  = params[:nombres]
+    pe.correo   = params[:correo]
+    pe.tipo     = params[:tipo]
+
+    pe.save
+
+    render :json => {
+        :status => "OK",
+        :data => {
+            :id_padre_escucha => pe.r_id
+        }
+    }, :layout=> false
+  end
+
 
 end
