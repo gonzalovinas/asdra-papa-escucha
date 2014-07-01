@@ -46,3 +46,15 @@ create table padres_escuchan (
   correo TEXT NOT NULL,
   tipo TEXT NOT NULL
 );
+create table configuracion (
+  r_id int primary key,
+  modulo text,
+  clave text,
+  valor text
+);
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_ip', '');
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_port', '');
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_usr', '');
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_pass', '');
+insert into configuracion (modulo, clave, valor) values ('novedades', 'cantidad_presentacion', '5');
+insert into configuracion (modulo, clave, valor) values ('novedades', 'velocidad_contadores', '');

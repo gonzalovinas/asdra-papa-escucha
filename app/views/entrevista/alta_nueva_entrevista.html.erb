@@ -15,7 +15,10 @@ class="pure-form  pure-form-stacked" >
    <div id="tab-datos-entrevista">
 
    <fieldset>
-   <legend>Datos de la Entrevista</legend>
+   <legend>
+     <img src="https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/256/checklist.png"
+          width="24px" height="24px">
+     Datos de la Entrevista</legend>
 
    <label for="fecha_llamada">Fecha Llamada</label>
    <input type="text"  name="fecha_llamada" id="fecha_llamada" placeholder="<%=Time.now.strftime('%d-%m-%Y') %>"/>
@@ -57,7 +60,9 @@ class="pure-form  pure-form-stacked" >
    <div id="tab-datos-papa">
 
    <fieldset>
-   <legend>Datos del Papá</legend>
+   <legend>
+     <img src="assets/padre.png" width="24px" height="24px">
+     Datos del Papá</legend>
 
     <label for="papa_nombre_apellido">Nombre y Apellido del Papá</label>
     <input type="text"  name="papa_nombre_apellido" id="papa_nombre_apellido" />
@@ -79,7 +84,10 @@ class="pure-form  pure-form-stacked" >
     <div id="tab-datos-mama">
 
     <fieldset>
-      <legend>Datos de la Mamá</legend>
+      <legend>
+        <img src="assets/madre.png" width="24px" height="24px">
+
+        Datos de la Mamá</legend>
       
         <label for="mama_nombre_apellido">Nombre y Apellido de la Mamá</label>
         <input type="text"  name="mama_nombre_apellido" id="mama_nombre_apellido" />
@@ -100,8 +108,11 @@ class="pure-form  pure-form-stacked" >
     <div id="tab-datos-nacimiento">
 
     <fieldset>
-      <legend>Datos del Nacimiento</legend>
-      
+      <legend>
+        <img src="/assets/baby.png" width="24px" height="24px">
+
+        Datos del Nacimiento</legend>
+
         <label for="sexo">Sexo</label>
         <select id="sexo" name="sexo">
           <option value=""></option>
@@ -137,7 +148,9 @@ class="pure-form  pure-form-stacked" >
     <fieldset>
 
       <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
-      <legend>Observaciones</legend>
+      <legend>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
+        Observaciones</legend>
       <textarea rows="4" cols="120" placeholder="Agregue aqui sus observaciones generales acerca de la entrevista..." id="observaciones" name="observaciones">
       </textarea>
     </fieldset>
