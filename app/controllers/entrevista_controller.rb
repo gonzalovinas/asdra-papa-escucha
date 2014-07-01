@@ -5,6 +5,9 @@ class EntrevistaController < ApplicationController
 
 
   def alta_nueva_entrevista
+    @papas_escuchan = PadresEscuchan.where(:tipo => "P").select(:r_id, :nombres, :apellidos)
+    @mamas_escuchan = PadresEscuchan.where(:tipo => "M").select(:r_id, :nombres, :apellidos)
+
     render :action => "alta_nueva_entrevista", :layout=> false
   end
 
@@ -53,6 +56,7 @@ class EntrevistaController < ApplicationController
 
   def do_buscar_entrevistas
     r = Entrevista.all.pluck(
+        :r_id,
         :fecha_entrevista,
         :fecha_llamada,
         :lugar,

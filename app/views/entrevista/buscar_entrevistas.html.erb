@@ -9,6 +9,7 @@
                 url: 'entrevista/do_buscar_entrevistas',
                 dataType: 'json',
                 colModel : [
+                    { display: 'Entrevista', name: 'r_id', width : 70, sortable : true, align: 'right' },
                     { display: 'Fecha Entrevista', name: 'fecha_entrevista', width : 70, sortable : true, align: 'left' },
                     { display: 'Fecha Llamada', name: 'fecha_llamada', width : 70, sortable : true, align: 'left' },
                     { display: 'Lugar', name: 'lugar', width : 70, sortable : true, align: 'left' },
@@ -16,7 +17,7 @@
                     { display: 'Papá Escucha', name: 'papa_escucha', width : 70, sortable : true, align: 'left' },
                     { display: '¿Como supo?', name: 'como_supo', width : 70, sortable : true, align: 'left' },
                     { display: 'Nombre y Apellido Papá', name: 'papa_nombre_apellido', width : 70, sortable : true, align: 'left' },
-                    { display: 'Edad Papá', name: 'papa_edad', width : 70, sortable : true, align: 'left' },
+                    { display: 'Edad Papá', name: 'papa_edad', width : 70, sortable : true, align: 'right' },
                     { display: 'Ocupación Papá', name: 'papa_ocupacion', width : 70, sortable : true, align: 'left' },
                     { display: 'Domicilio Papá', name: 'papa_domicilio', width : 70, sortable : true, align: 'left' },
                     { display: 'Telefonos Papá', name: 'papa_telefonos', width : 70, sortable : true, align: 'left' },
@@ -24,21 +25,56 @@
 
                 ],
                 buttons : [
-                    {name: 'Modificar', bclass: 'add' },
+                    {name: 'Modificar', bclass: 'update', onpress : comandosGrillaEntrevistas},
+                    {name: 'Consultar', bclass: 'query', onpress : comandosGrillaEntrevistas},
+                    {name: 'Notificar', bclass: 'notify', onpress : comandosGrillaEntrevistas},
                     {separator: true}
                 ],
                 searchitems : [
                     {display: 'Fecha Entrevista', name : 'fecha_entrevista'}
                 ],
-                sortname: "fecha_entrevista",
+                sortname: "r_id",
                 sortorder: "asc",
                 usepager: true,
                 useRp: false,
                 rp: 20,
                 showTableToggleBtn: false,
                 resizable: false,
-                singleSelect: true
+                singleSelect: false
             }
     );
 
+    function comandosGrillaEntrevistas(command, grid) {
+
+        var rows = $('.trSelected', grid);
+
+        var rows_selected = rows.size();
+
+        if(rows_selected > 1 && command != 'Notificar') {
+            alert('No puede Consultar/Modificar más de una Entrevista a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
+            return;
+        }
+        else if(rows_selected == 0) {
+            alert('No hay Entrevistas seleccionadas para iniciar la acción.');
+            return;
+        }
+
+        var id = null;
+
+        rows.each(function() {
+            id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+        });
+
+        switch(command) {
+            case "Modificar":
+                alert('Modificando Entrevista: ' + id);
+                break;
+            case "Consultar":
+                alert('Consultado Entrevista: ' + id);
+                break;
+            case "Notificar":
+                alert('Las ' + rows_selected + ' Entrevistas seleccionadas fueron notificadas.');
+                break;
+        }
+    }
 </script>

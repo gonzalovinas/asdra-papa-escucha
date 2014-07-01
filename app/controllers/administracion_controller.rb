@@ -15,7 +15,11 @@ class AdministracionController < ApplicationController
     render :json => {:status => "OK"}, :layout=> false
   end
 
-  def do_alta_nuevo_padre_escucha
+  def alta_nuevo_padre
+    render :action => "alta_nuevo_padre", :layout=> false
+  end
+
+  def do_alta_nuevo_padre
     pe = PadresEscuchan.new
 
     pe.apellidos= params[:apellidos]

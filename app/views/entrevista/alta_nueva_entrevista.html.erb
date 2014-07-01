@@ -24,9 +24,29 @@ class="pure-form  pure-form-stacked" >
    <label for="lugar">Lugar</label>
    <input type="text"  name="lugar" id="lugar" placeholder="Ciudad Autónoma de Buenos Aires"/>
    <label for="mama_escucha">Mamá Escucha</label>
-   <input type="text"  name="mama_escucha" id="mama_escucha" />
+     <select id="mama_escucha" name="papa_escucha">
+       <option value=""></option>
+       <%@mamas_escuchan.each do | mama_escucha |%>
+           <option value=" <%=mama_escucha.r_id%> ">
+             <%= "#{mama_escucha.apellidos}, #{mama_escucha.nombres}" %>
+           </option>
+       <%
+          end
+       %>
+     </select>
+
    <label for="papa_escucha">Papá Escucha</label>
-   <input type="text"  name="papa_escucha" id="papa_escucha" />
+     <select id="papa_escucha" name="papa_escucha">
+       <option value=""></option>
+       <%@papas_escuchan.each do | papa_escucha |%>
+       <option value=" <%=papa_escucha.r_id%> ">
+         <%= "#{papa_escucha.apellidos}, #{papa_escucha.nombres}" %>
+       </option>
+       <%
+          end
+       %>
+     </select>
+
    <label for="como_supo">¿Como supo de ASDRA?</label>
    <textarea rows="4" cols="50" id="como_supo" placeholder="Se enteró por..." name="como_supo">
    </textarea>
