@@ -40,3 +40,19 @@ label.error {
     border:1px solid #bba595;
     border-top:none;
 }
+
+.col-derecha {
+    width: 50% !important;
+    float: left !important;
+    position: relative !important;
+}
+
+.col-izquierda {
+    width: 50% !important;
+    float: left !important;
+    position: relative !important;
+}
+
+.ui-widget-content {
+    border: none !important;
+}
