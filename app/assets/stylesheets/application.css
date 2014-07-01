@@ -56,3 +56,7 @@ label.error {
 .ui-widget-content {
     border: none !important;
 }
+
+.flip-counter ul.cd {
+    float: none     !important;
+}
