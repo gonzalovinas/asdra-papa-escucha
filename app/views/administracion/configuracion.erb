@@ -1,10 +1,12 @@
 <div class="contenido-tab">
 
+  <div class="col-izquierda">
+
   <form action="" method="post" id="actualizar_configuracion"
 class="pure-form  pure-form-stacked" >
 
    <fieldset>
-     <legend>   <img src="http://www.mricons.com/store/png/1756_2668_128_advanced_advancedsettings_settings_setup_icon.png" width="32px" height="32px">
+     <legend>   <img src="assets/settings.png" width="32px" height="32px">
        Configuración
      </legend>
 
@@ -21,6 +23,19 @@ class="pure-form  pure-form-stacked" >
     <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar Configuración" id="submitbutton"/>
 
   </form>
+</div>
+  <div class="col-derecha">
+    <legend>   <img src="http://www.mricons.com/store/png/1756_2668_128_advanced_advancedsettings_settings_setup_icon.png" width="32px" height="32px">
+      Mantenimiento
+    </legend>
+
+    <input type="button" class="pure-button pure-button-primary" value="Eliminar Mensajes Novedades" title="Elimina todos los Mensajes de Novedades del sistema.">
+    </br>
+    <input type="button" class="pure-button pure-button-primary" value="Eliminar Mensajes Novedades (solo dejar los visibles actualemnte)" title="Elimina todos los Mensajes de Novedades del sistema.">
+    </br>
+
+
+  </div>
 
   <script type="text/javascript">
 
