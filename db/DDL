@@ -36,9 +36,6 @@ CREATE TABLE mensajes_novedades
     fecha TEXT NOT NULL,
     mensaje TEXT NOT NULL
 );
-INSERT INTO mensajes_novedades
-(fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!');
-
 create table padres_escuchan (
   r_id INTEGER PRIMARY KEY,
   apellidos TEXT NOT NULL,
@@ -52,18 +49,28 @@ create table configuracion (
   clave text,
   valor text
 );
-insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_ip', '');
-insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_port', '');
-insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_usr', '');
-insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_pass', '');
-insert into configuracion (modulo, clave, valor) values ('novedades', 'cantidad_presentacion', '5');
-insert into configuracion (modulo, clave, valor) values ('novedades', 'velocidad_contadores', '');
 
 create table mantenimientos (
 r_id int primary key,
 plan text,
 descripcion_corta text,
 descripcion_larga text);
+
+delete from mensaje_novedades;
+delete from mantenimientos;
+delete from padres_escuchan;
+delete from configuracion;
+delete from entrevistas;
+
+INSERT INTO mensajes_novedades
+(fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!');
+
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_ip', '');
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_port', '');
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_usr', '');
+insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_pass', '');
+insert into configuracion (modulo, clave, valor) values ('novedades', 'cantidad_presentacion', '5');
+insert into configuracion (modulo, clave, valor) values ('novedades', 'velocidad_contadores', '');
 
 insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
 ('MANT00', 'Eliminar TODOS los Mensajes Novedades', '');
