@@ -43,6 +43,13 @@
       <column name="observaciones" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="r_id"/>
     </table>
+    <table name="mantenimientos" schema="" catalog="" type="TABLE">
+      <column name="r_id" sqlType="INT" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="plan" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="descripcion_corta" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="descripcion_larga" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="r_id"/>
+    </table>
     <table name="mensajes_novedades" schema="" catalog="" type="TABLE">
       <column name="r_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
       <column name="fecha" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>

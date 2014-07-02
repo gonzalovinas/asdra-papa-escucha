@@ -58,3 +58,16 @@ insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_aut
 insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_pass', '');
 insert into configuracion (modulo, clave, valor) values ('novedades', 'cantidad_presentacion', '5');
 insert into configuracion (modulo, clave, valor) values ('novedades', 'velocidad_contadores', '');
+
+create table mantenimientos (
+r_id int primary key,
+plan text,
+descripcion_corta text,
+descripcion_larga text);
+
+insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
+('MANT00', 'Eliminar TODOS los Mensajes Novedades', '');
+
+insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
+('MANT01', 'Eliminar Mensajes Novedades que NO se muestran en pantalla', 'Los Mensajes Novedades que se muestran en pantalla son los últimas N entradas cronologicas del registro/repositorio de mensajes, donde N es el valor del campo homonimo configurado en la solapa Administración->Sistema');
+

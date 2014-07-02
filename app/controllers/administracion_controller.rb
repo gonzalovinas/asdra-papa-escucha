@@ -38,6 +38,9 @@ class AdministracionController < ApplicationController
   end
 
   def configuracion
+
+    @mantenimientos = Mantenimientos.select(:plan, :descripcion_corta, :descripcion_larga)
+
     render :action => "configuracion", :layout=> false
   end
 

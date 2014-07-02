@@ -25,15 +25,25 @@ class="pure-form  pure-form-stacked" >
   </form>
 </div>
   <div class="col-derecha">
+
+    <form action="" method="post" id=""
+          class="pure-form  pure-form-stacked" >
+
+    <fieldset>
     <legend>   <img src="http://www.mricons.com/store/png/1756_2668_128_advanced_advancedsettings_settings_setup_icon.png" width="32px" height="32px">
       Mantenimiento
     </legend>
 
-    <input type="button" class="pure-button pure-button-primary" value="Eliminar Mensajes Novedades" title="Elimina todos los Mensajes de Novedades del sistema.">
-    </br>
-    <input type="button" class="pure-button pure-button-primary" value="Eliminar Mensajes Novedades (solo dejar los visibles actualemnte)" title="Elimina todos los Mensajes de Novedades del sistema.">
-    </br>
-
+      <label for="mantenimiento">Mantenimiento</label>
+      <select id="mantemiento">
+        <option value=""></option>
+        <%@mantenimientos.each do | mantenimiento | %>
+        <option title="<%=mantenimiento.descripcion_larga%>" value="<%= mantenimiento.plan %>"><%="#{mantenimiento.plan} - #{mantenimiento.descripcion_corta}"%></option>
+        <% end %>
+     </select>
+    <input type="button" class="pure-button pure-button-primary" value="Ejecutar Mantenimiento" title="Dependiendo del uso del sistema, algunos Mantenimientos pueden demorar.">
+      </fieldset>
+    </form>
 
   </div>
 
