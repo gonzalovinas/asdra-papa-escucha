@@ -61,9 +61,9 @@ delete from mantenimientos;
 delete from padres_escuchan;
 delete from configuracion;
 delete from entrevistas;
+delete from mensajes_novedades;
 
-INSERT INTO mensajes_novedades
-(fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!');
+INSERT INTO mensajes_novedades (fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!);
 
 insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_ip', '');
 insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_port', '');

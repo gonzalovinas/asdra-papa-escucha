@@ -18,6 +18,23 @@
 
     <ul class="upcoming">
 
+      <% if @mensajes_novedades.count == 0 %>
+          <article class="n3t-event">
+            <div class="n3t-event-date">
+              <div class="n3t-event-month">
+                <%= I18n.t("date.abbr_month_names")[DateTime.now.month] %></div>
+              <div class="my-n3t-event-day" id="day_number"><%= DateTime.now.day %></div>
+            </div>
+            <div class="n3t-event-content" >
+              <%= DateTime.now.strftime("%H:%M:%S") %>
+              <br>
+              <div style="font-size: large">
+                Nadie publicó novedades aún! <img src="assets/smiley_bad.png">
+              </div>
+            </div>
+          </article>
+      <%end%>
+
       <% @mensajes_novedades.each do |mensaje_novedad| %>
           <article class="n3t-event">
             <div class="n3t-event-date">
