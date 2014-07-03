@@ -107,8 +107,32 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(function () {
-            $("#tabs").tabs();
-            $("#tab-administracion").tabs();
+            $("#tabs").tabs({
+                cache: false,
+                beforeLoad: function (event, ui) {
+                    if ($(ui.panel).html()) {
+                        event.preventDefault();
+                        return false;
+                    }
+                    else {
+                        ui.panel.html('<div><img src="/assets/loading.gif" /></div>');
+                        return true;
+                    }
+                }
+            });
+            $("#tab-administracion").tabs({
+                cache: false,
+                beforeLoad: function (event, ui) {
+                    if ($(ui.panel).html()) {
+                        event.preventDefault();
+                        return false;
+                    }
+                    else {
+                        ui.panel.html('<center><div><img src="/assets/loading.gif" /></div></center>');
+                        return true;
+                    }
+                }
+            });
         });
     });
 
