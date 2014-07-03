@@ -67,13 +67,20 @@ input[readonly="readonly"] {
 
 .iconButtonPrint {
     background: url('printer.png')  no-repeat left; !important;
-
 }
 
 .iconButtonAdd {
     background: url('add.png')  no-repeat left; !important;
-
 }
+
 .flexigrid .iconButtonQuery {
     background: url('eye.png')  no-repeat left; !important;
+}
+
+.flexigrid .iconButtonNotify {
+    background: url('bell.png')  no-repeat left; !important;
+}
+
+.flexigrid .iconButtonEdit {
+    background: url('pencil.png')  no-repeat left; !important;
 }
