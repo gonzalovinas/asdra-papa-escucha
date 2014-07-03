@@ -14,7 +14,7 @@ class="pure-form  pure-form-stacked" >
      <input type="text"  name="nombres" id="nombres"/>
      <label for="correo">Correo electrónico</label>
      <input type="text"  name="correo" id="correo"/>
-     <label for="tipo">Tipo</label>
+     <label for="tipo">¿Papá o Mamá?</label>
      <select id="tipo" name="tipo">
        <option value=""></option>
        <option value="P">Papá</option>
@@ -23,7 +23,7 @@ class="pure-form  pure-form-stacked" >
 
   </fieldset>
 
-    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta este Padre" id="submitbutton"/>
+    <input type="button" onClick="enviar_formulario_alta_nuevo_padre();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta este Padre" id="submitbutton"/>
     <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
 
@@ -31,7 +31,7 @@ class="pure-form  pure-form-stacked" >
 
   <script type="text/javascript">
 
-    function enviar_formulario(sender) {
+    function enviar_formulario_alta_nuevo_padre(sender) {
 
 
         $("#alta_nuevo_padre").validate();

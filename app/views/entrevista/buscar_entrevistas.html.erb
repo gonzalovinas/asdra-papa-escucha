@@ -13,8 +13,6 @@
                     { display: 'Fecha Entrevista', name: 'fecha_entrevista', width : 70, sortable : true, align: 'left' },
                     { display: 'Fecha Llamada', name: 'fecha_llamada', width : 70, sortable : true, align: 'left' },
                     { display: 'Lugar', name: 'lugar', width : 70, sortable : true, align: 'left' },
-                    { display: 'Mamá Escucha', name: 'mama_escucha', width : 70, sortable : true, align: 'left' },
-                    { display: 'Papá Escucha', name: 'papa_escucha', width : 70, sortable : true, align: 'left' },
                     { display: '¿Como supo?', name: 'como_supo', width : 70, sortable : true, align: 'left' },
                     { display: 'Nombre y Apellido Papá', name: 'papa_nombre_apellido', width : 70, sortable : true, align: 'left' },
                     { display: 'Edad Papá', name: 'papa_edad', width : 70, sortable : true, align: 'right' },
@@ -72,8 +70,7 @@
                 //alert('Modificando Entrevista: ' + id);
                 break;
             case "Consultar":
-                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
-                //alert('Consultado Entrevista: ' + id);
+                mostrar_consulta_entrevista(id);
                 break;
             case "Notificar":
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
@@ -81,4 +78,22 @@
                 break;
         }
     }
+
+    function mostrar_consulta_entrevista(id_entrevista) {
+        jQuery('#ventana_consulta_entrevista')
+                .load('/entrevista/consulta_entrevista?id_entrevista=' + id_entrevista)
+                .dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    modal: true,
+                    width:'auto',
+                    height: 'auto',
+                    title: 'Consulta de Entrevista',
+                    draggable: false,
+                    position: 'center'
+                });
+    }
+
 </script>
+
+<div id="ventana_consulta_entrevista"></div>

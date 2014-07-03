@@ -3,6 +3,10 @@ class EntrevistaController < ApplicationController
   def index
   end
 
+  def consulta_entrevista
+    @entrevista = Entrevista.find params[:id_entrevista]
+    render :action => "consulta_entrevista", :layout=> false
+  end
 
   def alta_nueva_entrevista
     @papas_escuchan = PadresEscuchan.where(:tipo => "P").select(:r_id, :nombres, :apellidos)
@@ -18,9 +22,8 @@ class EntrevistaController < ApplicationController
     ne.fecha_llamada    = params[:fecha_llamada]
     ne.fecha_entrevista = params[:fecha_llamada]
     ne.lugar            = params[:lugar]
-    ne.mama_escucha     = params[:mama_escucha]
-
-    ne.papa_escucha     = params[:papa_escucha]
+    ne.id_mama_escucha  = params[:mama_escucha]
+    ne.id_papa_escucha  = params[:papa_escucha]
     ne.como_supo        = params[:como_supo]
     ne.papa_nombre_apellido = params[:papa_nombre_apellido]
     ne.papa_edad        = params[:papa_edad]
@@ -60,8 +63,8 @@ class EntrevistaController < ApplicationController
         :fecha_entrevista,
         :fecha_llamada,
         :lugar,
-        :mama_escucha,
-        :papa_escucha,
+        :id_mama_escucha,
+        :id_papa_escucha,
         :como_supo,
         :papa_nombre_apellido,
         :papa_edad,

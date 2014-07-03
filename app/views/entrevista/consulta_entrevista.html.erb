@@ -1,0 +1,153 @@
+<div class="contenido-tab">
+
+<form action="" method="post" id="consulta_entrevista"
+      class="pure-form  pure-form-stacked" >
+
+
+   <div id="tabs-consulta-entrevista" >
+     <ul>
+       <li><a href="#tab-datos-entrevista">Paso 1 - La Entrevista</a></li>
+       <li><a href="#tab-datos-papa">Paso 2 - El Papá</a></li>
+       <li><a href="#tab-datos-mama">Paso 3 - La Mamá</a></li>
+       <li><a href="#tab-datos-nacimiento">Paso 4 - El Nacimiento</a></li>
+       <li><a href="#tab-observaciones-generales">Paso 5 - Obsrevaciones</a></li>
+     </ul>
+
+
+  <div id="tab-datos-entrevista">
+
+  <fieldset>
+    <legend>
+      <img src="https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/256/checklist.png"
+           width="24px" height="24px">
+      Datos de la Entrevista</legend>
+
+    <label for="fecha_llamada">Fecha Llamada</label>
+    <input type="text"  name="fecha_llamada" id="fecha_llamada" value="<%=@entrevista.fecha_llamada %>" readonly="readonly"/>
+    <label for="fecha_entrevista">Fecha Entrevista</label>
+    <input type="text"  name="fecha_entrevista" id="fecha_entrevista" value="<%=@entrevista.fecha_entrevista%>" readonly="readonly"/>
+    <label for="lugar">Lugar</label>
+    <input type="text"  name="lugar" id="lugar" value="<%=@entrevista.lugar%>" readonly="readonly"/>
+    <label for="mama_escucha">Mamá Escucha</label>
+    <input id="mama_escucha" name="mama_escucha"/>
+    <label for="papa_escucha">Papá Escucha</label>
+    <input type="text" id="papa_escucha" name="papa_escucha"/>
+    <label for="como_supo">¿Como supo de ASDRA?</label>
+    <textarea rows="4" cols="50" id="como_supo" readonly="readonly" name="como_supo">
+      <%=@entrevista.como_supo%>
+    </textarea>
+
+  </fieldset>
+  </div>
+
+  <div id="tab-datos-papa">
+
+  <fieldset>
+    <legend>
+      <img src="assets/padre.png" width="24px" height="24px">
+      Datos del Papá</legend>
+
+    <label for="papa_nombre_apellido">Nombre y Apellido del Papá</label>
+    <input type="text"  name="papa_nombre_apellido" id="papa_nombre_apellido" value="<%=@entrevista.papa_nombre_apellido%>" readonly="readonly"/>
+    <label for="papa_edad">Edad del Papá</label>
+    <input type="text"  name="papa_edad" id="papa_edad" value="<%=@entrevista.papa_edad%>" readonly="readonly"/>
+    <label for="papa_ocupacion">Ocupación del Papá</label>
+    <input type="text"  name="papa_ocupacion" id="papa_ocupacion" value="<%=@entrevista.papa_ocupacion%>" readonly="readonly"/>
+    <label for="papa_domicilio">Domicilio del Papá</label>
+    <input type="text"  name="papa_domicilio" id="papa_domicilio" value="<%=@entrevista.papa_domicilio%>" readonly="readonly"/>
+    <label for="papa_telefonos">Telefonos del Papá</label>
+    <input type="text"  name="papa_telefonos" id="papa_telefonos" value="<%=@entrevista.papa_telefonos%>" readonly="readonly"/>
+    <label for="papa_correo">Correo del Papá</label>
+    <input type="text"  name="papa_correo" id="papa_correo" value="<%=@entrevista.papa_correo%>" readonly="readonly"/>
+
+  </fieldset>
+
+       </div>
+
+   <div id="tab-datos-mama">
+
+  <fieldset>
+    <legend>
+      <img src="assets/madre.png" width="24px" height="24px">
+
+      Datos de la Mamá</legend>
+
+    <label for="mama_nombre_apellido">Nombre y Apellido de la Mamá</label>
+    <input type="text"  name="mama_nombre_apellido" id="mama_nombre_apellido" value="<%=@entrevista.mama_nombre_apellido%>" readonly="readonly"/>
+    <label for="mama_edad">Edad de la Mamá</label>
+    <input type="text"  name="mama_edad" id="mama_edad" value="<%=@entrevista.mama_edad%>" readonly="readonly"/>
+    <label for="mama_ocupacion">Ocupación de la Mamá</label>
+    <input type="text"  name="mama_ocupacion" id="mama_ocupacion" value="<%=@entrevista.mama_ocupacion%>" readonly="readonly"/>
+    <label for="mama_domicilio">Domicilio de la Mamá</label>
+    <input type="text"  name="mama_domicilio" id="mama_domicilio" value="<%=@entrevista.mama_domicilio%>" readonly="readonly"/>
+    <label for="mama_telefonos">Telefonos de la Mamá</label>
+    <input type="text"  name="mama_telefonos" id="mama_telefonos" value="<%=@entrevista.mama_telefonos%>" readonly="readonly"/>
+    <label for="mama_correo">Correo de la Mamá</label>
+    <input type="text"  name="mama_correo" id="mama_correo" value="<%=@entrevista.mama_correo%>" readonly="readonly"/>
+  </fieldset>
+
+   </div>
+
+   <div id="tab-datos-nacimiento">
+
+  <fieldset>
+    <legend>
+      <img src="/assets/baby.png" width="24px" height="24px">
+
+      Datos del Nacimiento</legend>
+
+    <label for="sexo">Sexo</label>
+    <input type="text" id="sexo" name="sexo">
+      <option value=""></option>
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select>
+    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+    <input type="text"  name="fecha_nacimiento" id="fecha_nacimiento" value="<%=@entrevista.fecha_nacimiento%>" readonly="readonly"/>
+    <label for="institucion_nacimiento">Institucion Nacimiento</label>
+    <input type="text"  name="institucion_nacimiento" id="institucion_nacimiento" value="<%=@entrevista.institucion_nacimiento%>" readonly="readonly"/>
+    <label for="observacion_institucion">Observaciones de la Institución</label>
+    <textarea rows="4" cols="50" name="observacion_institucion" id="observacion_institucion" readonly="readonly"><%=@entrevista.observacion_institucion%></textarea>
+    <label for="meses_nacimiento">Meses de Nacimiento</label>
+    <input type="text"  name="meses_nacimiento" id="meses_nacimiento" value="<%=@entrevista.meses_nacimiento%>" readonly="readonly"/>
+    <label for="parto_normal">Tilde si fue un parto normal</label>
+    <input type="checkbox" class="pure-checkbox" name="parto_normal" id="parto_normal" />
+    <label for="sabia_sdown">Tilde si previo al parto ya sabía que tenía Síndrome de Down</label>
+    <input type="checkbox" class="pure-checkbox" name="sabia_sdown" id="sabia_sdown" />
+    <label for="recepcion_flia">¿Cómo lo recibio la familia?</label>
+    <textarea rows="4" cols="50" id="recepcion_flia" name="recepcion_flia" readonly="readonly"><%=@entrevista.recepcion_flia%></textarea>
+    <label for="patologia_agregada">Patología Agregada</label>
+    <textarea rows="4" cols="50" placeholder="Agregue aqui patalogías adicionales..." id="patologia_agregada" name="patologia_agregada" readonly="readonly"><%=@entrevista.patologia_agregada%></textarea>
+
+  </fieldset>
+
+     </div>
+
+   <div id="tab-observaciones-generales">
+
+  <fieldset>
+
+    <legend>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
+      Observaciones</legend>
+    <textarea rows="4" cols="50" id="observaciones" name="observaciones" readonly="readonly"><%=@entrevista.observaciones%></textarea>
+  </fieldset>
+
+
+      </div>
+
+   </div>
+
+</form>
+
+</div>
+
+<script type="text/javascript">
+
+
+     $(document).ready(function() {
+     $(function () {
+     $("#tabs-consulta-entrevista").tabs();
+     });
+     });
+</script>

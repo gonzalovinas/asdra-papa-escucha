@@ -60,3 +60,8 @@ label.error {
 .flip-counter ul.cd {
     float: none     !important;
 }
+
+input[readonly="readonly"]
+{
+    background-color: #dbdbe0;
+}

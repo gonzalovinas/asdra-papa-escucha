@@ -3,7 +3,8 @@
   <form action="" method="post" id="alta_nueva_entrevista"
 class="pure-form  pure-form-stacked" >
 
-    <div id="tabs-alta-nueva-entrevista" >
+
+   <!-- <div id="tabs-alta-nueva-entrevista" >
       <ul>
         <li><a href="#tab-datos-entrevista">Paso 1 - La Entrevista</a></li>
         <li><a href="#tab-datos-papa">Paso 2 - El Papá</a></li>
@@ -12,8 +13,9 @@ class="pure-form  pure-form-stacked" >
         <li><a href="#tab-observaciones-generales">Paso 5 - Obsrevaciones</a></li>
       </ul>
 
-   <div id="tab-datos-entrevista">
 
+   <div id="tab-datos-entrevista">
+-->
    <fieldset>
    <legend>
      <img src="https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/256/checklist.png"
@@ -51,14 +53,13 @@ class="pure-form  pure-form-stacked" >
      </select>
 
    <label for="como_supo">¿Como supo de ASDRA?</label>
-   <textarea rows="4" cols="50" id="como_supo" placeholder="Se enteró por..." name="como_supo">
-   </textarea>
+   <textarea rows="4" cols="50" id="como_supo" name="como_supo">Se enteró por...</textarea>
 
    </fieldset>
-   </div>
+   <!--</div>
 
    <div id="tab-datos-papa">
-
+-->
    <fieldset>
    <legend>
      <img src="assets/padre.png" width="24px" height="24px">
@@ -79,10 +80,10 @@ class="pure-form  pure-form-stacked" >
 
     </fieldset>
 
-        </div>
+   <!--     </div>
 
     <div id="tab-datos-mama">
-
+-->
     <fieldset>
       <legend>
         <img src="assets/madre.png" width="24px" height="24px">
@@ -103,10 +104,10 @@ class="pure-form  pure-form-stacked" >
         <input type="text"  name="mama_correo" id="mama_correo" />
     </fieldset>
 
-    </div>
+   <!-- </div>
 
     <div id="tab-datos-nacimiento">
-
+-->
     <fieldset>
       <legend>
         <img src="/assets/baby.png" width="24px" height="24px">
@@ -124,8 +125,7 @@ class="pure-form  pure-form-stacked" >
         <label for="institucion_nacimiento">Institucion Nacimiento</label>
         <input type="text"  name="institucion_nacimiento" id="institucion_nacimiento" />
         <label for="observacion_institucion">Observaciones de la Institución</label>
-        <textarea rows="4" cols="50" name="observacion_institucion" id="observacion_institucion" placeholder="Agregue aqui sus observaciones de la institución...">
-        </textarea>
+        <textarea rows="4" cols="50" name="observacion_institucion" id="observacion_institucion">Agregue aqui sus observaciones de la institución...</textarea>
         <label for="meses_nacimiento">Meses de Nacimiento</label>
         <input type="text"  name="meses_nacimiento" id="meses_nacimiento" />
         <label for="parto_normal">Tilde si fue un parto normal</label>
@@ -133,44 +133,41 @@ class="pure-form  pure-form-stacked" >
         <label for="sabia_sdown">Tilde si previo al parto ya sabía que tenía Síndrome de Down</label>
         <input type="checkbox" class="pure-checkbox" name="sabia_sdown" id="sabia_sdown" />
         <label for="recepcion_flia">¿Cómo lo recibio la familia?</label>
-        <textarea rows="4" cols="50" id="recepcion_flia" name="recepcion_flia">
-        </textarea>
+        <textarea rows="4" cols="50" id="recepcion_flia" name="recepcion_flia"></textarea>
         <label for="patologia_agregada">Patología Agregada</label>
-        <textarea rows="4" cols="50" placeholder="Agregue aqui patalogías adicionales..." id="patologia_agregada" name="patologia_agregada">
-        </textarea>
+        <textarea rows="4" cols="50" placeholder="Agregue aqui patalogías adicionales..." id="patologia_agregada" name="patologia_agregada"></textarea>
 
     </fieldset>
 
-      </div>
+   <!--   </div>
 
     <div id="tab-observaciones-generales">
-
+-->
     <fieldset>
 
       <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
       <legend>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
         Observaciones</legend>
-      <textarea rows="4" cols="120" placeholder="Agregue aqui sus observaciones generales acerca de la entrevista..." id="observaciones" name="observaciones">
-      </textarea>
+      <textarea rows="4" cols="120" placeholder="Agregue aqui sus observaciones generales acerca de la entrevista..." id="observaciones" name="observaciones"></textarea>
     </fieldset>
-
-    </div>
 
     <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta esta Entrevista" id="submitbutton"/>
     <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
-    </div>
-
+<!--    </div>
+-->
 </form>
 
   <script type="text/javascript">
 
+    /*
       $(document).ready(function() {
           $(function () {
               $("#tabs-alta-nueva-entrevista").tabs();
           });
       });
+     */
 
 
     function enviar_formulario(sender) {
@@ -242,8 +239,6 @@ class="pure-form  pure-form-stacked" >
                 fecha_retroactiva: ["fecha_llamada", "fecha_entrevista"]
             },
             "lugar"             : { required: true, minlength: 3 },
-            "mama_escucha"      : { required: true, minlength: 3 },
-            "papa_escucha"      : { required: true, minlength: 3 },
             "como_supo"         : { required: true, minlength: 3 },
             "papa_nombre_apellido" : { required: true, minlength: 3 },
             "papa_edad"         : { required: true, minlength: 2 },

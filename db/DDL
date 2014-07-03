@@ -1,11 +1,17 @@
+drop table entrevistas;
+drop table configuracion;
+drop table mantenimientos;
+drop table mensajes_novedades;
+drop table padres_escuchan;
+
 CREATE TABLE entrevistas
 (
   r_id INTEGER PRIMARY KEY,
   fecha_llamada TEXT NOT NULL,
   fecha_entrevista TEXT NOT NULL,
   lugar TEXT NOT NULL,
-  mama_escucha TEXT NOT NULL,
-  papa_escucha TEXT NOT NULL,
+  id_mama_escucha INTEGER,
+  id_papa_escucha INTEGER,
   como_supo TEXT NOT NULL,
   papa_nombre_apellido TEXT NOT NULL,
   papa_edad TEXT NOT NULL,
@@ -56,14 +62,13 @@ plan text,
 descripcion_corta text,
 descripcion_larga text);
 
-delete from mensaje_novedades;
+delete from mensajes_novedades;
 delete from mantenimientos;
 delete from padres_escuchan;
 delete from configuracion;
 delete from entrevistas;
-delete from mensajes_novedades;
 
-INSERT INTO mensajes_novedades (fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!);
+INSERT INTO mensajes_novedades (fecha, mensaje) VALUES ('2014-06-23', 'Bienvenido a la nueva versión de Papá Escucha, ahora Web!');
 
 insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_ip', '');
 insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_port', '');
