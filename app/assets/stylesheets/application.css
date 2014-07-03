@@ -61,7 +61,19 @@ label.error {
     float: none     !important;
 }
 
-input[readonly="readonly"]
-{
+input[readonly="readonly"] {
     background-color: #dbdbe0;
+}
+
+.iconButtonPrint {
+    background: url('printer.png')  no-repeat left; !important;
+
+}
+
+.iconButtonAdd {
+    background: url('add.png')  no-repeat left; !important;
+
+}
+.flexigrid .iconButtonQuery {
+    background: url('eye.png')  no-repeat left; !important;
 }
