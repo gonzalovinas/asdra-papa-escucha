@@ -10,17 +10,15 @@
                 dataType: 'json',
                 colModel : [
                     { display: 'Entrevista', name: 'r_id', width : 70, sortable : true, align: 'right' },
-                    { display: 'Fecha Entrevista', name: 'fecha_entrevista', width : 70, sortable : true, align: 'left' },
-                    { display: 'Fecha Llamada', name: 'fecha_llamada', width : 70, sortable : true, align: 'left' },
-                    { display: 'Lugar', name: 'lugar', width : 70, sortable : true, align: 'left' },
-                    { display: '¿Como supo?', name: 'como_supo', width : 70, sortable : true, align: 'left' },
-                    { display: 'Nombre y Apellido Papá', name: 'papa_nombre_apellido', width : 70, sortable : true, align: 'left' },
-                    { display: 'Edad Papá', name: 'papa_edad', width : 70, sortable : true, align: 'right' },
-                    { display: 'Ocupación Papá', name: 'papa_ocupacion', width : 70, sortable : true, align: 'left' },
-                    { display: 'Domicilio Papá', name: 'papa_domicilio', width : 70, sortable : true, align: 'left' },
-                    { display: 'Telefonos Papá', name: 'papa_telefonos', width : 70, sortable : true, align: 'left' },
-                    { display: 'Correo Papá', name: 'papa_telefonos', width : 70, sortable : true, align: 'left' }
-
+                    { display: 'Fecha Entrevista', name: 'fecha_entrevista', width : 90, sortable : true, align: 'left' },
+                    { display: 'Fecha Llamada', name: 'fecha_llamada', width : 90, sortable : true, align: 'left' },
+                    { display: 'Lugar', name: 'lugar', width : 100, sortable : true, align: 'left' },
+                    { display: 'Telefonos Papá', name: 'papa_telefonos', width : 120, sortable : true, align: 'left' },
+                    { display: 'Domicilio Papá', name: 'papa_domicilio', width : 200, sortable : true, align: 'left' },
+                    { display: 'Nombre y Apellido Papá', name: 'papa_nombre_apellido', width : 150, sortable : true, align: 'left' },
+                    { display: 'Telefonos Mamá', name: 'mama_telefonos', width : 120, sortable : true, align: 'left' },
+                    { display: 'Domicilio Mamá', name: 'mama_domicilio', width : 200, sortable : true, align: 'left' },
+                    { display: 'Nombre y Apellido Mamá', name: 'mama_nombre_apellido', width : 150, sortable : true, align: 'left' }
                 ],
                 buttons : [
                     {name: 'Nueva'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaEntrevistas },
@@ -100,7 +98,7 @@
     }
 
     function mostrar_consulta_entrevista(id_entrevista) {
-        jQuery('#ventana_entrevista')
+        $('#ventana_entrevista')
                 .load('/entrevista/consulta_entrevista?id_entrevista=' + id_entrevista)
                 .dialog({
                     autoOpen: true,
