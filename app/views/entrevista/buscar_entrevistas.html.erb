@@ -5,6 +5,16 @@
 
 <script type="text/javascript">
 
+    $('#ventana_entrevista').dialog({
+        autoOpen: false,
+        resizable: false,
+        modal: true,
+        width:'auto',
+        height: 'auto',
+        draggable: false,
+        position: 'center'
+    });
+
     $("#flex1").flexigrid({
                 url: 'entrevista/do_buscar_entrevistas',
                 dataType: 'json',
@@ -83,33 +93,28 @@
     }
 
     function mostrar_alta_nueva_entrevista() {
-        jQuery('#ventana_entrevista')
-                .load('/entrevista/alta_nueva_entrevista')
-                .dialog({
-                    autoOpen: true,
-                    resizable: false,
-                    modal: true,
-                    width:'auto',
-                    height: 'auto',
-                    title: 'Alta de Nueva Entrevista',
-                    draggable: false,
-                    position: 'center'
-                });
+
+        $.ajax({
+            url: '/entrevista/alta_nueva_entrevista',
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Alta de nueva Entrevista'});
+            }
+        });
+
     }
 
     function mostrar_consulta_entrevista(id_entrevista) {
-        $('#ventana_entrevista')
-                .load('/entrevista/consulta_entrevista?id_entrevista=' + id_entrevista)
-                .dialog({
-                    autoOpen: true,
-                    resizable: false,
-                    modal: true,
-                    width:'auto',
-                    height: 'auto',
-                    title: 'Consulta de Entrevista',
-                    draggable: false,
-                    position: 'center'
-                });
+        $.ajax({
+            url: '/entrevista/consulta_entrevista',
+            data: { 'id_entrevista' : id_entrevista },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Consultando Entrevista'});
+            }
+        });
     }
 
 </script>
