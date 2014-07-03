@@ -23,6 +23,7 @@
 
                 ],
                 buttons : [
+                    {name: 'Nueva'    , bclass: 'new'   , onpress : comandosGrillaEntrevistas },
                     {name: 'Modificar', bclass: 'update', onpress : comandosGrillaEntrevistas },
                     {name: 'Consultar', bclass: 'query' , onpress : comandosGrillaEntrevistas },
                     {name: 'Notificar', bclass: 'notify', onpress : comandosGrillaEntrevistas },
@@ -44,6 +45,10 @@
     );
 
     function comandosGrillaEntrevistas(command, grid) {
+        if(command === "Nueva") {
+            mostrar_alta_nueva_entrevista();
+            return;
+        }
 
         var rows = $('.trSelected', grid);
 
@@ -79,8 +84,23 @@
         }
     }
 
+    function mostrar_alta_nueva_entrevista() {
+        jQuery('#ventana_entrevista')
+                .load('/entrevista/alta_nueva_entrevista')
+                .dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    modal: true,
+                    width:'auto',
+                    height: 'auto',
+                    title: 'Alta de Nueva Entrevista',
+                    draggable: false,
+                    position: 'center'
+                });
+    }
+
     function mostrar_consulta_entrevista(id_entrevista) {
-        jQuery('#ventana_consulta_entrevista')
+        jQuery('#ventana_entrevista')
                 .load('/entrevista/consulta_entrevista?id_entrevista=' + id_entrevista)
                 .dialog({
                     autoOpen: true,
@@ -96,4 +116,4 @@
 
 </script>
 
-<div id="ventana_consulta_entrevista"></div>
+<div id="ventana_entrevista"></div>
