@@ -84,3 +84,7 @@ input[readonly="readonly"] {
 .flexigrid .iconButtonEdit {
     background: url('pencil.png')  no-repeat left !important;
 }
+
+textarea {
+    resize: vertical;
+}

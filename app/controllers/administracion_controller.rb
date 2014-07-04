@@ -15,6 +15,37 @@ class AdministracionController < ApplicationController
     render :json => {:status => "OK"}, :layout=> false
   end
 
+  def buscar_padres
+    render :action => "buscar_padres", :layout=> false
+  end
+
+  def do_buscar_padres
+    r = PadresEscuchan.all.pluck(
+        :r_id,
+        :apellidos,
+        :nombres,
+        :correo,
+        :tipo
+    )
+
+    return_data = {}
+
+    return_data[:page] = 1
+
+    return_data[:total] = r.size
+
+    r2 = []
+
+    r.each do | e |
+      r2  << {:cell=>e}
+    end
+
+    return_data[:rows] = r2
+
+    render :json => return_data, :layout=> false
+
+  end
+
   def alta_nuevo_padre
     render :action => "alta_nuevo_padre", :layout=> false
   end

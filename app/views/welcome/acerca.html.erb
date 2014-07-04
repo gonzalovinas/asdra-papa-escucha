@@ -1,0 +1,29 @@
+  <div id="tab-acerca" >
+    <ul>
+      <li><a href="/welcome/acerca_sistema">Sistema y Autor</a></li>
+      <li><a href="/welcome/acerca_marcas">Marcas, Plataformas y Comunidad</a></li>
+      <li><a href="/welcome/acerca_soporte">Soporte</a></li>
+    </ul>
+  </div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(function () {
+            $("#tab-acerca").tabs({
+                cache: false,
+                beforeLoad: function (event, ui) {
+                    if ($(ui.panel).html()) {
+                        event.preventDefault();
+                        return false;
+                    }
+                    else {
+                        ui.panel.html('<div><img src="/assets/loading.gif" /></div>');
+                        return true;
+                    }
+                }
+            });
+        })
+    });
+</script>

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
 
   root 'welcome#index'
+
+  get 'welcome/index'
 
   get 'welcome/resumen'
 
@@ -23,9 +24,19 @@ Rails.application.routes.draw do
 
   post 'administracion/do_alta_nuevo_padre'
 
-  get '/administracion/configuracion'
+  get 'administracion/configuracion'
 
-  get '/entrevista/consulta_entrevista'
+  get 'entrevista/consulta_entrevista'
+
+  get 'administracion/buscar_padres'
+
+  post 'administracion/do_buscar_padres'
+
+  get 'welcome/acerca'
+
+  get 'welcome/acerca_sistema'
+  get 'welcome/acerca_marcas'
+  get 'welcome/acerca_soporte'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

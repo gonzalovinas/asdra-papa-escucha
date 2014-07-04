@@ -1,0 +1,111 @@
+<div class="contenido-tab">
+  <table id="flex2" style="display:none"></table>
+
+</div>
+
+<script type="text/javascript">
+
+    $('#ventana_padre').dialog({
+        autoOpen: false,
+        resizable: false,
+        modal: true,
+        width:'auto',
+        height: 'auto',
+        draggable: false,
+        position: 'center'
+    });
+
+    $("#flex2").flexigrid({
+                url: 'administracion/do_buscar_padres',
+                dataType: 'json',
+                colModel : [
+                    { display: 'Identificador'  , name: 'r_id', width : 70, sortable : true, align: 'right' },
+                    { display: 'Apellido(s)'    , name: 'apellidos', width : 150, sortable : true, align: 'right' },
+                    { display: 'Nombre(s)'      , name: 'nombres', width : 150, sortable : true, align: 'right' },
+                    { display: 'Correo'         , name: 'correo', width : 150, sortable : true, align: 'right' }
+                ],
+                buttons : [
+                    {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaPadres },
+                    {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : comandosGrillaPadres },
+                    {name: 'Consultar', bclass: 'iconButtonQuery' , onpress : comandosGrillaPadres },
+                    {separator: true}
+                ],
+                searchitems : [
+                    { display: 'Correo'     , name: 'correo'    },
+                    { display: 'Apellido(s)', name: 'apellidos' }
+                ],
+                sortname: "r_id",
+                sortorder: "asc",
+                usepager: true,
+                useRp: false,
+                rp: 20,
+                showTableToggleBtn: false,
+                resizable: false,
+                singleSelect: false
+            }
+    );
+
+    function comandosGrillaPadres(command, grid) {
+        if(command === "Nuevo") {
+            mostrar_alta_nuevo_padre();
+            return;
+        }
+
+        var rows = $('.trSelected', grid);
+
+        var rows_selected = rows.size();
+
+        if(rows_selected > 1 && command != 'Notificar') {
+            alert('No puede Consultar/Modificar más de una Padre a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
+            return;
+        }
+        else if(rows_selected == 0) {
+            alert('No hay ningún Padre seleccionadas para iniciar la acción.');
+            return;
+        }
+
+        var id = null;
+
+        rows.each(function() {
+            id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+        });
+
+        switch(command) {
+            case "Modificar":
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                //alert('Modificando Entrevista: ' + id);
+                break;
+            case "Consultar":
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                break;
+        }
+    }
+
+    function mostrar_alta_nuevo_padre() {
+
+        $.ajax({
+            url: '/administracion/alta_nuevo_padre',
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_padre").html(data).dialog('open', { title: 'Alta de nuevo Padre'});
+            }
+        });
+
+    }
+
+    function mostrar_consulta_entrevista(id_entrevista) {
+        $.ajax({
+            url: '/administracion/consulta_padre',
+            data: { 'id_entrevista' : id_entrevista },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Consultando Padre'});
+            }
+        });
+    }
+
+</script>
+
+<div id="ventana_padre"></div>

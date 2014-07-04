@@ -15,6 +15,24 @@ class WelcomeController < ApplicationController
     render :action => "resumen", :layout => false
   end
 
+  def acerca
+    render :action => "acerca", :layout => false
+  end
+
+  def acerca_sistema
+    render :action => "acerca_sistema", :layout => false
+  end
+
+  def acerca_marcas
+    render :action => "acerca_marcas", :layout => false
+  end
+
+
+  def acerca_soporte
+    render :action => "acerca_soporte", :layout => false
+  end
+
+
   def mensajes_novedades_rss
 
     rss = RSS::Maker.make("atom") do |maker|
