@@ -1,3 +1,5 @@
+https://travis-ci.org/gonzalovinas/asdra-papa-escucha.svg?branch=master
+
 Sistema Interno de Gestión de Entrevistas "Papá Escucha" de ASDRA
 
 Este sistema es un regalo que le he hecho a mi vecino Horacio Rigamonti (horacio@rigamonti.com.ar), quien trabaja con la gente de ASDRA y
