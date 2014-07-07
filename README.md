@@ -25,7 +25,7 @@ Para más información sobre ASDRA visitar http://asdra.org.ar/
 <h3>RQs<h3>
 <br>
 
-<u>Alta Entrevistas</u>
+<p><u>Alta Entrevistas</u></p>
 <br>
 <br>
 
@@ -46,7 +46,7 @@ Mamá y Papá escucha deben ser dos maestros para ingresar los papás que están
 Los demás campos, rangos numéricos y formatos se que vos los vas a deducir.
 <br>
 
-<u>Los comandos</u>
+<p><u>Los comandos</u></p>
 <br>
 
 <ul>
