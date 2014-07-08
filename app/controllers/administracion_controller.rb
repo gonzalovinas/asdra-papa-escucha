@@ -19,8 +19,23 @@ class AdministracionController < ApplicationController
     render :action => "buscar_padres", :layout=> false
   end
 
+  def eliminar_padres
+    ids = params[:ids]
+
+    ids.each do | id |
+      p = PadresEscuchan.find Integer(id)
+      p.vigente = "N"
+      p.save
+    end
+
+    render :json => {
+        :status => "OK",
+        :data => nil
+        }, :layout=> false
+  end
+
   def do_buscar_padres
-    r = PadresEscuchan.all.pluck(
+    r = PadresEscuchan.where("vigente IS NULL").all.pluck(
         :r_id,
         :apellidos,
         :nombres,

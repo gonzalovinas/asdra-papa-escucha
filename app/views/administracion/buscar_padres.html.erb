@@ -28,6 +28,7 @@
                     {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaPadres },
                     {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : comandosGrillaPadres },
                     {name: 'Consultar', bclass: 'iconButtonQuery' , onpress : comandosGrillaPadres },
+                    {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaPadres },
                     {separator: true}
                 ],
                 searchitems : [
@@ -65,9 +66,11 @@
         }
 
         var id = null;
+        var ids = [];
 
         rows.each(function() {
             id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+            ids.push(id);
         });
 
         switch(command) {
@@ -78,7 +81,29 @@
             case "Consultar":
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
                 break;
+            case "Eliminar":
+                enviar_eliminacion(ids);
+                break;
         }
+    }
+
+    function enviar_eliminacion(ids) {
+        $.ajax({
+            url: 'administracion/eliminar_padres',
+            type: 'POST',
+            data: JSON.stringify({
+                ids: ids
+            }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(data) {
+                alert('Se eliminaron los Padres seleccionados.');
+                $('#flex2').flexReload();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                mostrar_error_tecnico();
+            }
+        });
     }
 
     function mostrar_alta_nuevo_padre() {

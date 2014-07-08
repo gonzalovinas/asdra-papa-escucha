@@ -85,6 +85,11 @@ input[readonly="readonly"] {
     background: url('pencil.png')  no-repeat left !important;
 }
 
+.flexigrid .iconButtonDelete {
+    background: url('delete.png')  no-repeat left !important;
+}
+
+
 textarea {
     resize: vertical;
 }

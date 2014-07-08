@@ -47,7 +47,8 @@ create table padres_escuchan (
   apellidos TEXT NOT NULL,
   nombres TEXT NOT NULL,
   correo TEXT NOT NULL,
-  tipo TEXT NOT NULL
+  tipo TEXT NOT NULL,
+  vigente TEXT NULL
 );
 create table configuracion (
   r_id int primary key,
