@@ -39,7 +39,7 @@ class AdministracionController < ApplicationController
     if !params[:query].empty?
       filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
     end
-    r = PadresEscuchan.where("vigente IS NULL #{filter}").all.pluck(
+    r = PadresEscuchan.where("vigente IS NULL #{filter}").order("r_ID DESC").all.pluck(
         :r_id,
         :apellidos,
         :nombres,

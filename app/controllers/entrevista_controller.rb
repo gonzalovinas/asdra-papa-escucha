@@ -78,7 +78,7 @@ class EntrevistaController < ApplicationController
       filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
     end
 
-    r = Entrevista.where("VIGENTE IS NULL #{filter}").all.pluck(
+    r = Entrevista.where("VIGENTE IS NULL #{filter}").order("r_ID DESC").all.pluck(
         :r_id,
         :fecha_entrevista,
         :fecha_llamada,

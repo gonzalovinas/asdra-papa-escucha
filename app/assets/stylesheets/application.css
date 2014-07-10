@@ -89,6 +89,14 @@ input[readonly="readonly"] {
     background: url('delete.png')  no-repeat left !important;
 }
 
+.flexigrid .iconButtonSelectAll {
+    background: url('select_all.png')  no-repeat left !important;
+}
+
+.flexigrid .iconButtonDeselectAll {
+    background: url('deselect_all.png')  no-repeat left !important;
+}
+
 
 textarea {
     resize: vertical;

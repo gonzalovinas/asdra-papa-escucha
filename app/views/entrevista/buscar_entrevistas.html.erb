@@ -37,7 +37,9 @@
                     {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaEntrevistas },
                     {name: 'Notificar', bclass: 'iconButtonNotify', onpress : comandosGrillaEntrevistas },
                     {name: 'Imprimir' , bclass: 'iconButtonPrint' , onpress : comandosGrillaEntrevistas },
-                    {separator: true}
+                    {separator: true},
+                    {name: 'Seleccionar Todo', bclass: 'iconButtonSelectAll', onpress: comandosGrillaPadres },
+                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaPadres }
                 ],
                 searchitems : [
                     {display: 'Fecha Entrevista', name : 'fecha_entrevista'},
@@ -56,6 +58,17 @@
     );
 
     function comandosGrillaEntrevistas(command, grid) {
+
+        if(command === "Seleccionar Todo") {
+            $('.bDiv tbody tr', grid).addClass('trSelected');
+            return;
+        }
+
+        if(command === "Deseleccionar Todo") {
+            $('.bDiv tbody tr',grid).removeClass('trSelected');
+            return;
+        }
+
         if(command === "Nueva") {
             mostrar_alta_nueva_entrevista();
             return;

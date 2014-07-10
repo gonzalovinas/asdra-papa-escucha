@@ -29,7 +29,9 @@
                     {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : comandosGrillaPadres },
                     {name: 'Consultar', bclass: 'iconButtonQuery' , onpress : comandosGrillaPadres },
                     {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaPadres },
-                    {separator: true}
+                    {separator: true},
+                    {name: 'Seleccionar Todo', bclass: 'iconButtonSelectAll', onpress: comandosGrillaPadres },
+                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaPadres }
                 ],
                 searchitems : [
                     { display: 'Correo'     , name: 'correo'    },
@@ -47,6 +49,17 @@
     );
 
     function comandosGrillaPadres(command, grid) {
+
+        if(command === "Seleccionar Todo") {
+            $('.bDiv tbody tr', grid).addClass('trSelected');
+            return;
+        }
+
+        if(command === "Deseleccionar Todo") {
+            $('.bDiv tbody tr',grid).removeClass('trSelected');
+            return;
+        }
+
         if(command === "Nuevo") {
             mostrar_alta_nuevo_padre();
             return;
