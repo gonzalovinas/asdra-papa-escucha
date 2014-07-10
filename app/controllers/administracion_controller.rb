@@ -35,7 +35,11 @@ class AdministracionController < ApplicationController
   end
 
   def do_buscar_padres
-    r = PadresEscuchan.where("vigente IS NULL").all.pluck(
+    filter = ""
+    if !params[:query].empty?
+      filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
+    end
+    r = PadresEscuchan.where("vigente IS NULL #{filter}").all.pluck(
         :r_id,
         :apellidos,
         :nombres,

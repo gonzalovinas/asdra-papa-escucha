@@ -73,7 +73,12 @@ class EntrevistaController < ApplicationController
   end
 
   def do_buscar_entrevistas
-    r = Entrevista.where("VIGENTE IS NULL").all.pluck(
+    filter = ""
+    if !params[:query].empty?
+      filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
+    end
+
+    r = Entrevista.where("VIGENTE IS NULL #{filter}").all.pluck(
         :r_id,
         :fecha_entrevista,
         :fecha_llamada,
