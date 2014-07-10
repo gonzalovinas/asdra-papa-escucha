@@ -3,6 +3,21 @@ class EntrevistaController < ApplicationController
   def index
   end
 
+  def eliminar_entrevistas
+    ids = params[:ids]
+
+    ids.each do | id |
+      p = Entrevista.find Integer(id)
+      p.vigente = "N"
+      p.save
+    end
+
+    render :json => {
+        :status => "OK",
+        :data => nil
+    }, :layout=> false
+  end
+
   def consulta_entrevista
     @entrevista = Entrevista.find params[:id_entrevista]
     render :action => "consulta_entrevista", :layout=> false
@@ -58,7 +73,7 @@ class EntrevistaController < ApplicationController
   end
 
   def do_buscar_entrevistas
-    r = Entrevista.all.pluck(
+    r = Entrevista.where("VIGENTE IS NULL").all.pluck(
         :r_id,
         :fecha_entrevista,
         :fecha_llamada,

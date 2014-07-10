@@ -34,7 +34,8 @@ CREATE TABLE entrevistas
   sabia_sdown TEXT NOT NULL,
   recepcion_flia TEXT NOT NULL,
   patologia_agregada TEXT NOT NULL,
-  observaciones TEXT NOT NULL
+  observaciones TEXT NOT NULL,
+   vigente TEXT NULL
 );
 CREATE TABLE mensajes_novedades
 (

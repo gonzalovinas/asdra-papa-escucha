@@ -73,9 +73,11 @@
         }
 
         var id = null;
+        var ids = [];
 
         rows.each(function() {
             id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+            ids.push(id);
         });
 
         switch(command) {
@@ -91,8 +93,34 @@
                 //alert('Las ' + rows_selected + ' Entrevistas seleccionadas fueron notificadas.');
                 break;
             case "Eliminar":
+                enviar_eliminacion(ids);
                 break;
         }
+    }
+
+    function enviar_eliminacion(ids) {
+        $.ajax({
+            url: 'entrevista/eliminar_entrevistas',
+            type: 'POST',
+            data: JSON.stringify({
+                ids: ids
+            }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(data) {
+                if(data.status === "OK") {
+                    alert('Se eliminaron las Entrevistas seleccionados.');
+                    $('#flex1').flexReload();
+                }
+                else {
+                    mostrar_error_tecnico();
+                }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                mostrar_error_tecnico();
+            }
+        });
     }
 
     function mostrar_alta_nueva_entrevista() {

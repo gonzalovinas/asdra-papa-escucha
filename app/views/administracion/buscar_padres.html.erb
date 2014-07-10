@@ -97,8 +97,13 @@
             dataType: 'json',
             contentType: 'application/json',
             success: function(data) {
+                if(data.status === "OK") {
                 alert('Se eliminaron los Padres seleccionados.');
                 $('#flex2').flexReload();
+                }
+                else {
+                    mostrar_error_tecnico();
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 mostrar_error_tecnico();
