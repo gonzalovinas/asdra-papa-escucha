@@ -37,8 +37,10 @@ class AdministracionController < ApplicationController
 
   def do_buscar_padres_excel
     filter = ""
+    filtrado = "Ninguno"
     if !params[:query].empty?
       filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
+      filtrado = "#{params[:qtype]} = #{params[:query]}"
     end
     r = PadresEscuchan.where("vigente IS NULL #{filter}").order("r_ID DESC").all.pluck(
         :r_id,
@@ -51,10 +53,17 @@ class AdministracionController < ApplicationController
     p = Axlsx::Package.new
     wb = p.workbook
 
-    wb.add_worksheet(:name => "Basic Worksheet") do |sheet|
-      sheet.add_row ["First Column", "Second", "Third"]
-      sheet.add_row [1, 2, 3]
-      sheet.add_row ['     preserving whitespace']
+
+    wb.add_worksheet(:name => "Padres que Escuchan") do |sheet|
+      sheet.add_row ["Identificador", "Apellido(s)", 'Nombre(s)', 'Correo', 'Papa o Mama']
+      r.each do | row |
+          sheet.add_row(row)
+      end
+      sheet.add_row [ '' ]
+      sheet.add_row [ '' ]
+      sheet.add_row ['Impreso el:', Time.now.to_s]
+      sheet.add_row ['Filtro Impresion:', filtrado]
+      sheet.add_row ['Cantidad de resultados:', r.size]
     end
 
     respond_to do |format|

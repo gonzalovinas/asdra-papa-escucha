@@ -109,18 +109,7 @@
     }
 
     function descargar_padres_excel(qtype, query) {
-        $.ajax({
-            url: '/administracion/do_buscar_padres_excel',
-            data: JSON.stringify({
-                'qtype' : qtype,
-                'query': query
-            }),
-            type: 'POST',
-            contentType: 'application/json',
-            success: function(data) {
-                //alert('deberia comenzar la descarga');
-            }
-        });
+        window.location = '/administracion/do_buscar_padres_excel?qtype=' + qtype + '&query=' + query;
     }
 
     function enviar_eliminacion(ids) {
