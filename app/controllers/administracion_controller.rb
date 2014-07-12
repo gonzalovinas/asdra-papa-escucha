@@ -1,3 +1,4 @@
+
 class AdministracionController < ApplicationController
 
   def mensaje_novedad
@@ -32,6 +33,35 @@ class AdministracionController < ApplicationController
         :status => "OK",
         :data => nil
         }, :layout=> false
+  end
+
+  def do_buscar_padres_excel
+    filter = ""
+    if !params[:query].empty?
+      filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
+    end
+    r = PadresEscuchan.where("vigente IS NULL #{filter}").order("r_ID DESC").all.pluck(
+        :r_id,
+        :apellidos,
+        :nombres,
+        :correo,
+        :tipo
+    )
+
+    p = Axlsx::Package.new
+    wb = p.workbook
+
+    wb.add_worksheet(:name => "Basic Worksheet") do |sheet|
+      sheet.add_row ["First Column", "Second", "Third"]
+      sheet.add_row [1, 2, 3]
+      sheet.add_row ['     preserving whitespace']
+    end
+
+    respond_to do |format|
+      format.any {
+        send_data(p.to_stream.read, :stream=>true, :disposition => "attachment", :filename => 'rpt.xlsx', :type => 'application/vnd.ms-excel; header=present')
+      }
+    end
   end
 
   def do_buscar_padres

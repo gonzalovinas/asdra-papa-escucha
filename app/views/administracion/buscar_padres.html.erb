@@ -31,7 +31,9 @@
                     {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaPadres },
                     {separator: true},
                     {name: 'Seleccionar Todo', bclass: 'iconButtonSelectAll', onpress: comandosGrillaPadres },
-                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaPadres }
+                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaPadres },
+                    {separator: true},
+                    {name: 'Descargar a Excel', bclass: 'iconButtonExcel', onpress: comandosGrillaPadres }
                 ],
                 searchitems : [
                     { display: 'Correo'     , name: 'correo'    },
@@ -50,6 +52,9 @@
 
     function comandosGrillaPadres(command, grid) {
 
+        var rows = $('.trSelected', grid);
+        var rows_selected = rows.size();
+
         if(command === "Seleccionar Todo") {
             $('.bDiv tbody tr', grid).addClass('trSelected');
             return;
@@ -60,14 +65,17 @@
             return;
         }
 
+        if(command === "Descargar a Excel") {
+            var qtype = $('.sDiv2').find('select').val();
+            var query = $('.sDiv2').find('input').val();
+            descargar_padres_excel(qtype, query);
+            return;
+        }
+
         if(command === "Nuevo") {
             mostrar_alta_nuevo_padre();
             return;
         }
-
-        var rows = $('.trSelected', grid);
-
-        var rows_selected = rows.size();
 
         if(rows_selected > 1 && command != 'Notificar') {
             alert('No puede Consultar/Modificar más de una Padre a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
@@ -98,6 +106,21 @@
                 enviar_eliminacion(ids);
                 break;
         }
+    }
+
+    function descargar_padres_excel(qtype, query) {
+        $.ajax({
+            url: '/administracion/do_buscar_padres_excel',
+            data: JSON.stringify({
+                'qtype' : qtype,
+                'query': query
+            }),
+            type: 'POST',
+            contentType: 'application/json',
+            success: function(data) {
+                //alert('deberia comenzar la descarga');
+            }
+        });
     }
 
     function enviar_eliminacion(ids) {
@@ -137,10 +160,10 @@
 
     }
 
-    function mostrar_consulta_entrevista(id_entrevista) {
+    function mostrar_consulta_padre(id_padre) {
         $.ajax({
             url: '/administracion/consulta_padre',
-            data: { 'id_entrevista' : id_entrevista },
+            data: { 'id_entrevista' : id_padre },
             method: 'GET',
             contentType: 'text/html',
             success: function(data) {
