@@ -38,9 +38,12 @@ class AdministracionController < ApplicationController
   def do_buscar_padres_excel
     filter = ""
     filtrado = "Ninguno"
+    filename = 'ASDRA_PAPE_ENTREVISTAS_COMPLETO.xlsx'
+
     if !params[:query].empty?
       filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
       filtrado = "#{params[:qtype]} = #{params[:query]}"
+      filename = 'ASDRA_PAPE_ENTREVISTAS_FILTRADO.xlsx'
     end
     r = PadresEscuchan.where("vigente IS NULL #{filter}").order("r_ID DESC").all.pluck(
         :r_id,
@@ -68,7 +71,7 @@ class AdministracionController < ApplicationController
 
     respond_to do |format|
       format.any {
-        send_data(p.to_stream.read, :stream=>true, :disposition => "attachment", :filename => 'rpt.xlsx', :type => 'application/vnd.ms-excel; header=present')
+        send_data(p.to_stream.read, :stream=>true, :disposition => "attachment", :filename => filename, :type => 'application/vnd.ms-excel; header=present')
       }
     end
   end

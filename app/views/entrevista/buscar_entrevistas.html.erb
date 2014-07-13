@@ -38,8 +38,10 @@
                     {name: 'Notificar', bclass: 'iconButtonNotify', onpress : comandosGrillaEntrevistas },
                     {name: 'Imprimir' , bclass: 'iconButtonPrint' , onpress : comandosGrillaEntrevistas },
                     {separator: true},
-                    {name: 'Seleccionar Todo', bclass: 'iconButtonSelectAll', onpress: comandosGrillaPadres },
-                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaPadres }
+                    {name: 'Seleccionar Todo', bclass: 'iconButtonSelectAll', onpress: comandosGrillaEntrevistas },
+                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaEntrevistas },
+                    {separator: true},
+                    {name: 'Descargar a Excel', bclass: 'iconButtonExcel', onpress: comandosGrillaEntrevistas }
                 ],
                 searchitems : [
                     {display: 'Fecha Entrevista', name : 'fecha_entrevista'},
@@ -59,6 +61,9 @@
 
     function comandosGrillaEntrevistas(command, grid) {
 
+        var rows = $('.trSelected', grid);
+        var rows_selected = rows.size();
+
         if(command === "Seleccionar Todo") {
             $('.bDiv tbody tr', grid).addClass('trSelected');
             return;
@@ -69,14 +74,17 @@
             return;
         }
 
+        if(command === "Descargar a Excel") {
+            var qtype = $('.sDiv2').find('select').val();
+            var query = $('.sDiv2').find('input').val();
+            descargar_entrevistas_excel(qtype, query);
+            return;
+        }
+
         if(command === "Nueva") {
             mostrar_alta_nueva_entrevista();
             return;
         }
-
-        var rows = $('.trSelected', grid);
-
-        var rows_selected = rows.size();
 
         if(rows_selected > 1 && command != 'Notificar') {
             alert('No puede Consultar/Modificar más de una Entrevista a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
@@ -111,6 +119,10 @@
                 enviar_eliminacion(ids);
                 break;
         }
+    }
+
+    function descargar_entrevistas_excel(qtype, query) {
+        window.location = '/entrevista/do_buscar_entrevistas_excel?qtype=' + qtype + '&query=' + query;
     }
 
     function enviar_eliminacion(ids) {

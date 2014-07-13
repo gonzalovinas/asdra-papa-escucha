@@ -30,6 +30,54 @@ class EntrevistaController < ApplicationController
     render :action => "alta_nueva_entrevista", :layout=> false
   end
 
+  def do_buscar_entrevistas_excel
+    filter = ""
+    filtrado = "Ninguno"
+    filename = 'ASDRA_PAPE_ENTREVISTAS_COMPLETO.xlsx'
+    if !params[:query].empty?
+      filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
+      filtrado = "#{params[:qtype]} = #{params[:query]}"
+      filename = 'ASDRA_PAPE_ENTREVISTAS_FILTRADO.xlsx'
+    end
+    r = Entrevista.where("VIGENTE IS NULL #{filter}").order("r_ID DESC").all.pluck(
+        :r_id,
+        :fecha_entrevista,
+        :fecha_llamada,
+        :lugar,
+        :papa_telefonos,
+        :papa_domicilio,
+        :papa_nombre_apellido,
+        :mama_telefonos,
+        :mama_domicilio,
+        :mama_nombre_apellido,
+    )
+
+    p = Axlsx::Package.new
+    wb = p.workbook
+
+
+    wb.add_worksheet(:name => "Entrevistas") do |sheet|
+      sheet.add_row ["Identificador", "Fecha Entrevista", 'Fecha Llamada', 'Lugar',
+                     'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
+                     'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)']
+      r.each do | row |
+        sheet.add_row(row)
+      end
+      sheet.add_row [ '' ]
+      sheet.add_row [ '' ]
+      sheet.add_row ['Impreso el:', Time.now.to_s]
+      sheet.add_row ['Filtro Impresion:', filtrado]
+      sheet.add_row ['Cantidad de resultados:', r.size]
+    end
+
+
+    respond_to do |format|
+      format.any {
+        send_data(p.to_stream.read, :stream=>true, :disposition => "attachment", :filename => filename, :type => 'application/vnd.ms-excel; header=present')
+      }
+    end
+  end
+
   def do_alta_nueva_entrevista
 
     ne = Entrevista.new
