@@ -39,6 +39,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'axlsx'
-gem 'acts_as_xlsx'
 gem 'mime'
 gem 'mime-types'
