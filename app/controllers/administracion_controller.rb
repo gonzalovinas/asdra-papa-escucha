@@ -121,6 +121,12 @@ class AdministracionController < ApplicationController
 
     pe.save
 
+    mn = MensajesNovedades.new
+    mn.mensaje = "Bienvenido #{pe.nombres} #{pe.apellidos}!"
+    mn.fecha = Time.now
+    mn.save
+
+
     render :json => {
         :status => "OK",
         :data => {

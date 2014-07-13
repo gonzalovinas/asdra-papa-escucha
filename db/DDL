@@ -3,39 +3,41 @@ drop table configuracion;
 drop table mantenimientos;
 drop table mensajes_novedades;
 drop table padres_escuchan;
+drop table entrevistas_estados;
 
 CREATE TABLE entrevistas
 (
   r_id INTEGER PRIMARY KEY,
   fecha_llamada TEXT NOT NULL,
   fecha_entrevista TEXT NOT NULL,
-  lugar TEXT NOT NULL,
+  lugar TEXT,
   id_mama_escucha INTEGER,
   id_papa_escucha INTEGER,
-  como_supo TEXT NOT NULL,
-  papa_nombre_apellido TEXT NOT NULL,
-  papa_edad TEXT NOT NULL,
-  papa_ocupacion TEXT NOT NULL,
-  papa_domicilio TEXT NOT NULL,
-  papa_telefonos TEXT NOT NULL,
-  papa_correo TEXT NOT NULL,
-  mama_nombre_apellido TEXT NOT NULL,
-  mama_edad TEXT NOT NULL,
-  mama_ocupacion TEXT NOT NULL,
-  mama_domicilio TEXT NOT NULL,
-  mama_telefonos TEXT NOT NULL,
-  mama_correo TEXT NOT NULL,
-  sexo TEXT NOT NULL,
-  fecha_nacimiento TEXT NOT NULL,
-  institucion_nacimiento TEXT NOT NULL,
-  observacion_institucion TEXT NOT NULL,
-  meses_nacimiento INTEGER NOT NULL,
-  parto_normal TEXT NOT NULL,
-  sabia_sdown TEXT NOT NULL,
-  recepcion_flia TEXT NOT NULL,
-  patologia_agregada TEXT NOT NULL,
-  observaciones TEXT NOT NULL,
-   vigente TEXT NULL
+  como_supo TEXT,
+  papa_nombre_apellido TEXT,
+  papa_edad TEXT,
+  papa_ocupacion TEXT,
+  papa_domicilio TEXT,
+  papa_telefonos TEXT,
+  papa_correo TEXT,
+  mama_nombre_apellido TEXT,
+  mama_edad TEXT,
+  mama_ocupacion TEXT,
+  mama_domicilio TEXT,
+  mama_telefonos TEXT,
+  mama_correo TEXT,
+  sexo TEXT,
+  fecha_nacimiento TEXT,
+  institucion_nacimiento TEXT,
+  observacion_institucion TEXT,
+  meses_nacimiento INTEGER,
+  parto_normal TEXT,
+  sabia_sdown TEXT,
+  recepcion_flia TEXT,
+  patologia_agregada TEXT,
+  observaciones TEXT,
+  id_estado TEXT NOT NULL,
+  vigente TEXT NULL
 );
 CREATE TABLE mensajes_novedades
 (
@@ -52,17 +54,23 @@ create table padres_escuchan (
   vigente TEXT NULL
 );
 create table configuracion (
-  r_id int primary key,
+  r_id integer primary key,
   modulo text,
   clave text,
   valor text
 );
 
 create table mantenimientos (
-r_id int primary key,
+r_id integer primary key,
 plan text,
 descripcion_corta text,
 descripcion_larga text);
+
+create table entrevistas_estados (
+    r_id integer primary key,
+    codigo text not null,
+    descripcion text not null
+);
 
 delete from mensajes_novedades;
 delete from mantenimientos;
@@ -85,3 +93,14 @@ insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
 insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
 ('MANT01', 'Eliminar Mensajes Novedades que NO se muestran en pantalla', 'Los Mensajes Novedades que se muestran en pantalla son los últimas N entradas cronologicas del registro/repositorio de mensajes, donde N es el valor del campo homonimo configurado en la solapa Administración->Sistema');
 
+insert into entrevistas_estados (codigo, descripcion)
+values ('P', 'Pendiente');
+
+insert into entrevistas_estados (codigo, descripcion)
+values ('R', 'Realizada');
+
+insert into entrevistas_estados (codigo, descripcion)
+values ('S', 'Suspendida');
+
+insert into padres_escuchan (apellidos, nombres, correo, tipo)
+values ('Rigamonti', 'Horacio', 'horacio@rigamonti.com.ar', 'P');

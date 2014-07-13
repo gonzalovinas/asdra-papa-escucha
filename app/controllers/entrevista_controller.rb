@@ -39,8 +39,12 @@ class EntrevistaController < ApplicationController
       filtrado = "#{params[:qtype]} = #{params[:query]}"
       filename = 'ASDRA_PAPE_ENTREVISTAS_FILTRADO.xlsx'
     end
-    r = Entrevista.where("VIGENTE IS NULL #{filter}").order("r_ID DESC").all.pluck(
-        :r_id,
+    r = Entrevista.where("entrevistas.VIGENTE IS NULL #{filter}").order("entrevistas.r_ID DESC")
+    .joins('INNER JOIN entrevistas_estados ee on ee.r_id = entrevistas.id_estado')
+    .joins('LEFT JOIN padres_escuchan peP on peP.r_id = entrevistas.id_papa_escucha')
+    .joins('LEFT JOIN padres_escuchan peM on peM.r_id = entrevistas.id_mama_escucha')
+    .all.pluck(
+        'entrevistas.r_id',
         :fecha_entrevista,
         :fecha_llamada,
         :lugar,
@@ -50,6 +54,9 @@ class EntrevistaController < ApplicationController
         :mama_telefonos,
         :mama_domicilio,
         :mama_nombre_apellido,
+        'ee.descripcion as descripcion_estado',
+        "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
+        "peM.apellidos || ' ' || peM.nombres as mama_escucha"  # TODO: PAPE-28
     )
 
     p = Axlsx::Package.new
@@ -59,7 +66,8 @@ class EntrevistaController < ApplicationController
     wb.add_worksheet(:name => "Entrevistas") do |sheet|
       sheet.add_row ["Identificador", "Fecha Entrevista", 'Fecha Llamada', 'Lugar',
                      'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
-                     'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)']
+                     'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)',
+                     'Estado', 'Papa Escucha', 'Mama Escucha']
       r.each do | row |
         sheet.add_row(row)
       end
@@ -100,7 +108,7 @@ class EntrevistaController < ApplicationController
     ne.mama_domicilio   = params[:mama_domicilio]
     ne.mama_telefonos   = params[:mama_telefonos]
     ne.mama_correo      = params[:mama_correo]
-    ne.sexo             = params[:sexo][0].upcase
+    ne.sexo             = params[:sexo].size>0? [0].upcase : nil
     ne.fecha_nacimiento = params[:fecha_nacimiento]
     ne.institucion_nacimiento = params[:institucion_nacimiento]
     ne.observacion_institucion= params[:observacion_institucion]
@@ -110,6 +118,7 @@ class EntrevistaController < ApplicationController
     ne.recepcion_flia   = params[:recepcion_flia]
     ne.patologia_agregada = params[:patologia_agregada]
     ne.observaciones    = params[:observaciones]
+    ne.id_estado        = 1 # Pendiente
 
     ne.save
 
@@ -126,17 +135,17 @@ class EntrevistaController < ApplicationController
       filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
     end
 
-    r = Entrevista.where("VIGENTE IS NULL #{filter}").order("r_ID DESC").all.pluck(
-        :r_id,
+    r = Entrevista.where("entrevistas.VIGENTE IS NULL #{filter}").order("entrevistas.r_ID DESC")
+        .joins('INNER JOIN entrevistas_estados ee on ee.r_id = entrevistas.id_estado')
+        .joins('LEFT JOIN padres_escuchan peP on peP.r_id = entrevistas.id_papa_escucha')
+        .joins('LEFT JOIN padres_escuchan peM on peM.r_id = entrevistas.id_mama_escucha')
+        .all.pluck(
+        'entrevistas.r_id',
         :fecha_entrevista,
         :fecha_llamada,
-        :lugar,
-        :papa_telefonos,
-        :papa_domicilio,
-        :papa_nombre_apellido,
-        :mama_telefonos,
-        :mama_domicilio,
-        :mama_nombre_apellido,
+        'ee.descripcion as descripcion_estado',
+        "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
+        "peM.apellidos || ' ' || peM.nombres as mama_escucha"  # TODO: PAPE-28
     )
 
     return_data = {}

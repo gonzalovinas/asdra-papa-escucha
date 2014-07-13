@@ -103,7 +103,7 @@
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
                 break;
             case "Eliminar":
-                enviar_eliminacion(ids);
+                enviar_eliminacion_padres(ids);
                 break;
         }
     }
@@ -112,7 +112,7 @@
         window.location = '/administracion/do_buscar_padres_excel?qtype=' + qtype + '&query=' + query;
     }
 
-    function enviar_eliminacion(ids) {
+    function enviar_eliminacion_padres(ids) {
         $.ajax({
             url: 'administracion/eliminar_padres',
             type: 'POST',
