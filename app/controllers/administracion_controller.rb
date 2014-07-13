@@ -54,8 +54,8 @@ class AdministracionController < ApplicationController
     )
 
     p = Axlsx::Package.new
+    p.use_autowidth = true
     wb = p.workbook
-
 
     wb.add_worksheet(:name => "Padres que Escuchan") do |sheet|
       sheet.add_row ["Identificador", "Apellido(s)", 'Nombre(s)', 'Correo', 'Papa o Mama']
