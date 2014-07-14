@@ -162,6 +162,11 @@ class EntrevistaController < ApplicationController
     r2 = []
 
     r.each do | e |
+      # e[-1] es fecha_nacimiento
+      if !(e[-1].empty? && e[-1])
+        e[-1] = baby_date(Date.parse(e[-1]))
+      end
+
       r2  << {:cell=>e}
     end
 
@@ -173,7 +178,7 @@ class EntrevistaController < ApplicationController
 
   private
 
-  def baby_date(fecha_nacimiento)
+  def baby_date(dob)
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
