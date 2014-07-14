@@ -98,17 +98,10 @@
 
       Datos del Hijo/Hija</legend>
     <label for="ubicacion">Ubicación</label>
-    <select id="ubicacion" name="ubicacion">
-      <option value=""></option>
-      <option value="I">Insitución</option>
-      <option value="C">Hogar</option>
-    </select>
+    <input type="text" id="id_ubicacion" name="id_ubicacion" readonly="readonly"/>
     <label for="sexo">Sexo</label>
-    <input type="text" id="sexo" name="sexo">
-      <option value=""></option>
-      <option value="M">Masculino</option>
-      <option value="F">Femenino</option>
-    </select>
+    <input type="text" id="sexo" name="sexo" readonly="readonly"/>
+
     <label for="fecha_nacimiento">Fecha de Nacimiento</label>
     <input type="text"  name="fecha_nacimiento" id="fecha_nacimiento" value="<%=@entrevista.fecha_nacimiento%>" readonly="readonly"/>
     <label for="institucion_nacimiento">Institucion Nacimiento</label>
