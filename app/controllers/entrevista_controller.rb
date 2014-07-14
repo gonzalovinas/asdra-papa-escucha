@@ -39,6 +39,7 @@ class EntrevistaController < ApplicationController
       filtrado = "#{params[:qtype]} = #{params[:query]}"
       filename = 'ASDRA_PAPE_ENTREVISTAS_FILTRADO.xlsx'
     end
+
     r = Entrevista.where("entrevistas.VIGENTE IS NULL #{filter}").order("entrevistas.r_ID DESC")
     .joins('INNER JOIN entrevistas_estados ee on ee.r_id = entrevistas.id_estado')
     .joins('LEFT JOIN padres_escuchan peP on peP.r_id = entrevistas.id_papa_escucha')
@@ -54,6 +55,8 @@ class EntrevistaController < ApplicationController
         :mama_telefonos,
         :mama_domicilio,
         :mama_nombre_apellido,
+        :fecha_nacimiento,
+        :nombres,
         'ee.descripcion as descripcion_estado',
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
         "peM.apellidos || ' ' || peM.nombres as mama_escucha"  # TODO: PAPE-28
@@ -67,7 +70,7 @@ class EntrevistaController < ApplicationController
       sheet.add_row ["Identificador", "Fecha Entrevista", 'Fecha Llamada', 'Lugar',
                      'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
                      'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)',
-                     'Estado', 'Papa Escucha', 'Mama Escucha']
+                     'Nombre(s) del Bebe', 'Fecha de Nacimiento del Bebe', 'Estado', 'Papa Escucha', 'Mama Escucha']
       r.each do | row |
         sheet.add_row(row)
       end
@@ -145,7 +148,9 @@ class EntrevistaController < ApplicationController
         :fecha_llamada,
         'ee.descripcion as descripcion_estado',
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
-        "peM.apellidos || ' ' || peM.nombres as mama_escucha"  # TODO: PAPE-28
+        "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
+        'nombres',
+        'fecha_nacimiento'
     )
 
     return_data = {}
@@ -164,5 +169,12 @@ class EntrevistaController < ApplicationController
 
     render :json => return_data, :layout=> false
 
+  end
+
+  private
+
+  def baby_date(fecha_nacimiento)
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 end
