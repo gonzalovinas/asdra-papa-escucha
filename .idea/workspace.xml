@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5427965-69fd-4d22-9edc-c9b28dcb5437" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb" afterPath="$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -34,7 +32,28 @@
     <favorites_list name="papaescucha" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="entrevista_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47619048" vertical-offset="1134" max-vertical-offset="3582">
+              <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buscar_entrevistas.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.0" vertical-offset="540" max-vertical-offset="3312">
+              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -92,11 +111,11 @@
         <option value="$PROJECT_DIR$/app/models/entrevista.rb" />
         <option value="$PROJECT_DIR$/db/DDL" />
         <option value="db-console:/c965a3e5/ded6e81c-c21b-4238-8ebd-0c48bbfd1afa/" />
-        <option value="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
         <option value="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb" />
+        <option value="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
       </list>
     </option>
   </component>
@@ -723,7 +742,11 @@
       <created>1405333896956</created>
       <updated>1405333896956</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary=".">
+      <created>1405335501988</created>
+      <updated>1405335501988</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -748,7 +771,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="59" width="1346" height="762" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -756,7 +779,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19662058" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21505377" sideWeight="0.4986945" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21505377" sideWeight="0.4986945" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35147744" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25729647" sideWeight="0.50130546" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38629285" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -815,13 +838,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="ruby-line">
-          <url>file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb</url>
-          <line>6</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="86" />
     </breakpoint-manager>
   </component>
@@ -1028,13 +1044,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.121951" vertical-offset="0" max-vertical-offset="2880">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23076923" vertical-offset="0" max-vertical-offset="390">
@@ -1164,22 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6875" vertical-offset="2419" max-vertical-offset="3078">
-          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4871795" vertical-offset="909" max-vertical-offset="2088">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7122507" vertical-offset="3278" max-vertical-offset="5004">
@@ -1191,18 +1184,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5181818" vertical-offset="909" max-vertical-offset="2088">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9145299" vertical-offset="2343" max-vertical-offset="2880">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.01994302" vertical-offset="2635" max-vertical-offset="3078">
+          <caret line="146" column="0" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5897436" vertical-offset="2637" max-vertical-offset="3312">
-          <caret line="158" column="105" selection-start-line="158" selection-start-column="105" selection-end-line="158" selection-end-column="105" />
+        <state vertical-scroll-proportion="2.0" vertical-offset="540" max-vertical-offset="3312">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9047619" vertical-offset="2610" max-vertical-offset="3438">
-          <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.47619048" vertical-offset="1134" max-vertical-offset="3582">
+          <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
           <folding />
         </state>
       </provider>

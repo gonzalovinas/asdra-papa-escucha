@@ -55,11 +55,12 @@ class EntrevistaController < ApplicationController
         :mama_telefonos,
         :mama_domicilio,
         :mama_nombre_apellido,
-        :fecha_nacimiento,
         :nombres,
         'ee.descripcion as descripcion_estado',
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
-        "peM.apellidos || ' ' || peM.nombres as mama_escucha"  # TODO: PAPE-28
+        "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
+       :fecha_nacimiento
+
     )
 
     p = Axlsx::Package.new
@@ -70,8 +71,14 @@ class EntrevistaController < ApplicationController
       sheet.add_row ["Identificador", "Fecha Entrevista", 'Fecha Llamada', 'Lugar',
                      'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
                      'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)',
-                     'Nombre(s) del Bebe', 'Fecha de Nacimiento del Bebe', 'Estado', 'Papa Escucha', 'Mama Escucha']
+                     'Nombre(s) del Hijo/Hija', 'Estado', 'Papa Escucha', 'Mama Escucha',
+                     'Fecha de Nacimiento del Hijo/Hija', 'Edad del Hijo/Hija']
+
       r.each do | row |
+        if !(row[-1].empty? && row[-1])
+          row << baby_date(Date.parse(row[-1]))
+        end
+
         sheet.add_row(row)
       end
       sheet.add_row [ '' ]
@@ -179,6 +186,7 @@ class EntrevistaController < ApplicationController
   private
 
   def baby_date(dob)
+    # TODO: PAPE-30
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
