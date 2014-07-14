@@ -4,6 +4,7 @@ drop table mantenimientos;
 drop table mensajes_novedades;
 drop table padres_escuchan;
 drop table entrevistas_estados;
+drop table entrevistas_ubicaciones;
 
 CREATE TABLE entrevistas
 (
@@ -29,7 +30,7 @@ CREATE TABLE entrevistas
   sexo TEXT,
   nombres TEXT,
   fecha_nacimiento TEXT,
-  ubicacion_actual TEXT,
+  id_ubicacion TEXT,
   institucion_nacimiento TEXT,
   observacion_institucion TEXT,
   meses_nacimiento INTEGER,
@@ -74,6 +75,12 @@ create table entrevistas_estados (
     descripcion text not null
 );
 
+create table entrevistas_ubicaciones (
+    r_id integer primary key,
+    codigo text not null,
+    descripcion text not null
+);
+
 delete from mensajes_novedades;
 delete from mantenimientos;
 delete from padres_escuchan;
@@ -103,6 +110,12 @@ values ('R', 'Realizada');
 
 insert into entrevistas_estados (codigo, descripcion)
 values ('S', 'Suspendida');
+
+insert into entrevistas_ubicaciones (codigo, descripcion)
+values ('I', 'Institucion');
+
+insert into entrevistas_ubicaciones (codigo, descripcion)
+values ('H', 'Hogar');
 
 insert into padres_escuchan (apellidos, nombres, correo, tipo)
 values ('Rigamonti', 'Horacio', 'horacio@rigamonti.com.ar', 'P');

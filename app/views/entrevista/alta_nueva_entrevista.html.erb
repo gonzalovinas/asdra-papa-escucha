@@ -112,8 +112,18 @@ class="pure-form  pure-form-stacked" >
       <legend>
         <img src="/assets/baby.png" width="24px" height="24px">
 
-        Datos del Nacimiento</legend>
-
+        Datos del Hijo/Hija</legend>
+        <label for="ubicacion">Ubicación</label>
+        <select id="id_ubicacion" name="id_ubicacion">
+          <option value=""></option>
+          <%@ubicaciones.each do | ubicacion |%>
+              <option value="<%=ubicacion.r_id%>">
+                <%= "#{ubicacion.descripcion}" %>
+              </option>
+          <%
+             end
+          %>
+        </select>
         <label for="sexo">Sexo</label>
         <select id="sexo" name="sexo">
           <option value=""></option>

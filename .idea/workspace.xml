@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5427965-69fd-4d22-9edc-c9b28dcb5437" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/entrevistas_ubicaciones.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/DDL" afterPath="$PROJECT_DIR$/db/DDL" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/entrevista_estado.rb" afterPath="$PROJECT_DIR$/app/models/entrevista_estado.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="papaescucha.iws" />
@@ -19,7 +26,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/papaescucha@Development__papaescucha.coverage" NAME="Development: papaescucha Coverage Results" MODIFIED="1405333760469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="papaescucha" />
+    <SUITE FILE_PATH="coverage/papaescucha@Development__papaescucha.coverage" NAME="Development: papaescucha Coverage Results" MODIFIED="1405344364494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="papaescucha" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -32,28 +39,7 @@
     <favorites_list name="papaescucha" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="entrevista_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47619048" vertical-offset="1134" max-vertical-offset="3582">
-              <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="buscar_entrevistas.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.0" vertical-offset="540" max-vertical-offset="3312">
-              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -89,7 +75,6 @@
         <option value="$PROJECT_DIR$/travis.yml" />
         <option value="$PROJECT_DIR$/app/models/mantenimientos.rb" />
         <option value="$PROJECT_DIR$/app/views/administracion/configuracion.erb" />
-        <option value="$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/alta_nuevo_mensaje_novedad.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/resumen.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -106,16 +91,18 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/controllers/administracion_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/entrevista_estado.rb" />
         <option value="dbtable:/c965a3e5/ded6e81c-c21b-4238-8ebd-0c48bbfd1afa/..entrevistas_estados" />
         <option value="$PROJECT_DIR$/app/models/entrevista.rb" />
-        <option value="$PROJECT_DIR$/db/DDL" />
-        <option value="db-console:/c965a3e5/ded6e81c-c21b-4238-8ebd-0c48bbfd1afa/" />
-        <option value="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb" />
         <option value="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/entrevistas_ubicaciones.rb" />
+        <option value="$PROJECT_DIR$/app/models/entrevista_estado.rb" />
         <option value="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
+        <option value="$PROJECT_DIR$/db/DDL" />
+        <option value="db-console:/c965a3e5/ded6e81c-c21b-4238-8ebd-0c48bbfd1afa/" />
       </list>
     </option>
   </component>
@@ -746,7 +733,11 @@
       <created>1405335501988</created>
       <updated>1405335501988</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary=".">
+      <created>1405336405451</created>
+      <updated>1405336405452</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -771,8 +762,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="59" width="1346" height="762" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Database Console" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32503888" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32866043" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -780,12 +772,11 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19662058" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21505377" sideWeight="0.4986945" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35147744" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35147744" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25729647" sideWeight="0.50130546" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38629285" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281493" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32503888" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -838,17 +829,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="86" />
+      <option name="time" value="88" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/configuracion.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.044226043" vertical-offset="0" max-vertical-offset="407">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.058441557" vertical-offset="0" max-vertical-offset="616">
@@ -1116,13 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/entrevista_estado.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13810742" vertical-offset="0" max-vertical-offset="391">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///var/lib/gems/1.9.1/gems/actionpack-4.1.1/lib/action_controller/metal/implicit_render.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13810742" vertical-offset="0" max-vertical-offset="450">
@@ -1148,23 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/DDL">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21761657" vertical-offset="432" max-vertical-offset="2034">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/c965a3e5/ded6e81c-c21b-4238-8ebd-0c48bbfd1afa/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="379">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///var/lib/gems/1.9.1/gems/actionpack-4.1.1/lib/action_controller/metal/rescue.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40153453" vertical-offset="239" max-vertical-offset="738">
@@ -1173,29 +1133,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7122507" vertical-offset="3278" max-vertical-offset="5004">
-          <caret line="200" column="0" selection-start-line="200" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
-          <folding>
-            <element signature="e#1629#1655#0#RHTML" expanded="false" />
-            <element signature="e#2002#2028#0#RHTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/administracion/alta_nuevo_padre.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5181818" vertical-offset="909" max-vertical-offset="2088">
           <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9145299" vertical-offset="2343" max-vertical-offset="2880">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1210,16 +1151,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.0" vertical-offset="540" max-vertical-offset="3312">
-          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.71794873" vertical-offset="270" max-vertical-offset="3330">
+          <caret line="29" column="111" selection-start-line="29" selection-start-column="111" selection-end-line="29" selection-end-column="111" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entrevista/consulta_entrevista.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61538464" vertical-offset="1620" max-vertical-offset="2970">
+          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/entrevistas_ubicaciones.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18414322" vertical-offset="0" max-vertical-offset="391">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/entrevista_estado.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://db-console:/c965a3e5/ded6e81c-c21b-4238-8ebd-0c48bbfd1afa/">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30167598" vertical-offset="0" max-vertical-offset="358">
+          <caret line="6" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/DDL">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12432432" vertical-offset="1898" max-vertical-offset="2268">
+          <caret line="108" column="26" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61141306" vertical-offset="1917" max-vertical-offset="5220">
+          <caret line="121" column="23" selection-start-line="121" selection-start-column="23" selection-end-line="121" selection-end-column="23" />
+          <folding>
+            <element signature="e#2002#2028#0#RHTML" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47619048" vertical-offset="1134" max-vertical-offset="3582">
-          <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.36455697" vertical-offset="2250" max-vertical-offset="3654">
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
           <folding />
         </state>
       </provider>

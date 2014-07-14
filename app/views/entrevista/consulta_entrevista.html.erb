@@ -6,10 +6,10 @@
 
    <div id="tabs-consulta-entrevista" >
      <ul>
-       <li><a href="#tab-datos-entrevista">La Entrevista</a></li>
-       <li><a href="#tab-datos-papa">El Papá</a></li>
-       <li><a href="#tab-datos-mama">La Mamá</a></li>
-       <li><a href="#tab-datos-nacimiento">El Nacimiento</a></li>
+       <li><a href="#tab-datos-entrevista">Entrevista</a></li>
+       <li><a href="#tab-datos-papa">Papá</a></li>
+       <li><a href="#tab-datos-mama">Mamá</a></li>
+       <li><a href="#tab-datos-nacimiento">Hijo/Hija</a></li>
        <li><a href="#tab-observaciones-generales">Observaciones</a></li>
      </ul>
 
@@ -96,8 +96,13 @@
     <legend>
       <img src="/assets/baby.png" width="24px" height="24px">
 
-      Datos del Nacimiento</legend>
-
+      Datos del Hijo/Hija</legend>
+    <label for="ubicacion">Ubicación</label>
+    <select id="ubicacion" name="ubicacion">
+      <option value=""></option>
+      <option value="I">Insitución</option>
+      <option value="C">Hogar</option>
+    </select>
     <label for="sexo">Sexo</label>
     <input type="text" id="sexo" name="sexo">
       <option value=""></option>

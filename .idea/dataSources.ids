@@ -32,7 +32,9 @@
       <column name="mama_telefonos" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="mama_correo" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="sexo" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="nombres" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="fecha_nacimiento" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="id_ubicacion" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="institucion_nacimiento" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="observacion_institucion" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="meses_nacimiento" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
@@ -50,6 +52,11 @@
       <column name="codigo" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="descripcion" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <primary-key columns="r_id"/>
+    </table>
+    <table name="entrevistas_ubicaciones" schema="" catalog="" type="TABLE">
+      <column name="r_id" sqlType="INTEGER PRIMERY KEY" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="codigo" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descripcion" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
     </table>
     <table name="mantenimientos" schema="" catalog="" type="TABLE">
       <column name="r_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
