@@ -123,9 +123,8 @@ class AdministracionController < ApplicationController
 
     mn = MensajesNovedades.new
     mn.mensaje = "Bienvenido #{pe.nombres} #{pe.apellidos}!"
-    mn.fecha = Time.now
+    mn.fecha = Time.now.strftime("%d-%m-%Y %H:%M")
     mn.save
-
 
     render :json => {
         :status => "OK",

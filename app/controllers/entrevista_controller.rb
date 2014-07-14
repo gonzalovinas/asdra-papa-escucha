@@ -45,6 +45,7 @@ class EntrevistaController < ApplicationController
     .joins('INNER JOIN entrevistas_estados ee on ee.r_id = entrevistas.id_estado')
     .joins('LEFT JOIN padres_escuchan peP on peP.r_id = entrevistas.id_papa_escucha')
     .joins('LEFT JOIN padres_escuchan peM on peM.r_id = entrevistas.id_mama_escucha')
+    .joins('LEFT JOIN entrevistas_ubicaciones eu on eu.r_id = entrevistas.id_ubicacion')
     .all.pluck(
         'entrevistas.r_id',
         :fecha_entrevista,
@@ -60,7 +61,7 @@ class EntrevistaController < ApplicationController
         'ee.descripcion as descripcion_estado',
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
         "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
-        :ubicacion,
+        'eu.descripcion as descripcion_ubicacion',
         :fecha_nacimiento
 
     )
