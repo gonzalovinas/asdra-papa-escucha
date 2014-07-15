@@ -133,6 +133,7 @@ class EntrevistaController < ApplicationController
     ne.observaciones    = params[:observaciones]
     ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
     ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
+    ne.nombres          = params[:nombres]
     ne.save
 
     render :json => {:status => "OK"}, :layout=> false
