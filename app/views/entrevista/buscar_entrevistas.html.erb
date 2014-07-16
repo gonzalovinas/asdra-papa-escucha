@@ -105,8 +105,7 @@
 
         switch(command) {
             case "Modificar":
-                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
-                //alert('Modificando Entrevista: ' + id);
+                mostrar_actualizar_entrevista(id);
                 break;
             case "Consultar":
                 mostrar_consulta_entrevista(id);
@@ -158,6 +157,20 @@
             contentType: 'text/html',
             success: function(data) {
                 $("#ventana_entrevista").html(data).dialog('open', { title: 'Alta de nueva Entrevista'});
+            }
+        });
+
+    }
+
+    function mostrar_actualizar_entrevista(id_entrevista) {
+
+        $.ajax({
+            url: '/entrevista/actualizar_entrevista',
+            data: { 'id_entrevista' : id_entrevista },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Actualizar Entrevista'});
             }
         });
 

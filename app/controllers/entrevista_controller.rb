@@ -31,6 +31,14 @@ class EntrevistaController < ApplicationController
     render :action => "alta_nueva_entrevista", :layout=> false
   end
 
+  def actualizar_entrevista
+    @papas_escuchan = PadresEscuchan.where("tipo = 'P' and vigente is null").select(:r_id, :nombres, :apellidos)
+    @mamas_escuchan = PadresEscuchan.where("tipo = 'M' and vigente is null").select(:r_id, :nombres, :apellidos)
+    @ubicaciones    = EntrevistasUbicaciones.select(:r_id, :descripcion)
+    @entrevista = Entrevista.find params[:id_entrevista]
+    render :action => "actualizar_entrevista", :layout=> false
+  end
+
   def do_buscar_entrevistas_excel
     filter = ""
     filtrado = "Ninguno"
@@ -104,7 +112,7 @@ class EntrevistaController < ApplicationController
     ne = Entrevista.new
 
     ne.fecha_llamada    = params[:fecha_llamada]
-    ne.fecha_entrevista = params[:fecha_llamada]
+    ne.fecha_entrevista = params[:fecha_entrevista]
     ne.lugar            = params[:lugar]
     ne.id_mama_escucha  = params[:mama_escucha]
     ne.id_papa_escucha  = params[:papa_escucha]
@@ -134,6 +142,48 @@ class EntrevistaController < ApplicationController
     ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
     ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
     ne.nombres          = params[:nombres]
+    ne.save
+
+    render :json => {:status => "OK"}, :layout=> false
+  end
+
+
+  def do_actualizar_entrevista
+
+    ne = Entrevista.find(params[:identificador])
+
+    ne.fecha_llamada    = params[:fecha_llamada]
+    ne.fecha_entrevista = params[:fecha_entrevista]
+    ne.lugar            = params[:lugar]
+    ne.id_mama_escucha  = params[:mama_escucha]
+    ne.id_papa_escucha  = params[:papa_escucha]
+    ne.como_supo        = params[:como_supo]
+    ne.papa_nombre_apellido = params[:papa_nombre_apellido]
+    ne.papa_edad        = params[:papa_edad]
+    ne.papa_ocupacion   = params[:papa_ocupacion]
+    ne.papa_domicilio   = params[:papa_domicilio]
+    ne.papa_telefonos   = params[:papa_telefonos]
+    ne.papa_correo      = params[:papa_correo]
+    ne.mama_nombre_apellido = params[:mama_nombre_apellido]
+    ne.mama_edad        = params[:mama_edad]
+    ne.mama_ocupacion   = params[:mama_ocupacion]
+    ne.mama_domicilio   = params[:mama_domicilio]
+    ne.mama_telefonos   = params[:mama_telefonos]
+    ne.mama_correo      = params[:mama_correo]
+    ne.sexo             = params[:sexo].size>0? params[:sexo][0].upcase : nil
+    ne.fecha_nacimiento = params[:fecha_nacimiento]
+    ne.institucion_nacimiento = params[:institucion_nacimiento]
+    ne.observacion_institucion= params[:observacion_institucion]
+    ne.meses_nacimiento = params[:meses_nacimiento]
+    ne.parto_normal     = params[:parto_normal]? 'S' : 'N'
+    ne.sabia_sdown      = params[:sabia_sdown]? 'S' : 'N'
+    ne.recepcion_flia   = params[:recepcion_flia]
+    ne.patologia_agregada = params[:patologia_agregada]
+    ne.observaciones    = params[:observaciones]
+    ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
+    ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
+    ne.nombres          = params[:nombres]
+
     ne.save
 
     render :json => {:status => "OK"}, :layout=> false

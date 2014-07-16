@@ -29,10 +29,10 @@ class="pure-form  pure-form-stacked" >
    <label for="lugar">Lugar</label>
    <input type="text"  name="lugar" id="lugar" placeholder="Ciudad Autónoma de Buenos Aires"/>
    <label for="mama_escucha">Mamá Escucha</label>
-     <select id="mama_escucha" name="papa_escucha">
+     <select id="mama_escucha" name="mama_escucha">
        <option value=""></option>
        <%@mamas_escuchan.each do | mama_escucha |%>
-           <option value=" <%=mama_escucha.r_id%> ">
+           <option value="<%=mama_escucha.r_id%>">
              <%= "#{mama_escucha.apellidos}, #{mama_escucha.nombres}" %>
            </option>
        <%
@@ -44,7 +44,7 @@ class="pure-form  pure-form-stacked" >
      <select id="papa_escucha" name="papa_escucha">
        <option value=""></option>
        <%@papas_escuchan.each do | papa_escucha |%>
-       <option value=" <%=papa_escucha.r_id%> ">
+       <option value="<%=papa_escucha.r_id%>">
          <%= "#{papa_escucha.apellidos}, #{papa_escucha.nombres}" %>
        </option>
        <%
@@ -248,7 +248,7 @@ class="pure-form  pure-form-stacked" >
             "fecha_llamada"     : { required: true, minlength: 10},
             "fecha_entrevista"  : {
                 //required: true,
-                minlength: 10,
+                minlength: 10
                 //fecha_retroactiva: ["fecha_llamada", "fecha_entrevista"]
             }
         }

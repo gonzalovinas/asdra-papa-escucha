@@ -45,6 +45,10 @@ Rails.application.routes.draw do
   get 'administracion/do_buscar_padres_excel'
 
   get 'entrevista/do_buscar_entrevistas_excel'
+
+  get 'entrevista/actualizar_entrevista'
+
+  post 'entrevista/do_actualizar_entrevista'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

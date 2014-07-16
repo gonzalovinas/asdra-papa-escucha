@@ -22,6 +22,9 @@
            width="24px" height="24px">
       Datos de la Entrevista</legend>
 
+    <label for="identificador">Identificador</label>
+    <input type="text"  name="identificador" id="identificador" value="<%=@entrevista.r_id %>" readonly="readonly"/>
+
     <label for="fecha_llamada">Fecha Llamada</label>
     <input type="text"  name="fecha_llamada" id="fecha_llamada" value="<%=@entrevista.fecha_llamada %>" readonly="readonly"/>
     <label for="fecha_entrevista">Fecha Entrevista</label>
