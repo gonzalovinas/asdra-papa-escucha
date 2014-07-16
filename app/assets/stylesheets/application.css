@@ -101,6 +101,10 @@ input[readonly="readonly"] {
     background: url('excel.png')  no-repeat left !important;
 }
 
+.flexigrid .iconButtonStateChange {
+    background: url('state.png')  no-repeat left !important;
+}
+
 textarea {
     resize: vertical;
 }

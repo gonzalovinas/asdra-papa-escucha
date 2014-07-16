@@ -31,6 +31,21 @@ class EntrevistaController < ApplicationController
     render :action => "alta_nueva_entrevista", :layout=> false
   end
 
+  def cambiar_estado_entrevistas
+    @ids_entrevistas = params[:ids_entrevistas]
+    @estados = EntrevistasEstados.select(:r_id, :descripcion)
+    render :action => "cambiar_estado_entrevistas", :layout=> false
+  end
+
+  def do_cambiar_estados
+    params[:ids_entrevistas].each do | id_entrevista |
+      e = Entrevista.find Integer(id_entrevista)
+      e.id_estado = Integer(params[:id_estado])
+      e.save
+    end
+    render :json => {:status => "OK"}, :layout=> false
+  end
+
   def actualizar_entrevista
     @papas_escuchan = PadresEscuchan.where("tipo = 'P' and vigente is null").select(:r_id, :nombres, :apellidos)
     @mamas_escuchan = PadresEscuchan.where("tipo = 'M' and vigente is null").select(:r_id, :nombres, :apellidos)

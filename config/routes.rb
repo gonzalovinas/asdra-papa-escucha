@@ -49,6 +49,11 @@ Rails.application.routes.draw do
   get 'entrevista/actualizar_entrevista'
 
   post 'entrevista/do_actualizar_entrevista'
+
+  get 'entrevista/cambiar_estado_entrevistas'
+
+  post 'entrevista/do_cambiar_estados'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

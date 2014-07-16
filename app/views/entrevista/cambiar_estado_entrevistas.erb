@@ -1,0 +1,125 @@
+<div class="contenido-tab">
+
+  <form action="" method="post" id="actualizar_entrevista"
+class="pure-form  pure-form-stacked" >
+
+   <fieldset>
+
+     <label for="id_estado">Estado</label>
+     <select id="id_estado" name="id_estado">
+       <%@estados.each do | estado |%>
+           <option value="<%=estado.r_id%>">
+             <%=estado.descripcion%>
+           </option>
+       <%
+          end
+       %>
+     </select>
+
+     </fieldset>
+
+    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar Estado" id="submitbutton"/>
+</form>
+
+  <script type="text/javascript">
+
+
+    function enviar_formulario(sender) {
+
+        $("#actualizar_entrevista").validate();
+
+        if(!$("#actualizar_entrevista").valid()) return;
+
+        var formURL = "entrevista/do_cambiar_estados";
+debugger;
+        var a = <%=raw @ids_entrevistas.to_s%>;
+        var b = $('#id_estado').val();
+
+            $.ajax({
+                url : formURL,
+                type: "POST",
+                data : {
+                    ids_entrevistas: a,
+                    id_estado: b
+                },
+                //contentType:"application/json; charset=utf-8",
+                // dataType:"json",
+                success:function(data, textStatus, jqXHR) {
+                    if(data.status==="OK") {
+                        $("#modal_entrevista_actualizacion_exitosa").dialog({
+                            modal: true,
+                            buttons: {
+                                Ok: function () {
+                                    $(this).dialog("close");
+                                    $("#ventana_entrevista").dialog("close");
+                                }
+                            }
+                        });
+                        $('#flex1').flexReload();
+                    }
+                    else {
+                        mostrar_error_tecnico();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    mostrar_error_tecnico();
+                }
+            });
+    }
+
+    $("#actualizar_entrevista").validate({
+        invalidHandler: function(event, validator) {
+            $("#modal_entrevista_actualizacion_fallida_revisar_campos_obligatorios").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    }
+            );
+        },
+        submitHandler: function() {
+        },
+        rules: {
+            "fecha_llamada"     : { required: true, minlength: 10},
+            "fecha_entrevista"  : {
+                //required: true,
+                minlength: 10
+                //fecha_retroactiva: ["fecha_llamada", "fecha_entrevista"]
+            }
+        }
+    });
+
+
+    $(function() {
+        $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
+        $( '#fecha_entrevista' ).datepicker({ dateFormat: 'dd-mm-yy' });
+        $( '#fecha_nacimiento' ).datepicker({ dateFormat: 'dd-mm-yy' });
+        $( '#papa_edad' ).spinner({
+            max: 120,
+            min: 12
+        });
+        $( '#mama_edad' ).spinner({
+            max: 120,
+            min: 12
+        });
+        $( '#meses_nacimiento' ).spinner({
+            max: 9,
+            min: 5
+        });
+
+    });
+
+</script>
+
+<div id="modal_entrevista_actualizacion_exitosa" title="Mensaje" style="display:none;">
+  La entrevista ha sido actualizada en forma exitosa!
+</div>
+
+
+  <div id="modal_entrevista_actualizacion_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
+    La entrevista no puede ser actualizada porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
+  </div>
+
+</div>

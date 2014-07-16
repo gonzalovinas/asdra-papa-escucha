@@ -34,6 +34,7 @@
                     {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : comandosGrillaEntrevistas },
                     {name: 'Consultar', bclass: 'iconButtonQuery' , onpress : comandosGrillaEntrevistas },
                     {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaEntrevistas },
+                    {name: 'Cambiar Estado' , bclass: 'iconButtonStateChange', onpress : comandosGrillaEntrevistas },
                     {name: 'Notificar', bclass: 'iconButtonNotify', onpress : comandosGrillaEntrevistas },
                     {name: 'Imprimir' , bclass: 'iconButtonPrint' , onpress : comandosGrillaEntrevistas },
                     {separator: true},
@@ -86,7 +87,7 @@
             return;
         }
 
-        if(rows_selected > 1 && command != 'Notificar') {
+        if(rows_selected > 1 && (command != 'Notificar' && command != 'Cambiar Estado')) {
             alert('No puede Consultar/Modificar más de una Entrevista a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
             return;
         }
@@ -104,6 +105,9 @@
         });
 
         switch(command) {
+            case "Cambiar Estado":
+                mostrar_cambiar_estado_entrevista(ids);
+                break;
             case "Modificar":
                 mostrar_actualizar_entrevista(id);
                 break;
@@ -149,17 +153,28 @@
         });
     }
 
+    function mostrar_cambiar_estado_entrevista(ids) {
+        $.ajax({
+            url: '/entrevista/cambiar_estado_entrevistas',
+            data: { 'ids_entrevistas' : ids },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Modificar Estado de Entrevista(s) Seleccionada(s)'});
+            }
+        });
+    }
+
     function mostrar_alta_nueva_entrevista() {
 
         $.ajax({
             url: '/entrevista/alta_nueva_entrevista',
             method: 'GET',
             contentType: 'text/html',
-            success: function(data) {
+            success: function (data) {
                 $("#ventana_entrevista").html(data).dialog('open', { title: 'Alta de nueva Entrevista'});
             }
         });
-
     }
 
     function mostrar_actualizar_entrevista(id_entrevista) {
