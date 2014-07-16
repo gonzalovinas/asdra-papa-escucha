@@ -184,7 +184,6 @@ class="pure-form  pure-form-stacked" >
 
     function enviar_formulario(sender) {
 
-
         $("#alta_nueva_entrevista").validate();
 
         if(!$("#alta_nueva_entrevista").valid()) return;
@@ -206,6 +205,7 @@ class="pure-form  pure-form-stacked" >
                             buttons: {
                                 Ok: function () {
                                     $(this).dialog("close");
+                                    $("#ventana_entrevista").dialog("close");
                                 }
                             }
                         });
