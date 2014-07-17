@@ -5,6 +5,7 @@ drop table mensajes_novedades;
 drop table padres_escuchan;
 drop table entrevistas_estados;
 drop table entrevistas_ubicaciones;
+drop table padres_escuchan_tipos;
 
 CREATE TABLE entrevistas
 (
