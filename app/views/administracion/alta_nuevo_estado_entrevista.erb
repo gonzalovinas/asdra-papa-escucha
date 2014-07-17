@@ -1,0 +1,97 @@
+<div class="contenido-tab">
+
+  <form action="" method="post" id="alta_nuevo_estado_entrevista"
+class="pure-form  pure-form-stacked" >
+
+
+
+     <label for="nombre">Nombre</label>
+     <input type="text"  name="nombre" id="nombre"/>
+     <label for="descripcion_uso">Descriopción Uso</label>
+    <div>
+      <div style="float:left;width:100%;">
+        <textarea style="width:100%"  id="descripcion_uso" placeholder="Escriba aquí la descripción del nuevo estado..." name="descripcion_uso"></textarea>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <input type="button" onClick="enviar_formulario_alta_nuevo_padre();" class="pure-button pure-button-primary" name="submit" value="Aceptar" id="submitbutton"/>
+
+  </form>
+
+  <script type="text/javascript">
+
+    function enviar_formulario_alta_nuevo_padre(sender) {
+
+
+        $("#alta_nuevo_estado_entrevista").validate();
+
+        if(!$("#alta_nuevo_estado_entrevista").valid()) return;
+
+        var postData = $("#alta_nuevo_estado_entrevista").find('input, select, textarea, button').serializeArray();
+
+        var formURL = "administracion/do_alta_nuevo_estado_entrevista";
+
+            $.ajax({
+                url : formURL,
+                type: "POST",
+                data : postData,
+                //contentType:"application/json; charset=utf-8",
+                // dataType:"json",
+                success:function(data, textStatus, jqXHR) {
+                    if(data.status==="OK") {
+                        $("#modal_estado_entrevista_alta_exitosa").dialog({
+                            modal: true,
+                            buttons: {
+                                Ok: function () {
+                                    $(this).dialog("close");
+                                    $("#ventana_administrar_estados_entrevistas").dialog("close");
+                                }
+                            }
+                        });
+                    $('#flex3').flexReload();
+                    }
+                    else {
+                        mostrar_error_tecnico();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    mostrar_error_tecnico();
+                }
+            });
+    }
+
+
+    $("#alta_nuevo_padre").validate({
+        invalidHandler: function(event, validator) {
+            $("#modal_padre_alta_fallida_revisar_campos_obligatorios").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    }
+            );
+        },
+        submitHandler: function() {
+
+        },
+        rules: {
+            "nombre"        : { required: true, minlength: 3 }
+        }
+    });
+
+    $.validator.messages.required = 'Este campo es de carga obligatoria.';
+
+</script>
+
+<div id="modal_estado_entrevista_alta_exitosa" title="Mensaje" style="display:none;">
+  El nuevo Estado de Entrevista ha sido dado de alta en forma exitosa!
+</div>
+
+
+  <div id="modal_estado_entrevista_alta_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
+    El nuevo Estado de Entrevista no puede ser dado de alta porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
+  </div>
+
+</div>

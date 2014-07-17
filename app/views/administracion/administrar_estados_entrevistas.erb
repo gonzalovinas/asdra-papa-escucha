@@ -1,0 +1,147 @@
+<div class="contenido-tab">
+  <table id="flex3" style="display:none"></table>
+
+</div>
+
+<script type="text/javascript">
+
+    $('#ventana_administrar_estados_entrevistas').dialog({
+        autoOpen: false,
+        resizable: false,
+        modal: true,
+        width:'auto',
+        height: 'auto',
+        draggable: false,
+        position: 'center'
+    });
+
+    $("#flex3").flexigrid({
+                url: 'administracion/do_buscar_estados_entrevistas',
+                dataType: 'json',
+                colModel : [
+                    { display: 'Identificador'  , name: 'r_id', width : 70, sortable : true, align: 'right' },
+                    { display: 'Descripcion'    , name: 'descripcion', width : 150, sortable : true, align: 'right' },
+                    { display: 'Uso'            , name: 'descripcion_uso', width : 350, sortable : true, align: 'left' },
+                    { display: 'Color'          , name: 'color', width : 150, sortable : true, align: 'right' },
+                ],
+                buttons : [
+                    {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaEstadosEntrevistas },
+                    {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : comandosGrillaEstadosEntrevistas },
+                    {name: 'Consultar', bclass: 'iconButtonQuery' , onpress : comandosGrillaEstadosEntrevistas },
+                    {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaEstadosEntrevistas },
+                    {separator: true},
+                    {name: 'Seleccionar Todo', bclass: 'iconButtonSelectAll', onpress: comandosGrillaEstadosEntrevistas },
+                    {name: 'Deseleccionar Todo', bclass: 'iconButtonDeselectAll', onpress: comandosGrillaEstadosEntrevistas },
+                    {separator: true}
+                ],
+                searchitems : null, //[],
+                sortname: "r_id",
+                sortorder: "asc",
+                usepager: true,
+                useRp: false,
+                rp: 20,
+                showTableToggleBtn: false,
+                resizable: false,
+                singleSelect: false
+            }
+    );
+
+    function comandosGrillaEstadosEntrevistas(command, grid) {
+
+        var rows = $('.trSelected', grid);
+        var rows_selected = rows.size();
+
+        if(command === "Seleccionar Todo") {
+            $('.bDiv tbody tr', grid).addClass('trSelected');
+            return;
+        }
+
+        if(command === "Deseleccionar Todo") {
+            $('.bDiv tbody tr',grid).removeClass('trSelected');
+            return;
+        }
+
+        if(command === "Nuevo") {
+            mostrar_alta_nuevo_estado_entrevista();
+            return;
+        }
+
+        if(rows_selected == 0) {
+            alert('No hay ningún Estado de Entrevista seleccionadas para iniciar la acción.');
+            return;
+        }
+
+        var id = null;
+        var ids = [];
+
+        rows.each(function() {
+            id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+            ids.push(id);
+        });
+
+        switch(command) {
+            case "Modificar":
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                //alert('Modificando Entrevista: ' + id);
+                break;
+            case "Consultar":
+                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                break;
+            case "Eliminar":
+                enviar_eliminacion_estados_entrevistas(ids);
+                break;
+        }
+    }
+
+    function enviar_eliminacion_estados_entrevistas(ids) {
+        $.ajax({
+            url: 'administracion/eliminar_estados_entrevistas',
+            type: 'POST',
+            data: JSON.stringify({
+                ids: ids
+            }),
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(data) {
+                if(data.status === "OK") {
+                alert('Se eliminaron los Estados de Entrevistas seleccionados.');
+                $('#flex3').flexReload();
+                }
+                else {
+                    mostrar_error_tecnico();
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                mostrar_error_tecnico();
+            }
+        });
+    }
+
+    function mostrar_alta_nuevo_estado_entrevista() {
+
+        $.ajax({
+            url: '/administracion/alta_nuevo_estado_entrevista',
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_administrar_estados_entrevistas").html(data).dialog('open', { title: 'Alta de nuevo Estado de Entrevista'});
+            }
+        });
+
+    }
+
+    function mostrar_consulta_estado_entrevista(id_estado_entrevista) {
+        $.ajax({
+            url: '/administracion/consulta_estado_entrevista',
+            data: { 'id_estado_entrevista' : id_estado_entrevista },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_administrar_estados_entrevistas").html(data).dialog('open', { title: 'Consultando Estado de Entrevista'});
+            }
+        });
+    }
+
+</script>
+
+<div id="ventana_administrar_estados_entrevistas"></div>

@@ -33,7 +33,7 @@ class EntrevistaController < ApplicationController
 
   def cambiar_estado_entrevistas
     @ids_entrevistas = params[:ids_entrevistas]
-    @estados = EntrevistasEstados.select(:r_id, :descripcion)
+    @estados = EntrevistasEstados.where("VIGENTE IS NULL").select(:r_id, :descripcion)
     render :action => "cambiar_estado_entrevistas", :layout=> false
   end
 

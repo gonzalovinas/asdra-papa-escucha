@@ -16,8 +16,27 @@ class AdministracionController < ApplicationController
     render :json => {:status => "OK"}, :layout=> false
   end
 
+  def administrar_estados_entrevistas
+    render :action => "administrar_estados_entrevistas", :layout=> false
+  end
+
   def buscar_padres
     render :action => "buscar_padres", :layout=> false
+  end
+
+  def eliminar_estados_entrevistas
+    ids = params[:ids]
+
+    ids.each do | id |
+      p = EntrevistasEstados.find Integer(id)
+      p.vigente = "N"
+      p.save
+    end
+
+    render :json => {
+        :status => "OK",
+        :data => nil
+    }, :layout=> false
   end
 
   def eliminar_padres
@@ -50,6 +69,7 @@ class AdministracionController < ApplicationController
         :apellidos,
         :nombres,
         :correo,
+        :telefonos,
         :tipo
     )
 
@@ -58,7 +78,7 @@ class AdministracionController < ApplicationController
     wb = p.workbook
 
     wb.add_worksheet(:name => "Padres que Escuchan") do |sheet|
-      sheet.add_row ["Identificador", "Apellido(s)", 'Nombre(s)', 'Correo', 'Papa o Mama']
+      sheet.add_row ["Identificador", "Apellido(s)", 'Nombre(s)', 'Correo', 'Telefono(s)', 'Papa o Mama']
       r.each do | row |
           sheet.add_row(row)
       end
@@ -76,6 +96,31 @@ class AdministracionController < ApplicationController
     end
   end
 
+  def do_buscar_estados_entrevistas
+    r = EntrevistasEstados.where("vigente IS NULL").order("r_ID DESC").all.pluck(
+        :r_id,
+        :descripcion,
+        :descripcion_uso,
+        :color
+    )
+
+    return_data = {}
+
+    return_data[:page] = 1
+
+    return_data[:total] = r.size
+
+    r2 = []
+
+    r.each do | e |
+      r2  << {:cell=>e}
+    end
+
+    return_data[:rows] = r2
+
+    render :json => return_data, :layout=> false
+  end
+
   def do_buscar_padres
     filter = ""
     if !params[:query].empty?
@@ -86,6 +131,7 @@ class AdministracionController < ApplicationController
         :apellidos,
         :nombres,
         :correo,
+        :telefonos,
         :tipo
     )
 
@@ -107,8 +153,28 @@ class AdministracionController < ApplicationController
 
   end
 
+  def alta_nuevo_estado_entrevista
+    render :action => "alta_nuevo_estado_entrevista", :layout=> false
+  end
+
   def alta_nuevo_padre
     render :action => "alta_nuevo_padre", :layout=> false
+  end
+
+  def do_alta_nuevo_estado_entrevista
+    ee = EntrevistasEstados.new
+
+    ee.descripcion     = params[:nombre]
+    ee.descripcion_uso = params[:descripcion_uso]
+    ee.color           = params[:color]
+    ee.save
+
+    render :json => {
+        :status => "OK",
+        :data => {
+            :id_padre_escucha => ee.r_id
+        }
+    }, :layout=> false
   end
 
   def do_alta_nuevo_padre
@@ -117,6 +183,7 @@ class AdministracionController < ApplicationController
     pe.apellidos= params[:apellidos]
     pe.nombres  = params[:nombres]
     pe.correo   = params[:correo]
+    pe.telefonos= params[:telefonos]
     pe.tipo     = params[:tipo]
 
     pe.save

@@ -49,8 +49,10 @@
     </table>
     <table name="entrevistas_estados" schema="" catalog="" type="TABLE">
       <column name="r_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
-      <column name="codigo" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
       <column name="descripcion" sqlType="TEXT" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="descripcion_uso" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="color" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="vigente" sqlType="TEXT" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="r_id"/>
     </table>
     <table name="entrevistas_ubicaciones" schema="" catalog="" type="TABLE">

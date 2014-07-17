@@ -22,7 +22,8 @@
                     { display: 'Identificador'  , name: 'r_id', width : 70, sortable : true, align: 'right' },
                     { display: 'Apellido(s)'    , name: 'apellidos', width : 150, sortable : true, align: 'right' },
                     { display: 'Nombre(s)'      , name: 'nombres', width : 150, sortable : true, align: 'right' },
-                    { display: 'Correo'         , name: 'correo', width : 150, sortable : true, align: 'right' }
+                    { display: 'Correo'         , name: 'correo', width : 150, sortable : true, align: 'right' },
+                    { display: 'Telefono(s)'    , name: 'telefonos', width : 150, sortable : true, align: 'right' }
                 ],
                 buttons : [
                     {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaPadres },
@@ -37,7 +38,8 @@
                 ],
                 searchitems : [
                     { display: 'Correo'     , name: 'correo'    },
-                    { display: 'Apellido(s)', name: 'apellidos' }
+                    { display: 'Apellido(s)', name: 'apellidos' },
+                    { display: 'Telefono(s)', name: 'telefonos' }
                 ],
                 sortname: "r_id",
                 sortorder: "asc",
@@ -152,7 +154,7 @@
     function mostrar_consulta_padre(id_padre) {
         $.ajax({
             url: '/administracion/consulta_padre',
-            data: { 'id_entrevista' : id_padre },
+            data: { 'id_padre' : id_padre },
             method: 'GET',
             contentType: 'text/html',
             success: function(data) {
