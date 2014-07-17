@@ -80,7 +80,7 @@ descripcion_larga text);
 
 create table entrevistas_estados (
     r_id integer primary key,
-    descripcion text not null
+    descripcion text not null,
     descripcion_uso text null,
     color text null,
     vigente TEXT null
