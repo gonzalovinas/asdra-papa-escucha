@@ -59,7 +59,7 @@ create table padres_escuchan (
   vigente TEXT NULL
 );
 
-carete table padres_escuchan_tipos (
+create table padres_escuchan_tipos (
  r_id INTEGER PRIMARY KEY,
  codigo TEXT NOT NULL,
  descripcion TEXT NOT NULL
