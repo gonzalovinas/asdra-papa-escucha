@@ -22,6 +22,8 @@
            width="24px" height="24px">
       Datos de la Entrevista</legend>
 
+    <label for="id_estado">Estado</label>
+    <input type="text" id="id_estado" name="id_estado" readonly="readonly" value="<%=@estado%>"/>
     <label for="fecha_llamada">Fecha Llamada</label>
     <input type="text"  name="fecha_llamada" id="fecha_llamada" value="<%=@entrevista.fecha_llamada %>" readonly="readonly"/>
     <label for="fecha_entrevista">Fecha Entrevista</label>

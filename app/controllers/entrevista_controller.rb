@@ -20,6 +20,9 @@ class EntrevistaController < ApplicationController
 
   def consulta_entrevista
     @entrevista = Entrevista.find params[:id_entrevista]
+
+    @estado = (EntrevistasEstados.find @entrevista.id_estado).descripcion
+
     @papa_escucha = ""
     if @entrevista.id_papa_escucha
       @papa_escucha = (PadresEscuchan.find @entrevista.id_papa_escucha)

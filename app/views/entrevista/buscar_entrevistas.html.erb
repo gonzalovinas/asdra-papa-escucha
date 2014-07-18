@@ -92,6 +92,7 @@
 
         if(rows_selected > 1 &&
                 (command != 'Notificar'
+              && command != 'Imprimir'
               && command != 'Asignar Padre(s) Escucha'
               && command != 'Agendar Entrevista'
               && command != 'Cambiar Estado')) {
@@ -120,6 +121,9 @@
                 break;
             case "Asignar Padre(s) Escucha":
                 mostrar_asignar_padres_entrevista(ids);
+                break;
+            case "Imprimir":
+                alert('Funcionalidad no disponible, esta en desarollo');
                 break;
             case "Modificar":
                 mostrar_actualizar_entrevista(id);

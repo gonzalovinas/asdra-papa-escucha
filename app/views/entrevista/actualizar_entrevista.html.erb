@@ -22,12 +22,11 @@ class="pure-form  pure-form-stacked" >
           width="24px" height="24px">
      Datos de la Entrevista</legend>
 
-     <label for="identificador">Identificador</label>
-     <input type="text"  name="identificador" id="identificador" value="<%=@entrevista.r_id %>" readonly="readonly"/>
+     <input type="hidden"  name="identificador" id="identificador" value="<%=@entrevista.r_id %>" readonly="readonly"/>
 
      <label for="fecha_llamada">Fecha Llamada</label>
      <input type="text"  name="fecha_llamada" id="fecha_llamada" value="<%=@entrevista.fecha_llamada %>" />
-      <input type="text"  name="fecha_entrevista" id="fecha_entrevista" value="<%=@entrevista.fecha_entrevista%>" />
+
      <label for="lugar">Lugar</label>
      <input type="text"  name="lugar" id="lugar" value="<%=@entrevista.lugar%>" />
 
