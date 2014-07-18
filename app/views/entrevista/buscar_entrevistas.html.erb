@@ -35,6 +35,9 @@
                     {name: 'Consultar', bclass: 'iconButtonQuery' , onpress : comandosGrillaEntrevistas },
                     {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaEntrevistas },
                     {name: 'Cambiar Estado' , bclass: 'iconButtonStateChange', onpress : comandosGrillaEntrevistas },
+                    {name: 'Agendar Entrevista' , bclass: 'iconButtonCalendar', onpress : comandosGrillaEntrevistas },
+                    {name: 'Asignar Padre(s) Escucha' , bclass: 'iconButtonParentsChange', onpress : comandosGrillaEntrevistas },
+                    {separator: true},
                     {name: 'Notificar', bclass: 'iconButtonNotify', onpress : comandosGrillaEntrevistas },
                     {name: 'Imprimir' , bclass: 'iconButtonPrint' , onpress : comandosGrillaEntrevistas },
                     {separator: true},
@@ -87,7 +90,11 @@
             return;
         }
 
-        if(rows_selected > 1 && (command != 'Notificar' && command != 'Cambiar Estado')) {
+        if(rows_selected > 1 &&
+                (command != 'Notificar'
+              && command != 'Asignar Padre(s) Escucha'
+              && command != 'Agendar Entrevista'
+              && command != 'Cambiar Estado')) {
             alert('No puede Consultar/Modificar más de una Entrevista a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
             return;
         }
@@ -107,6 +114,12 @@
         switch(command) {
             case "Cambiar Estado":
                 mostrar_cambiar_estado_entrevista(ids);
+                break;
+            case "Agendar Entrevista":
+                mostrar_agendar_entrevista(ids);
+                break;
+            case "Asignar Padre(s) Escucha":
+                mostrar_asignar_padres_entrevista(ids);
                 break;
             case "Modificar":
                 mostrar_actualizar_entrevista(id);
@@ -149,6 +162,31 @@
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 mostrar_error_tecnico();
+            }
+        });
+    }
+
+
+    function mostrar_asignar_padres_entrevista(ids) {
+        $.ajax({
+            url: '/entrevista/asignar_padres_entrevistas',
+            data: { 'ids_entrevistas' : ids },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Asignar Padre(s) Escuchan a Entrevistas Seleccionada(s)'});
+            }
+        });
+    }
+
+    function mostrar_agendar_entrevista(ids) {
+        $.ajax({
+            url: '/entrevista/agendar_entrevistas',
+            data: { 'ids_entrevistas' : ids },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_entrevista").html(data).dialog('open', { title: 'Agendar Entrevista Seleccionada(s)'});
             }
         });
     }

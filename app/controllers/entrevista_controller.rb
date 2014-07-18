@@ -37,10 +37,41 @@ class EntrevistaController < ApplicationController
     render :action => "cambiar_estado_entrevistas", :layout=> false
   end
 
+  def agendar_entrevistas
+    @ids_entrevistas = params[:ids_entrevistas]
+    render :action => "agendar_entrevistas", :layout=> false
+  end
+
+  def asignar_padres_entrevistas
+    @ids_entrevistas = params[:ids_entrevistas]
+    @papas_escuchan = PadresEscuchan.where("tipo = 'P' and vigente is null").select(:r_id, :nombres, :apellidos)
+    @mamas_escuchan = PadresEscuchan.where("tipo = 'M' and vigente is null").select(:r_id, :nombres, :apellidos)
+    render :action => "asignar_padres_entrevistas", :layout=> false
+  end
+
   def do_cambiar_estados
     params[:ids_entrevistas].each do | id_entrevista |
       e = Entrevista.find Integer(id_entrevista)
       e.id_estado = Integer(params[:id_estado])
+      e.save
+    end
+    render :json => {:status => "OK"}, :layout=> false
+  end
+
+  def do_agendar_entrevistas
+    params[:ids_entrevistas].each do | id_entrevista |
+      e = Entrevista.find Integer(id_entrevista)
+      e.fecha_entrevista = params[:fecha_entrevista]
+      e.save
+    end
+    render :json => {:status => "OK"}, :layout=> false
+  end
+
+  def do_asignar_padres_entrevistas
+    params[:ids_entrevistas].each do | id_entrevista |
+      e = Entrevista.find Integer(id_entrevista)
+      e.id_papa_escucha = params[:id_papa_escucha].size > 0? Integer(params[:id_papa_escucha]) : nil
+      e.id_mama_escucha = params[:id_mama_escucha].size > 0? Integer(params[:id_mama_escucha]) : nil
       e.save
     end
     render :json => {:status => "OK"}, :layout=> false
@@ -53,6 +84,7 @@ class EntrevistaController < ApplicationController
     @entrevista = Entrevista.find params[:id_entrevista]
     render :action => "actualizar_entrevista", :layout=> false
   end
+
 
   def do_buscar_entrevistas_excel
     filter = ""

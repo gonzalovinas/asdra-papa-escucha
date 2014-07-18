@@ -64,6 +64,13 @@ Rails.application.routes.draw do
 
   post 'administracion/eliminar_estados_entrevistas'
 
+  get 'entrevista/agendar_entrevistas'
+
+  post 'entrevista/do_agendar_entrevistas'
+
+  get 'entrevista/asignar_padres_entrevistas'
+
+  post 'entrevista/do_asignar_padres_entrevistas'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

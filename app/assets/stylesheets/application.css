@@ -105,6 +105,14 @@ input[readonly="readonly"] {
     background: url('state.png')  no-repeat left !important;
 }
 
+.flexigrid .iconButtonCalendar {
+    background: url('calendar.png')  no-repeat left !important;
+}
+
+.flexigrid .iconButtonParentsChange {
+    background: url('parents.png')  no-repeat left !important;
+}
+
 textarea {
     resize: vertical;
 }
