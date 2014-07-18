@@ -29,9 +29,9 @@
     <label for="lugar">Lugar</label>
     <input type="text"  name="lugar" id="lugar" value="<%=@entrevista.lugar%>" readonly="readonly"/>
     <label for="mama_escucha">Mamá Escucha</label>
-    <input id="mama_escucha" name="mama_escucha" readonly="readonly"/>
+    <input id="mama_escucha" name="mama_escucha" readonly="readonly" value="<%=@mama_escucha%>"/>
     <label for="papa_escucha">Papá Escucha</label>
-    <input type="text" id="papa_escucha" name="papa_escucha" readonly="readonly"/>
+    <input type="text" id="papa_escucha" name="papa_escucha" readonly="readonly" value="<%=@papa_escucha%>"/>
     <label for="como_supo">¿Como supo de ASDRA?</label>
     <textarea rows="4" cols="50" id="como_supo" readonly="readonly" name="como_supo">
       <%=@entrevista.como_supo%>

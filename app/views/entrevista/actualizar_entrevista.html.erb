@@ -27,34 +27,9 @@ class="pure-form  pure-form-stacked" >
 
      <label for="fecha_llamada">Fecha Llamada</label>
      <input type="text"  name="fecha_llamada" id="fecha_llamada" value="<%=@entrevista.fecha_llamada %>" />
-     <label for="fecha_entrevista">Fecha Entrevista</label>
-     <input type="text"  name="fecha_entrevista" id="fecha_entrevista" value="<%=@entrevista.fecha_entrevista%>" />
+      <input type="text"  name="fecha_entrevista" id="fecha_entrevista" value="<%=@entrevista.fecha_entrevista%>" />
      <label for="lugar">Lugar</label>
      <input type="text"  name="lugar" id="lugar" value="<%=@entrevista.lugar%>" />
-
-   <label for="mama_escucha">Mamá Escucha</label>
-     <select id="mama_escucha" name="mama_escucha">
-       <option value=""></option>
-       <%@mamas_escuchan.each do | mama_escucha |%>
-           <option value=" <%=mama_escucha.r_id%> ">
-             <%= "#{mama_escucha.apellidos}, #{mama_escucha.nombres}" %>
-           </option>
-       <%
-          end
-       %>
-     </select>
-
-   <label for="papa_escucha">Papá Escucha</label>
-     <select id="papa_escucha" name="papa_escucha">
-       <option value=""></option>
-       <%@papas_escuchan.each do | papa_escucha |%>
-       <option value=" <%=papa_escucha.r_id%> ">
-         <%= "#{papa_escucha.apellidos}, #{papa_escucha.nombres}" %>
-       </option>
-       <%
-          end
-       %>
-     </select>
 
      <label for="como_supo">¿Como supo de ASDRA?</label>
      <textarea rows="4" cols="50" id="como_supo"  name="como_supo">

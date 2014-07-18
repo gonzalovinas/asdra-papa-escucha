@@ -20,6 +20,18 @@ class EntrevistaController < ApplicationController
 
   def consulta_entrevista
     @entrevista = Entrevista.find params[:id_entrevista]
+    @papa_escucha = ""
+    if @entrevista.id_papa_escucha
+      @papa_escucha = (PadresEscuchan.find @entrevista.id_papa_escucha)
+      @papa_escucha = "#{@papa_escucha.apellidos}, #{@papa_escucha.nombres}"
+    end
+
+    @mama_escucha = ""
+    if @entrevista.id_mama_escucha
+      @mama_escucha = (PadresEscuchan.find @entrevista.id_mama_escucha)
+      @mama_escucha = "#{@mama_escucha.apellidos}, #{@mama_escucha.nombres}"
+    end
+
     render :action => "consulta_entrevista", :layout=> false
   end
 
@@ -200,10 +212,7 @@ class EntrevistaController < ApplicationController
     ne = Entrevista.find(params[:identificador])
 
     ne.fecha_llamada    = params[:fecha_llamada]
-    ne.fecha_entrevista = params[:fecha_entrevista]
     ne.lugar            = params[:lugar]
-    ne.id_mama_escucha  = params[:mama_escucha]
-    ne.id_papa_escucha  = params[:papa_escucha]
     ne.como_supo        = params[:como_supo]
     ne.papa_nombre_apellido = params[:papa_nombre_apellido]
     ne.papa_edad        = params[:papa_edad]
