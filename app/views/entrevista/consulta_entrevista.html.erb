@@ -9,7 +9,8 @@
        <li><a href="#tab-datos-entrevista">Entrevista</a></li>
        <li><a href="#tab-datos-papa">Papá</a></li>
        <li><a href="#tab-datos-mama">Mamá</a></li>
-       <li><a href="#tab-datos-nacimiento">Hijo/Hija</a></li>
+       <li><a href="#tab-datos-nacimiento">Hijo/a</a></li>
+       <li><a href="#tab-hermanos">Hermano/as</a></li>
        <li><a href="#tab-observaciones-generales">Observaciones</a></li>
      </ul>
 
@@ -126,9 +127,20 @@
 
      </div>
 
-   <div id="tab-observaciones-generales">
+     <div id="tab-hermanos">
+       <fieldset>
 
-  <fieldset>
+         <legend>
+           <img src="http://icons.iconarchive.com/icons/anatom5/people-disability/128/seniors-icon.png" width="24" height="24">
+           Datos de los Hermano/as</legend>
+
+         <table id="flex-hermanos" style="display:none"></table>
+       </fieldset>
+     </div>
+   <div id="tab-observaciones-generales">
+     <input type="hidden" id="hermanos_json" name="hermanos_json" value=""/>
+
+     <fieldset>
 
     <legend>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
@@ -149,8 +161,40 @@
 
 
      $(document).ready(function() {
-     $(function () {
-     $("#tabs-consulta-entrevista").tabs();
-     });
+
+         $("#tabs-consulta-entrevista").tabs();
+         debugger;
+
+         var hermanos_json = '<%=raw @entrevista.hermanos_json%>';
+
+         var testData = JSON.parse(hermanos_json);
+
+         $("#flex-hermanos").flexigrid ({
+                     dataType: 'json',
+                     width: 382,
+                     height: 142,
+                     buttons : [
+                         {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : null },
+                         {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : null },
+                         {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : null }
+                     ],
+                     colModel : [
+                         {hide: true, display: 'Identificador', name: 'r_id', width: 100, sortable: true, align: 'left'},
+                         {display: 'Nombre(s)', name: 'nombres', width: 100, sortable: true, align: 'left'},
+                         {display: 'Fecha Nacimiento', name: 'fecha_nacimiento', width: 100, sortable: true, align: 'left'},
+                         {display: '¿Convive?', name: 'convive', width: 100, sortable: true, align: 'left'}
+                     ],
+                     sortorder: "asc",
+                     usepager: false,
+                     useRp: false,
+                     rp: 20,
+                     showTableToggleBtn: false,
+                     resizable: false,
+                     singleSelect: true
+                 }
+         );
+
+         $("#flex-hermanos").flexAddData(testData);
+
      });
 </script>

@@ -79,6 +79,10 @@ class EntrevistaController < ApplicationController
     render :action => "alta_nueva_entrevista", :layout=> false
   end
 
+  def alta_nuevo_hermano
+    render :action => "alta_nuevo_hermano", :layout=> false
+  end
+
   def cambiar_estado_entrevistas
     @ids_entrevistas = params[:ids_entrevistas]
     @estados = EntrevistasEstados.where("VIGENTE IS NULL").select(:r_id, :descripcion)
@@ -237,6 +241,7 @@ class EntrevistaController < ApplicationController
     ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
     ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
     ne.nombres          = params[:nombres]
+    ne.hermanos_json    = params[:hermanos_json]
     ne.save
 
     render :json => {:status => "OK"}, :layout=> false

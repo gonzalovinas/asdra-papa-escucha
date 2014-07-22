@@ -74,6 +74,8 @@ Rails.application.routes.draw do
 
   get 'entrevista/entrevistas_pdf'
 
+  get 'entrevista/alta_nuevo_hermano'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

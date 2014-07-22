@@ -1,0 +1,70 @@
+<div class="contenido-tab">
+
+  <form action="" method="post" id="alta_nuevo_hermano"
+class="pure-form  pure-form-stacked" >
+
+    <label for="nombres_hermano">Nombre(s)</label>
+    <input type="text" id="nombres_hermano" name="nombres_hermano"/>
+
+    <label for="fecha_nacimiento_hermano">Fecha de Nacimiento</label>
+    <input type="text" id="fecha_nacimiento_hermano" name="fecha_nacimiento_hermano"/>
+
+    <label for="convive">Tilde si este Hermano/a convive con el Hijo/a</label>
+    <input type="checkbox" class="pure-checkbox" name="convive" id="convive" />
+
+    <input type="button" onClick="enviar_formulario_alta_nuevo_hermano();" class="pure-button pure-button-primary" name="submit" value="Agregar Hermano/a" id="submitbutton"/>
+</form>
+
+  <script type="text/javascript">
+
+    $( '#fecha_nacimiento_hermano' ).datepicker({ dateFormat: 'dd-mm-yy' });
+
+    function enviar_formulario_alta_nuevo_hermano(sender) {
+        $("#alta_nuevo_hermano").validate();
+
+        if(!$("#alta_nuevo_hermano").valid()) return;
+
+        testData.rows.push({cell : [testData.rows.length+1,  $('#nombres_hermano').val(),  $('#fecha_nacimiento_hermano').val(), $('#checkbox').val()]});
+        testData.total = testData.rows.length;
+        $("#flex-hermanos").flexAddData(testData);
+
+        $("#ventana_hermano").dialog("close");
+    }
+
+    $("#alta_nuevo_hermano").validate({
+        invalidHandler: function(event, validator) {
+            $("#modal_alta_nuevo_hermano_fallida_revisar_campos_obligatorios").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    }
+            );
+        },
+        submitHandler: function() {
+        },
+        rules: {
+            "nombres_hermano": {
+                minlength: 3
+            },
+            "fecha_nacimiento_hermano"  : {
+                minlength: 10
+            }
+        }
+    });
+
+
+</script>
+
+<div id="modal_alta_nuevo_hermano_exitosa" title="Mensaje" style="display:none;">
+  Se agrego al hermano exitosamente!
+</div>
+
+
+  <div id="modal_alta_nuevo_hermano_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
+    La entrevista no puede ser actualizada porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
+  </div>
+
+</div>

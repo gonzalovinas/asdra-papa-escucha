@@ -144,6 +144,8 @@ class="pure-form  pure-form-stacked" >
       <textarea rows="4" cols="50" placeholder="Agregue aqui sus observaciones generales acerca de la entrevista..." id="observaciones" name="observaciones"></textarea>
     </fieldset>
 
+    <input type="hidden" id="hermanos_json" name="hermanos_json" value=""/>
+
     <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta esta Entrevista" id="submitbutton"/>
     <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
@@ -151,11 +153,24 @@ class="pure-form  pure-form-stacked" >
 
   <script type="text/javascript">
 
+      $('#ventana_hermano').dialog({
+          autoOpen: false,
+          resizable: false,
+          modal: true,
+          width:'auto',
+          height: 'auto',
+          draggable: false,
+          position: 'center'
+      });
+
     function enviar_formulario(sender) {
 
         $("#alta_nueva_entrevista").validate();
 
         if(!$("#alta_nueva_entrevista").valid()) return;
+debugger;
+
+        $("#hermanos_json").val(JSON.stringify(testData));
 
         var postData = $("#alta_nueva_entrevista").find('input, select, textarea, button').serializeArray();
 
@@ -222,6 +237,8 @@ class="pure-form  pure-form-stacked" >
     });
 
 
+    var testData = 'sin hermanos cargados';
+
     $(function() {
         $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
         $( '#fecha_entrevista' ).datepicker({ dateFormat: 'dd-mm-yy' });
@@ -239,18 +256,10 @@ class="pure-form  pure-form-stacked" >
             min: 5
         });
 
-
-        var testData = {
-            "page": 1,
-            "total": 20,
-            "rows":
-                    [
-                        {"cell" : ["Juan Carlos I", "2014-09-12", "S", "15"]},
-                        {"cell" : ["Juan Carlos II", "2014-09-12", "S", "15"]},
-                        {"cell" : ["Juan Carlos III", "2014-09-12", "S", "15"]},
-                        {"cell" : ["Juan Carlos IV", "2014-09-12", "S", "15"]},
-                        {"cell" : ["Juan Carlos V", "2014-09-12", "S", "15"]}
-                    ]
+        testData = {
+            page: 1,
+            total: 0,
+            rows: []
         };
 
         $("#flex-hermanos").flexigrid ({
@@ -263,6 +272,7 @@ class="pure-form  pure-form-stacked" >
                         {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaHermanos }
                     ],
                     colModel : [
+                        {hide : true, display: 'Identificador', name: 'r_id', width: 100, sortable: true, align: 'left'},
                         {display: 'Nombre(s)', name: 'nombres', width: 100, sortable: true, align: 'left'},
                         {display: 'Fecha Nacimiento', name: 'fecha_nacimiento', width: 100, sortable: true, align: 'left'},
                         {display: '¿Convive?', name: 'convive', width: 100, sortable: true, align: 'left'}
@@ -271,7 +281,7 @@ class="pure-form  pure-form-stacked" >
                     sortorder: "asc",
                     usepager: false,
                     useRp: false,
-                    rp: 20,
+                    rp: 5,
                     showTableToggleBtn: false,
                     resizable: false,
                     singleSelect: true
@@ -287,7 +297,7 @@ class="pure-form  pure-form-stacked" >
         var rows = $('.trSelected', grid);
         var rows_selected = rows.size();
 
-        if(command === "Nueva") {
+        if(command === "Nuevo") {
             mostrar_alta_nuevo_hermano();
             return;
         }
@@ -307,13 +317,46 @@ class="pure-form  pure-form-stacked" >
 
         switch(command) {
             case "Modificar":
+                alert('Funcionalidad no disponible, se ecuentra en desarrollo actualmente...');
+                return;
                 mostrar_actualizar_hermano(id);
                 break;
             case "Eliminar":
+                alert('Funcionalidad no disponible, se ecuentra en desarrollo actualmente...');
+                return;
                 enviar_eliminacion_hermano(ids);
                 break;
         }
     }
+
+    function mostrar_alta_nuevo_hermano() {
+
+        $.ajax({
+            url: '/entrevista/alta_nuevo_hermano',
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_hermano").html(data).dialog('open', { title: 'Alta de Nuevo Hermano'});
+            }
+        });
+    }
+
+    function mostrar_actualizar_hermano(id) {
+
+    }
+
+    function enviar_eliminacion_hermano(id) {
+
+        for(var i=0;i<testData.rows.length -1;i++) {
+            if(id === testData.rows[i].cell[0]) {
+                testData[i].splice(i, 1);
+            }
+        }
+        testData.total = testData.rows.length;
+        $("#flex-hermanos").flexAddData(testData);
+
+    }
+
 
 </script>
 
@@ -325,5 +368,7 @@ class="pure-form  pure-form-stacked" >
   <div id="modal_entrevista_alta_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
     La entrevista no puede ser dada de alta porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
   </div>
+
+  <div id="ventana_hermano"  style="display:none;"></div>
 
 </div>

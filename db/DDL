@@ -41,6 +41,7 @@ CREATE TABLE entrevistas
   patologia_agregada TEXT,
   observaciones TEXT,
   id_estado TEXT NOT NULL,
+  hermanos_json TEXT,
   vigente TEXT NULL
 );
 CREATE TABLE mensajes_novedades
