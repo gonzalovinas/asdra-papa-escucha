@@ -92,7 +92,6 @@
 
         if(rows_selected > 1 &&
                 (command != 'Notificar'
-              && command != 'Imprimir'
               && command != 'Asignar Padre(s) Escucha'
               && command != 'Agendar Entrevista'
               && command != 'Cambiar Estado')) {
@@ -123,7 +122,7 @@
                 mostrar_asignar_padres_entrevista(ids);
                 break;
             case "Imprimir":
-                alert('Funcionalidad no disponible, esta en desarollo');
+                descargar_entrevistas_pdf(id);
                 break;
             case "Modificar":
                 mostrar_actualizar_entrevista(id);
@@ -133,12 +132,15 @@
                 break;
             case "Notificar":
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
-                //alert('Las ' + rows_selected + ' Entrevistas seleccionadas fueron notificadas.');
                 break;
             case "Eliminar":
                 enviar_eliminacion_padres(ids);
                 break;
         }
+    }
+
+    function descargar_entrevistas_pdf(id) {
+        window.location = '/entrevista/entrevistas_pdf?ids_entrevistas=' + id
     }
 
     function descargar_entrevistas_excel(qtype, query) {

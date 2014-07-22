@@ -41,3 +41,6 @@ gem 'spring',        group: :development
 gem 'axlsx'
 gem 'mime'
 gem 'mime-types'
+gem 'rjb'
+gem 'jasper-rails'
+gem 'hashed-jasper-rails'

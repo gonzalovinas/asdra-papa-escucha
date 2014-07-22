@@ -3,6 +3,39 @@ class EntrevistaController < ApplicationController
   def index
   end
 
+  def entrevistas_pdf
+    id = Integer(params[:ids_entrevistas])
+
+    r = Entrevista.where("entrevistas.r_id = #{id}")
+    .joins('INNER JOIN entrevistas_estados ee on ee.r_id = entrevistas.id_estado')
+    .joins('LEFT JOIN padres_escuchan peP on peP.r_id = entrevistas.id_papa_escucha')
+    .joins('LEFT JOIN padres_escuchan peM on peM.r_id = entrevistas.id_mama_escucha')
+    .joins('LEFT JOIN entrevistas_ubicaciones eu on eu.r_id = entrevistas.id_ubicacion')
+    .all.select(
+        'entrevistas.r_id as identificador',
+        :fecha_entrevista,
+        :fecha_llamada,
+        :lugar,
+        :papa_telefonos,
+        :papa_domicilio,
+        :papa_nombre_apellido,
+        :mama_telefonos,
+        :mama_domicilio,
+        :mama_nombre_apellido,
+        :nombres,
+        'ee.descripcion as descripcion_estado',
+        "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
+        "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
+        'eu.descripcion as descripcion_ubicacion',
+        :fecha_nacimiento
+
+    )
+
+    r_pdf = [r[0].attributes]
+
+    jasper_pdf :resource => r_pdf, :template => 'reports/entrevista', :model => 'entrevistas', :record => 'entrevista'
+  end
+
   def eliminar_entrevistas
     ids = params[:ids]
 
@@ -240,7 +273,6 @@ class EntrevistaController < ApplicationController
     ne.patologia_agregada = params[:patologia_agregada]
     ne.observaciones    = params[:observaciones]
     ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
-    ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
     ne.nombres          = params[:nombres]
 
     ne.save

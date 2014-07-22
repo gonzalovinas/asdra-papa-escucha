@@ -44,9 +44,14 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.0)
+    hashed-jasper-rails (0.3.0)
+      jasper-rails (>= 1.0.3)
+      rails (>= 3.0.7)
     hike (1.2.3)
     htmlentities (4.3.1)
     i18n (0.6.9)
+    jasper-rails (1.0.3)
+      rjb (= 1.4.3)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -81,6 +86,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rjb (1.4.3)
     rubyzip (1.0.0)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -126,10 +132,13 @@ PLATFORMS
 DEPENDENCIES
   axlsx
   coffee-rails (~> 4.0.0)
+  hashed-jasper-rails
+  jasper-rails
   jbuilder (~> 2.0)
   mime
   mime-types
   rails (= 4.1.1)
+  rjb
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

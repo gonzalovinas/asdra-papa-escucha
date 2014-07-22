@@ -3,19 +3,6 @@
   <form action="" method="post" id="alta_nueva_entrevista"
 class="pure-form  pure-form-stacked" >
 
-
-   <!-- <div id="tabs-alta-nueva-entrevista" >
-      <ul>
-        <li><a href="#tab-datos-entrevista">Paso 1 - La Entrevista</a></li>
-        <li><a href="#tab-datos-papa">Paso 2 - El Papá</a></li>
-        <li><a href="#tab-datos-mama">Paso 3 - La Mamá</a></li>
-        <li><a href="#tab-datos-nacimiento">Paso 4 - El Nacimiento</a></li>
-        <li><a href="#tab-observaciones-generales">Paso 5 - Obsrevaciones</a></li>
-      </ul>
-
-
-   <div id="tab-datos-entrevista">
--->
    <fieldset>
    <legend>
      <img src="https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/256/checklist.png"
@@ -56,10 +43,7 @@ class="pure-form  pure-form-stacked" >
    <textarea  rows="4" cols="50" id="como_supo" name="como_supo" placeholder="Se enteró por..."></textarea>
 
    </fieldset>
-   <!--</div>
 
-   <div id="tab-datos-papa">
--->
    <fieldset>
    <legend>
      <img src="assets/padre.png" width="24px" height="24px">
@@ -80,10 +64,6 @@ class="pure-form  pure-form-stacked" >
 
     </fieldset>
 
-   <!--     </div>
-
-    <div id="tab-datos-mama">
--->
     <fieldset>
       <legend>
         <img src="assets/madre.png" width="24px" height="24px">
@@ -104,10 +84,6 @@ class="pure-form  pure-form-stacked" >
         <input type="text"  name="mama_correo" id="mama_correo" />
     </fieldset>
 
-   <!-- </div>
-
-    <div id="tab-datos-nacimiento">
--->
     <fieldset>
       <legend>
         <img src="/assets/baby.png" width="24px" height="24px">
@@ -151,13 +127,17 @@ class="pure-form  pure-form-stacked" >
 
     </fieldset>
 
-   <!--   </div>
-
-    <div id="tab-observaciones-generales">
--->
     <fieldset>
 
-      <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
+      <legend>
+        <img src="http://icons.iconarchive.com/icons/anatom5/people-disability/128/seniors-icon.png" width="24" height="24">
+        Datos de los Hermano/as</legend>
+
+      <table id="flex-hermanos" style="display:none"></table>
+    </fieldset>
+
+    <fieldset>
+
       <legend>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
         Observaciones</legend>
@@ -167,20 +147,9 @@ class="pure-form  pure-form-stacked" >
     <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Dar de Alta esta Entrevista" id="submitbutton"/>
     <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
-<!--    </div>
--->
 </form>
 
   <script type="text/javascript">
-
-    /*
-      $(document).ready(function() {
-          $(function () {
-              $("#tabs-alta-nueva-entrevista").tabs();
-          });
-      });
-     */
-
 
     function enviar_formulario(sender) {
 
@@ -196,8 +165,6 @@ class="pure-form  pure-form-stacked" >
                 url : formURL,
                 type: "POST",
                 data : postData,
-                //contentType:"application/json; charset=utf-8",
-                // dataType:"json",
                 success:function(data, textStatus, jqXHR) {
                     if(data.status==="OK") {
                         $("#modal_entrevista_alta_exitosa").dialog({
@@ -272,7 +239,81 @@ class="pure-form  pure-form-stacked" >
             min: 5
         });
 
+
+        var testData = {
+            "page": 1,
+            "total": 20,
+            "rows":
+                    [
+                        {"cell" : ["Juan Carlos I", "2014-09-12", "S", "15"]},
+                        {"cell" : ["Juan Carlos II", "2014-09-12", "S", "15"]},
+                        {"cell" : ["Juan Carlos III", "2014-09-12", "S", "15"]},
+                        {"cell" : ["Juan Carlos IV", "2014-09-12", "S", "15"]},
+                        {"cell" : ["Juan Carlos V", "2014-09-12", "S", "15"]}
+                    ]
+        };
+
+        $("#flex-hermanos").flexigrid ({
+                    dataType: 'json',
+                    width: 382,
+                    height: 142,
+                    buttons : [
+                        {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaHermanos },
+                        {name: 'Modificar', bclass: 'iconButtonEdit'  , onpress : comandosGrillaHermanos },
+                        {name: 'Eliminar' , bclass: 'iconButtonDelete', onpress : comandosGrillaHermanos }
+                    ],
+                    colModel : [
+                        {display: 'Nombre(s)', name: 'nombres', width: 100, sortable: true, align: 'left'},
+                        {display: 'Fecha Nacimiento', name: 'fecha_nacimiento', width: 100, sortable: true, align: 'left'},
+                        {display: '¿Convive?', name: 'convive', width: 100, sortable: true, align: 'left'}
+                    ],
+                   //    sortname: "r_id",
+                    sortorder: "asc",
+                    usepager: false,
+                    useRp: false,
+                    rp: 20,
+                    showTableToggleBtn: false,
+                    resizable: false,
+                    singleSelect: true
+                }
+        );
+
+        $("#flex-hermanos").flexAddData(testData);
+
     });
+
+    function comandosGrillaHermanos(command, grid) {
+
+        var rows = $('.trSelected', grid);
+        var rows_selected = rows.size();
+
+        if(command === "Nueva") {
+            mostrar_alta_nuevo_hermano();
+            return;
+        }
+
+        else if(rows_selected == 0) {
+            alert('No hay ningun Hermano seleccionado para iniciar la acción.');
+            return;
+        }
+
+        var id = null;
+        var ids = [];
+
+        rows.each(function() {
+            id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+            ids.push(id);
+        });
+
+        switch(command) {
+            case "Modificar":
+                mostrar_actualizar_hermano(id);
+                break;
+            case "Eliminar":
+                enviar_eliminacion_hermano(ids);
+                break;
+        }
+    }
 
 </script>
 

@@ -3,17 +3,21 @@
   <form action="" method="post" id="alta_nuevo_estado_entrevista"
 class="pure-form  pure-form-stacked" >
 
-
-
      <label for="nombre">Nombre</label>
      <input type="text"  name="nombre" id="nombre"/>
-     <label for="descripcion_uso">Descriopción Uso</label>
+     <label for="descripcion_uso">Descripción Uso</label>
     <div>
       <div style="float:left;width:100%;">
         <textarea style="width:100%"  id="descripcion_uso" placeholder="Escriba aquí la descripción del nuevo estado..." name="descripcion_uso"></textarea>
       </div>
       <div style="clear:both;"></div>
     </div>
+
+    <label for="color">Color</label>
+    <input type="color"  name="color" id="color"/>
+
+    <br>
+
     <input type="button" onClick="enviar_formulario_alta_nuevo_padre();" class="pure-button pure-button-primary" name="submit" value="Aceptar" id="submitbutton"/>
 
   </form>
@@ -61,9 +65,9 @@ class="pure-form  pure-form-stacked" >
     }
 
 
-    $("#alta_nuevo_padre").validate({
+    $("#alta_nuevo_estado_entrevista").validate({
         invalidHandler: function(event, validator) {
-            $("#modal_padre_alta_fallida_revisar_campos_obligatorios").dialog({
+            $("#modal_estado_entrevista_alta_fallida_revisar_campos_obligatorios").dialog({
                         modal: true,
                         buttons: {
                             Ok: function () {
@@ -82,6 +86,8 @@ class="pure-form  pure-form-stacked" >
     });
 
     $.validator.messages.required = 'Este campo es de carga obligatoria.';
+
+    $('#color').colorPicker();
 
 </script>
 

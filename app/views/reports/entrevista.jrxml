@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69bf06f7-01d5-4b05-997d-d7c240a6900e">
+	<property name="ireport.zoom" value="1.9487171000000034"/>
+	<property name="ireport.x" value="363"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString language="xPath">
+		<![CDATA[/entrevistas/entrevista]]>
+	</queryString>
+	<field name="fecha_llamada" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha_llamada]]></fieldDescription>
+	</field>
+	<field name="fecha_entrevista" class="java.lang.String">
+		<fieldDescription><![CDATA[fecha_entrevista]]></fieldDescription>
+	</field>
+	<field name="identificador" class="java.lang.String">
+		<fieldDescription><![CDATA[identificador]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="60" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="10" width="440" height="50" uuid="f1ccfcb8-d3e3-466d-a165-200e325ce00e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="440" y="10" width="114" height="50" uuid="0d36c7e2-4b8f-4e52-881d-928d80dd833c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="10" width="440" height="24" uuid="d2130455-688f-40d1-80a8-8bccc43d708c"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="" x="10" y="12" width="430" height="20" uuid="ebe43887-d1e7-4203-a5d4-a9b706ab916c"/>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Entrevista Papá Escuha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="37" width="130" height="20" uuid="c8ae5fba-7bd8-4b64-9c1b-7e180aff0b0b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha: Ultima Modificacion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="37" width="59" height="20" uuid="1a150728-6280-49c1-a76e-4a4215feaa20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha Alta:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="450" y="15" width="96" height="45" uuid="921c2449-a04b-41e0-a654-caedb028412f"/>
+				<imageExpression><![CDATA["/home/gvinas/asdra-papa-escucha/app/views/reports/company-logo.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="302" y="14" width="100" height="20" uuid="41973270-805d-4ea4-b83f-d947ce4b1383"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Número de Orden:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="392" y="14" width="48" height="20" uuid="4f24a79e-1f36-4a89-ab74-ed8a37754a68"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{identificador}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="687" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="0" width="200" height="23" uuid="b6639596-90f9-4d7a-b254-4589415fb0fa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Datos de la Entrevista]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="120" width="174" height="23" uuid="ab096e0d-09c2-4e65-8f6f-058086052794"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Datos del/los Padre/s]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="180" width="174" height="23" uuid="c29cb385-6b21-46c6-9d0e-e92dee54f081"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Datos del Hijo/a]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="240" width="230" height="23" uuid="1e971944-39fa-4f83-890a-ace0c4b98636"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Datos del/los Hermanos/as]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="408" width="230" height="23" uuid="c6854521-c1f5-4c4b-8f63-dd859a7d83ef"/>
+				<textElement verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Observaciones]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="40" width="100" height="20" uuid="f574b31e-5f6e-4e4d-a7f5-b540869620e7"/>
+				<textFieldExpression><![CDATA[$F{fecha_llamada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="40" width="84" height="20" uuid="7c327ed3-d2aa-4af8-8888-7d82dc60c1dd"/>
+				<text><![CDATA[Fecha Llamada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="60" width="100" height="20" uuid="8f706a63-04fc-40de-b48f-82dc3689b852"/>
+				<text><![CDATA[Fecha Entrevista]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="110" y="60" width="114" height="20" uuid="578ce80e-43f2-4c67-b38b-30c8d9f17657"/>
+				<textFieldExpression><![CDATA[$F{fecha_entrevista}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="10" y="263" width="331" height="134" uuid="09089fc5-3c9e-4b71-93ac-cad4d17a16d0"/>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-1" width="554" height="19" uuid="1f1b9831-d3f4-43c0-a901-c5327f359a76"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="3" y="0" width="91" height="20" uuid="fe8fe404-d02f-44ba-954c-bd02b07739c8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha Impresión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="84" y="0" width="100" height="20" uuid="b6bf389d-c68e-4021-bab7-420e1dddfa00"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
