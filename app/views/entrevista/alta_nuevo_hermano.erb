@@ -24,7 +24,14 @@ class="pure-form  pure-form-stacked" >
 
         if(!$("#alta_nuevo_hermano").valid()) return;
 
-        testData.rows.push({cell : [testData.rows.length+1,  $('#nombres_hermano').val(),  $('#fecha_nacimiento_hermano').val(), $('#checkbox').val()]});
+        testData.rows.push({
+            cell: [
+                testData.rows.length+1,
+                $('#nombres_hermano').val(),
+                $('#fecha_nacimiento_hermano').val(),
+                $('#checkbox').val()
+            ]
+        });
         testData.total = testData.rows.length;
         $("#flex-hermanos").flexAddData(testData);
 
