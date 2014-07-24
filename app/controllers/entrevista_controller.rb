@@ -155,8 +155,8 @@ class EntrevistaController < ApplicationController
     .joins('LEFT JOIN entrevistas_ubicaciones eu on eu.r_id = entrevistas.id_ubicacion')
     .all.pluck(
         'entrevistas.r_id',
-        :fecha_entrevista,
         :fecha_llamada,
+        :fecha_entrevista,
         :lugar,
         :papa_telefonos,
         :papa_domicilio,
@@ -178,7 +178,7 @@ class EntrevistaController < ApplicationController
 
 
     wb.add_worksheet(:name => "Entrevistas") do |sheet|
-      sheet.add_row ["Identificador", "Fecha Entrevista", 'Fecha Llamada', 'Lugar',
+      sheet.add_row ["Identificador", "Fecha Llamada", 'Fecha Entrevista', 'Lugar',
                      'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
                      'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)',
                      'Nombre(s) del Hijo/Hija', 'Estado', 'Papa Escucha', 'Mama Escucha',
@@ -302,8 +302,8 @@ class EntrevistaController < ApplicationController
         .joins('LEFT JOIN entrevistas_ubicaciones eu on eu.r_id = entrevistas.id_ubicacion')
         .all.pluck(
         'entrevistas.r_id',
-        :fecha_entrevista,
         :fecha_llamada,
+        :fecha_entrevista,
         'ee.descripcion as descripcion_estado',
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
         "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28

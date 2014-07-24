@@ -49,8 +49,6 @@ class="pure-form  pure-form-stacked" >
                     id_papa_escucha: $('#id_papa_escucha').val(),
                     id_mama_escucha: $('#id_mama_escucha').val()
                 },
-                //contentType:"application/json; charset=utf-8",
-                // dataType:"json",
                 success:function(data, textStatus, jqXHR) {
                     if(data.status==="OK") {
                         $("#modal_entrevista_actualizacion_exitosa").dialog({

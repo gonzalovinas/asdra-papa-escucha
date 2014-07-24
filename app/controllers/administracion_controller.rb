@@ -1,6 +1,25 @@
 
 class AdministracionController < ApplicationController
 
+  def do_mantenimiento
+    plan_mantenimiento = params[:id_mantenimiento]
+
+    case plan_mantenimiento
+      when "MANT00"
+        MensajesNovedades.delete_all
+      when "MANT01"
+        MensajesNovedades.where("r_id not in (select r_id from mensajes_novedades order by r_id desc limit 3)").delete_all
+      else
+        raise Exception
+    end
+
+    render :json => {
+        :status => "OK",
+        :data => nil
+    }, :layout=> false
+
+  end
+
   def mensaje_novedad
     render :action => "alta_nuevo_mensaje_novedad", :layout=> false
   end

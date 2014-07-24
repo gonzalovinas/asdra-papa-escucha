@@ -20,13 +20,13 @@ class="pure-form  pure-form-stacked" >
      <input type="text"  name="smtp_auth_pass" id="smtp_auth_pass"/>
   </fieldset>
 
-    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar Configuración" id="submitbutton"/>
+    <input type="button" onClick="enviar_formulario_configuracion();" class="pure-button pure-button-primary" name="submit" value="Actualizar Configuración" id="submitbutton"/>
 
   </form>
 </div>
   <div class="col-derecha">
 
-    <form action="" method="post" id=""
+    <form action="" method="post" id="mantenimiento"
           class="pure-form  pure-form-stacked" >
 
     <fieldset>
@@ -34,64 +34,55 @@ class="pure-form  pure-form-stacked" >
       Mantenimiento
     </legend>
 
-      <label for="mantenimiento">Mantenimiento</label>
-      <select id="mantemiento">
+      <label for="id_mantenimiento">Mantenimiento</label>
+      <select id="id_mantenimiento">
         <option value=""></option>
         <%@mantenimientos.each do | mantenimiento | %>
         <option title="<%=mantenimiento.descripcion_larga%>" value="<%= mantenimiento.plan %>"><%="#{mantenimiento.plan} - #{mantenimiento.descripcion_corta}"%></option>
         <% end %>
      </select>
-    <input type="button" class="pure-button pure-button-primary" value="Ejecutar Mantenimiento" title="Dependiendo del uso del sistema, algunos Mantenimientos pueden demorar.">
+    <input type="button" onClick="enviar_formulario_mantenimiento();" class="pure-button pure-button-primary" value="Ejecutar Mantenimiento" title="Dependiendo del uso del sistema, algunos Mantenimientos pueden demorar.">
       </fieldset>
     </form>
 
+    <!-- <fieldset>
+        <form action="" method="post" id=""
+              class="pure-form  pure-form-stacked" >
 
 
-    <form action="" method="post" id=""
-          class="pure-form  pure-form-stacked" >
+            <legend>   <img src="assets/analytics.png" width="32px" height="32px">
+              Estado de Redes Sociales
+            </legend>
 
-      <fieldset>
-        <legend>   <img src="assets/analytics.png" width="32px" height="32px">
-          Estado de Redes Sociales
-        </legend>
-
-      </fieldset>
+          </fieldset>
     </form>
-
-
-
+    -->
 
   </div>
 
   <script type="text/javascript">
 
-    function enviar_formulario(sender) {
+    function enviar_formulario_mantenimiento(sender) {
+debugger;
 
+        var id_mantenimiento_val = $('#id_mantenimiento option:selected').val();
 
-        $("#actualizar_configuracion").validate();
+        if(id_mantenimiento_val === '') {
+            alert('Debe seleccionar una Plan de Mantenimiento');
+            return;
+        }
 
-        if(!$("#actualizar_configuracion").valid()) return;
-
-        var postData = $("#actualizar_configuracion").find('input, select, textarea, button').serializeArray();
-
-        var formURL = "administracion/do_actualizar_configuracion";
+        var formURL = "administracion/do_mantenimiento";
 
             $.ajax({
                 url : formURL,
                 type: "POST",
-                data : postData,
-                //contentType:"application/json; charset=utf-8",
-                // dataType:"json",
+                data : {
+                    id_mantenimiento : id_mantenimiento_val
+                },
                 success:function(data, textStatus, jqXHR) {
                     if(data.status==="OK") {
-                        $("#modal_padre_alta_exitosa").dialog({
-                            modal: true,
-                            buttons: {
-                                Ok: function () {
-                                    $(this).dialog("close");
-                                }
-                            }
-                        });
+                        // async
                     }
                     else {
                         mostrar_error_tecnico();
@@ -101,8 +92,16 @@ class="pure-form  pure-form-stacked" >
                     mostrar_error_tecnico();
                 }
             });
-    }
 
+        $("#modal_mantenimiento_encurso").dialog({
+            modal: true,
+            buttons: {
+                Ok: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+    }
 
     $("#actualizar_configuracion").validate({
         invalidHandler: function(event, validator) {
@@ -131,12 +130,13 @@ class="pure-form  pure-form-stacked" >
 
 </script>
 
+  <div id="modal_mantenimiento_encurso" title="Mensaje" style="display:none;">
+    Se inicio el mantenimiento seleccionado, este proceso puede demorar, la ejecución continuará.
+  </div>
 
-
-<div id="modal_padre_alta_exitosa" title="Mensaje" style="display:none;">
-  El nuevo Padré ha sido dado de alta en forma exitosa!
-</div>
-
+  <div id="modal_padre_alta_exitosa" title="Mensaje" style="display:none;">
+    El nuevo Padré ha sido dado de alta en forma exitosa!
+  </div>
 
   <div id="modal_padre_alta_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
     El nuevo Pádre no puede ser dado de alta porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.

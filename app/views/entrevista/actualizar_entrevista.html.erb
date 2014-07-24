@@ -4,18 +4,6 @@
 class="pure-form  pure-form-stacked" >
 
 
-   <!-- <div id="tabs-alta-nueva-entrevista" >
-      <ul>
-        <li><a href="#tab-datos-entrevista">Paso 1 - La Entrevista</a></li>
-        <li><a href="#tab-datos-papa">Paso 2 - El Papá</a></li>
-        <li><a href="#tab-datos-mama">Paso 3 - La Mamá</a></li>
-        <li><a href="#tab-datos-nacimiento">Paso 4 - El Nacimiento</a></li>
-        <li><a href="#tab-observaciones-generales">Paso 5 - Obsrevaciones</a></li>
-      </ul>
-
-
-   <div id="tab-datos-entrevista">
--->
    <fieldset>
    <legend>
      <img src="https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/256/checklist.png"
@@ -36,10 +24,6 @@ class="pure-form  pure-form-stacked" >
      </textarea>
 
    </fieldset>
-   <!--</div>
-
-   <div id="tab-datos-papa">
--->
    <fieldset>
    <legend>
      <img src="assets/padre.png" width="24px" height="24px">
@@ -62,10 +46,6 @@ class="pure-form  pure-form-stacked" >
 
    </fieldset>
 
-   <!--     </div>
-
-    <div id="tab-datos-mama">
--->
     <fieldset>
       <legend>
         <img src="assets/madre.png" width="24px" height="24px">
@@ -88,10 +68,6 @@ class="pure-form  pure-form-stacked" >
 
     </fieldset>
 
-   <!-- </div>
-
-    <div id="tab-datos-nacimiento">
--->
     <fieldset>
       <legend>
         <img src="/assets/baby.png" width="24px" height="24px">
@@ -135,36 +111,33 @@ class="pure-form  pure-form-stacked" >
 
     </fieldset>
 
-   <!--   </div>
-
-    <div id="tab-observaciones-generales">
--->
     <fieldset>
 
-      <!-- TODO: Falta los hermanos "nombre" y "si conviven con el nacido o no" -->
+      <legend>
+        <img src="http://icons.iconarchive.com/icons/anatom5/people-disability/128/seniors-icon.png" width="24" height="24">
+        Datos de los Hermano/as</legend>
+
+      <table id="flex-hermanos" style="display:none"></table>
+    </fieldset>
+
+
+    <fieldset>
+
       <legend>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
         Observaciones</legend>
       <textarea rows="4" cols="50" id="observaciones" name="observaciones" readonly="readonly"><%=@entrevista.observaciones%></textarea>
     </fieldset>
 
-    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar esta Entrevista" id="submitbutton"/>
-    <input type="reset" class="pure-button pure-button-primary" name="reset" value="Limpiar campos" id="resetbutton"/>
 
-<!--    </div>
--->
+    <input type="hidden" id="hermanos_json" name="hermanos_json" value=""/>
+
+
+    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar esta Entrevista" id="submitbutton"/>
+
 </form>
 
   <script type="text/javascript">
-
-    /*
-      $(document).ready(function() {
-          $(function () {
-              $("#tabs-alta-nueva-entrevista").tabs();
-          });
-      });
-     */
-
 
     function enviar_formulario(sender) {
 
