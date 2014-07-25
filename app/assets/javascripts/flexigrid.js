@@ -419,7 +419,7 @@
 				$(t).empty();
 				$(t).append(tbody);
 				this.addCellProp();
-				this.addRowProp();
+				this.addRowProp(p, data);
 				this.rePosDrag();
 				tbody = null;
 				data = null;
@@ -648,7 +648,9 @@
 					pwt: pwt
 				};
 			},
-			addRowProp: function () {
+			addRowProp: function (p) {
+                var grid = this;
+
 				$('tbody tr', g.bDiv).each(function () {
 					$(this).click(function (e) {
 						var obj = (e.target || e.srcElement);
@@ -679,6 +681,9 @@
 							$(this).removeClass('trOver');
 						});
 					}
+                    if(p.processRow) {
+                        p.processRow(grid, p, this);
+                    }
 				});
 			},
 			pager: 0

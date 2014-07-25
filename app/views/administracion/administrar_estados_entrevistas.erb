@@ -22,7 +22,7 @@
                     { display: 'Identificador'  , name: 'r_id', width : 70, sortable : true, align: 'right' },
                     { display: 'Descripcion'    , name: 'descripcion', width : 150, sortable : true, align: 'right' },
                     { display: 'Uso'            , name: 'descripcion_uso', width : 350, sortable : true, align: 'left' },
-                    { hide: true, display: 'Color'          , name: 'color', width : 150, sortable : true, align: 'right' },
+                    { display: 'Color'          , name: 'color', width : 150, sortable : true, align: 'right', process: renderColorColumn },
                 ],
                 buttons : [
                     {name: 'Nuevo'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaEstadosEntrevistas },
@@ -42,9 +42,19 @@
                 rp: 20,
                 showTableToggleBtn: false,
                 resizable: false,
-                singleSelect: false
+                singleSelect: false,
+                pagestat: "Registros desde el {from} al {to} de un total de {total}",
+                pagetext: "Página",
+                outof: "de",
+                height: "auto"
             }
     );
+
+    function renderColorColumn(col, id) {
+        $(col).css("background-color", col.innerHTML);
+        $(col).css("font-family", "monospace,monospace");
+        debugger;
+    }
 
     function comandosGrillaEstadosEntrevistas(command, grid) {
 

@@ -27,7 +27,8 @@
                     { display: 'Mamá Escucha', name: 'mama_escucha', width : 120, sortable : true, align: 'left' },
                     { display: 'Nombre(s) del Hijo/Hija', name: 'nombres', width : 120, sortable : true, align: 'left' },
                     { display: 'Ubicacion', name: 'ubicacion', width : 90, sortable : true, align: 'left' },
-                    { display: 'Edad del Hijo/Hija', name: 'edad', width : 90, sortable : true, align: 'left' }
+                    { display: 'Edad del Hijo/Hija', name: 'edad', width : 90, sortable : true, align: 'left' },
+                    { hide: true, name: 'color_estado', width : 90, sortable : true, align: 'left' }
                 ],
                 buttons : [
                     {name: 'Nueva'    , bclass: 'iconButtonAdd'   , onpress : comandosGrillaEntrevistas },
@@ -59,9 +60,22 @@
                 rp: 20,
                 showTableToggleBtn: false,
                 resizable: false,
-                singleSelect: false
+                singleSelect: false,
+                pagestat: "Registros desde el {from} al {to} de un total de {total}",
+                pagetext: "Página",
+                outof: "de",
+                //height: "auto",
+                findtext: "Búsqueda",
+                nomsg: "Vacío",
+                processRow: renderRow,
+                striped: false
             }
     );
+
+    function renderRow(grid, prototype, row) {
+        var color = $(row).find("[abbr='color_estado']")[0].innerText.trim();
+        $(row).css("background-color", color);
+    }
 
     function comandosGrillaEntrevistas(command, grid) {
 
