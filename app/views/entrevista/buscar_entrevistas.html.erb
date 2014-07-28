@@ -95,7 +95,7 @@
 
     function renderDiffLEColumn(col, id) {
         $(col).css("font-weight", "bold");
-        var diff = parseInt(col.innerHTML);
+        var diff = Math.abs(parseInt(col.innerHTML));
         var diffText = "";
         var unidadesText = "días";
         if(diff == 0) {
@@ -104,12 +104,12 @@
         }
         else {
             if (diff > 31) {
-                diff = (diff % 30 )+ 1;
+                diff = (diff % 30 ) + 1;
                 unidadesText = "meses";
                 diffText = Math.abs(diff) + " " + unidadesText;
             }
             else if(diff > 7) {
-                diff = (diff % 7) +1;
+                diff = (diff % 7) + 1;
                 unidadesText = "semanas";
                 diffText = Math.abs(diff) + " " + unidadesText;
             }
