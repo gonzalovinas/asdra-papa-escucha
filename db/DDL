@@ -11,7 +11,7 @@ CREATE TABLE entrevistas
 (
   r_id INTEGER PRIMARY KEY,
   fecha_llamada TEXT NOT NULL,
-  fecha_entrevista TEXT NOT NULL,
+  fecha_entrevista TEXT,
   lugar TEXT,
   id_mama_escucha INTEGER,
   id_papa_escucha INTEGER,

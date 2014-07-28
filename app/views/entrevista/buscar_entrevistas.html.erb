@@ -108,12 +108,16 @@
                 unidadesText = "meses";
                 diffText = Math.abs(diff) + " " + unidadesText;
             }
-            else if(diff > 7) {
-                diff = (diff % 7) + 1;
+            else if(diff >= 7) {
                 unidadesText = "semanas";
+                if(diff == 7) { 
+                    unidadesText = "semana";
+                }
+                diff = (diff % 7) + 1;
+                
                 diffText = Math.abs(diff) + " " + unidadesText;
             }
-            else if(diff <= 7) {
+            else if(diff < 7) {
                 if(diff == 1) {
                     unidadesText = "día";
                 }

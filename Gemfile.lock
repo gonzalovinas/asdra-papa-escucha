@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/gonzalovinas/jasper-rails
+  revision: 3fbd668276646d558d3214721e715fccbde1bfa4
+  branch: master
+  specs:
+    jasper-rails (1.0.3)
+      rjb (= 1.4.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -50,8 +58,6 @@ GEM
     hike (1.2.3)
     htmlentities (4.3.1)
     i18n (0.6.9)
-    jasper-rails (1.0.3)
-      rjb (= 1.4.3)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -133,7 +139,7 @@ DEPENDENCIES
   axlsx
   coffee-rails (~> 4.0.0)
   hashed-jasper-rails
-  jasper-rails
+  jasper-rails!
   jbuilder (~> 2.0)
   mime
   mime-types

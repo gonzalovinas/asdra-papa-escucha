@@ -215,7 +215,6 @@ class EntrevistaController < ApplicationController
     ne = Entrevista.new
 
     ne.fecha_llamada    = params[:fecha_llamada]
-    ne.fecha_entrevista = params[:fecha_entrevista]
     ne.lugar            = params[:lugar]
     ne.id_mama_escucha  = params[:mama_escucha]
     ne.id_papa_escucha  = params[:papa_escucha]
