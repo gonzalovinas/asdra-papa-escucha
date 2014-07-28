@@ -28,12 +28,15 @@ class EntrevistaController < ApplicationController
         "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
         'eu.descripcion as descripcion_ubicacion',
         :fecha_nacimiento
-
     )
 
     r_pdf = [r[0].attributes]
 
-    jasper_pdf :resource => r_pdf, :template => 'reports/entrevista', :model => 'entrevistas', :record => 'entrevista'
+    jasper_pdf :resource => r_pdf,
+               :template => 'reports/entrevista',
+               :model    => 'entrevistas',
+               :record   => 'entrevista',
+               :filename => "ENTREVISTA_N#{id}_#{Time.now.strftime("%Y%m%d")}.pdf"
   end
 
   def eliminar_entrevistas
@@ -114,6 +117,7 @@ class EntrevistaController < ApplicationController
     params[:ids_entrevistas].each do | id_entrevista |
       e = Entrevista.find Integer(id_entrevista)
       e.fecha_entrevista = params[:fecha_entrevista]
+      e.cantidad_dias    = calcular_cantidad_dias e.fecha_llamada, e.fecha_entrevista
       e.save
     end
     render :json => {:status => "OK"}, :layout=> false
@@ -242,6 +246,7 @@ class EntrevistaController < ApplicationController
     ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
     ne.nombres          = params[:nombres]
     ne.hermanos_json    = params[:hermanos_json]
+    ne.cantidad_dias    = 0
     ne.save
 
     render :json => {:status => "OK"}, :layout=> false
@@ -279,6 +284,7 @@ class EntrevistaController < ApplicationController
     ne.observaciones    = params[:observaciones]
     ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
     ne.nombres          = params[:nombres]
+    ne.cantidad_dias    = calcular_cantidad_dias params[:fecha_llamada], params[:fecha_entrevista]
 
     ne.save
 
@@ -301,6 +307,7 @@ class EntrevistaController < ApplicationController
         .joins('LEFT JOIN padres_escuchan peM on peM.r_id = entrevistas.id_mama_escucha')
         .joins('LEFT JOIN entrevistas_ubicaciones eu on eu.r_id = entrevistas.id_ubicacion')
         .all.pluck(
+        'cantidad_dias',
         'entrevistas.r_id',
         :fecha_llamada,
         :fecha_entrevista,
@@ -337,6 +344,15 @@ class EntrevistaController < ApplicationController
   end
 
   private
+
+  def calcular_cantidad_dias fecha_llamada, fecha_entrevista
+
+    if fecha_llamada && !fecha_llamada.empty? && fecha_entrevista && !fecha_entrevista.empty?
+      (Date.parse(fecha_llamada ) - Date.parse(fecha_entrevista)).to_i
+    else
+      ''
+    end
+  end
 
   def baby_date(dob)
     # TODO: PAPE-30

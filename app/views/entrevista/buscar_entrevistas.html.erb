@@ -19,6 +19,7 @@
                 url: 'entrevista/do_buscar_entrevistas',
                 dataType: 'json',
                 colModel : [
+                    { display: 'Diferencia L/E', name: 'cantidad_dias', width : 70, sortable : true, align: 'right', process: renderDiffLEColumn },
                     { hide: true, display: 'Entrevista', name: 'r_id', width : 70, sortable : true, align: 'right' },
                     { display: 'Fecha Llamada', name: 'fecha_llamada', width : 90, sortable : true, align: 'left' },
                     { display: 'Fecha Entrevista', name: 'fecha_entrevista', width : 90, sortable : true, align: 'left' },
@@ -27,7 +28,7 @@
                     { display: 'Mamá Escucha', name: 'mama_escucha', width : 120, sortable : true, align: 'left' },
                     { display: 'Nombre(s) del Hijo/Hija', name: 'nombres', width : 120, sortable : true, align: 'left' },
                     { display: 'Ubicacion', name: 'ubicacion', width : 90, sortable : true, align: 'left' },
-                    { display: 'Edad del Hijo/Hija', name: 'edad', width : 90, sortable : true, align: 'left' },
+                    { display: 'Edad del Hijo/Hija', name: 'edad', width : 90, sortable : true, align: 'left', process: renderEdad },
                     { hide: true, name: 'color_estado', width : 90, sortable : true, align: 'left' }
                 ],
                 buttons : [
@@ -71,6 +72,56 @@
                 striped: false
             }
     );
+
+    function renderEdad(col, id) {
+        // TODO: PAPE-30
+        var diff = parseInt(col.innerHTML);
+        var unidadMedidaText = "menor de 1 año";
+        if (diff > 1) {
+            unidadMedidaText = "años"
+        }
+        else if (diff == 1) {
+            unidadMedidaText = "año";
+        }
+        else if(isNaN(diff)) {
+            return;
+        }
+        else {
+            col.innerHTML = unidadMedidaText;
+            return;
+        }
+        col.innerHTML = diff + " " + unidadMedidaText
+    }
+
+    function renderDiffLEColumn(col, id) {
+        $(col).css("font-weight", "bold");
+        var diff = parseInt(col.innerHTML);
+        var diffText = "";
+        var unidadesText = "días";
+        if(diff == 0) {
+            diffText = "En el día";
+            unidadesText = "";
+        }
+        else {
+            if (diff > 31) {
+                diff = (diff % 30 )+ 1;
+                unidadesText = "meses";
+                diffText = Math.abs(diff) + " " + unidadesText;
+            }
+            else if(diff > 7) {
+                diff = (diff % 7) +1;
+                unidadesText = "semanas";
+                diffText = Math.abs(diff) + " " + unidadesText;
+            }
+            else if(diff <= 7) {
+                if(diff == 1) {
+                    unidadesText = "día";
+                }
+                diffText = Math.abs(diff) + " " + unidadesText;
+            }
+        }
+        col.innerHTML = diffText;
+    }
 
     function renderRow(grid, prototype, row) {
         var color = $(row).find("[abbr='color_estado']")[0].innerText.trim();
