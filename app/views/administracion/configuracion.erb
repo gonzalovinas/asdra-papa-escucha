@@ -11,16 +11,16 @@ class="pure-form  pure-form-stacked" >
      </legend>
 
      <label for="smtp_ip">Dirección Servidor de Correo Saliente</label>
-     <input type="text"  name="smtp_ip" id="smtp_ip"/>
+     <input type="text"  name="smtp_ip" id="smtp_ip" readonly value="localhost"/>
      <label for="smtp_port">Puerto Servidor de Correo Saliente</label>
-     <input type="text"  name="smtp_ip" id="smtp_port"/>
+     <input type="text"  name="smtp_ip" id="smtp_port" readonly value="25"/>
      <label for="smtp_ip">Usuario de Autenticación Servidor Correo Saliente</label>
-     <input type="text"  name="smtp_auth_usr" id="smtp_auth_usr"/>
+     <input type="text"  name="smtp_auth_usr" id="smtp_auth_usr" readonly value=""/>
      <label for="smtp_pass">Contraseña de Autenticación Servidor Correo Saliente</label>
-     <input type="text"  name="smtp_auth_pass" id="smtp_auth_pass"/>
+     <input type="text"  name="smtp_auth_pass" id="smtp_auth_pass" readonly value=""/>
   </fieldset>
 
-    <input type="button" onClick="enviar_formulario_configuracion();" class="pure-button pure-button-primary" name="submit" value="Actualizar Configuración" id="submitbutton"/>
+    <input type="button" disabled onClick="/*enviar_formulario_configuracion();*/" class="pure-button pure-button-primary" name="submit" value="Actualizar Configuración" id="submitbutton"/>
 
   </form>
 </div>

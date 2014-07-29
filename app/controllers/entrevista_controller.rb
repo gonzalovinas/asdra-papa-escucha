@@ -1,3 +1,5 @@
+require 'net/smtp'
+
 class EntrevistaController < ApplicationController
 
   def index
@@ -39,6 +41,26 @@ class EntrevistaController < ApplicationController
                :filename => "ENTREVISTA_N#{id}_#{Time.now.strftime("%Y%m%d")}.pdf"
   end
 
+  def notificar
+    count = Entrevista.where("vigente is null and id_papa_escucha is null and id_mama_escucha is null").count("r_id")
+    logger.debug "* * * * cantidad entrevistas sin asignar #{count}"
+    
+    if count > 0 
+        r = PadresEscuchan.where("VIGENTE is null").all.pluck(
+            "apellidos || ' ' || nombres",
+            :correo);
+        r.each do | papa |
+            enviar_correo_notificar_entrevistas_sin_asignar "#{papa[0]}", papa[1]        
+        end
+    end
+    
+    render :json => {
+        :status => "OK",
+        :data => count
+    }, :layout=> false
+
+  end
+  
   def eliminar_entrevistas
     ids = params[:ids]
 
@@ -358,4 +380,14 @@ class EntrevistaController < ApplicationController
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
+  
+  def enviar_correo_notificar_entrevistas_sin_asignar nombre, correo
+      logger.debug "enviando correo a: #{nombre} - #{correo}"
+      
+      message = "From: Notificador ASDRA PAPE <pape-noreply@pape-noreply>\nTo: Sr/a. Papa/Mama #{nombre} <#{correo}>\nSubject: Hay entrevistas sin asignar\n\nPara asignarse una o mas entrevistas ingrese a http://asdra.org.ar\n"
+      Net::SMTP.start('localhost') do |smtp|
+        smtp.send_message message, 'pape-noreply@pape-noreply', "#{correo}"
+      end
+  end
+      
 end

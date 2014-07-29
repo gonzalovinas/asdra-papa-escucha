@@ -157,13 +157,15 @@
         if(command === "Nueva") {
             mostrar_alta_nueva_entrevista();
             return;
+        }else if(command === "Notificar") {
+            enviar_notificaciones();
+            return;
         }
 
-        if(rows_selected > 1 &&
-                (command != 'Notificar'
+        if(rows_selected > 1
               && command != 'Asignar Padre(s) Escucha'
               && command != 'Agendar Entrevista'
-              && command != 'Cambiar Estado')) {
+              && command != 'Cambiar Estado') {
             alert('No puede Consultar/Modificar más de una Entrevista a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
             return;
         }
@@ -199,15 +201,38 @@
             case "Consultar":
                 mostrar_consulta_entrevista(id);
                 break;
-            case "Notificar":
-                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
-                break;
             case "Eliminar":
                 enviar_eliminacion_padres(ids);
                 break;
         }
     }
 
+    function enviar_notificaciones() {
+        $.ajax({
+            url: 'entrevista/notificar',
+            type: 'POST',
+            data: null,
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function(data) {
+                if(data.status === "OK") {
+                    debugger;
+                    if(data.data === 0) {
+                        alert('No hay Entrevistas sin asignar Padres que Escuchan, no se notificó a ningún Padre.');
+                    } else {
+                        alert('Se notificaron a los Padres que Escuchan que hay Entrevistas sin asignar.');
+                    }
+                }
+                else {
+                    mostrar_error_tecnico();
+                }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                mostrar_error_tecnico();
+            }
+        });
+    }
     function descargar_entrevistas_pdf(id) {
         window.location = '/entrevista/entrevistas_pdf?ids_entrevistas=' + id
     }
