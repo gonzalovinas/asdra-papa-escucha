@@ -132,4 +132,3 @@ values ('P', 'Papá');
 
 insert into padres_escuchan_tipos (codigo, descripcion)
 values ('M', 'Mamá');
-

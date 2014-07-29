@@ -44,3 +44,7 @@ gem 'mime-types'
 gem 'rjb'
 gem 'jasper-rails', :git => 'https://github.com/gonzalovinas/jasper-rails', :branch => 'master'
 gem 'hashed-jasper-rails'
+#gem 'authlogic'
+#gem 'bcrypt', '~> 3.1.7'
+#gem 'scrypt', '1.2.1'
+
