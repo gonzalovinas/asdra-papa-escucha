@@ -31,7 +31,6 @@ class="pure-form  pure-form-stacked" >
         if(!$("#actualizar_entrevista").valid()) return;
 
         var formURL = "entrevista/do_cambiar_estados";
-debugger;
         var a = <%=raw @ids_entrevistas.to_s%>;
         var b = $('#id_estado').val();
 
