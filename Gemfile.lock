@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gonzalovinas/jasper-rails
-  revision: 3fbd668276646d558d3214721e715fccbde1bfa4
+  revision: 85c40e55ac448e84e4128df769c235e7d444e154
   branch: master
   specs:
     jasper-rails (1.0.3)
