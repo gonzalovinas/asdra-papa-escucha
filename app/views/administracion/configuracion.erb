@@ -6,23 +6,35 @@
 class="pure-form  pure-form-stacked" >
 
    <fieldset>
-     <legend>   <img src="assets/settings.png" width="32px" height="32px">
-       Configuración
+     <legend>   <img src="http://www.clipartbest.com/cliparts/4c9/dBG/4c9dBGdcE.png" width="32px" height="32px">
+       Servidor de Correo Saliente
      </legend>
 
-     <label for="smtp_ip">Dirección Servidor de Correo Saliente</label>
+     <label for="smtp_ip">Dirección</label>
      <input type="text"  name="smtp_ip" id="smtp_ip" readonly value="localhost"/>
-     <label for="smtp_port">Puerto Servidor de Correo Saliente</label>
+     <label for="smtp_port">Puerto</label>
      <input type="text"  name="smtp_ip" id="smtp_port" readonly value="25"/>
-     <label for="smtp_ip">Usuario de Autenticación Servidor Correo Saliente</label>
+     <label for="smtp_ip">Usuario</label>
      <input type="text"  name="smtp_auth_usr" id="smtp_auth_usr" readonly value=""/>
-     <label for="smtp_pass">Contraseña de Autenticación Servidor Correo Saliente</label>
+     <label for="smtp_pass">Contraseña</label>
      <input type="text"  name="smtp_auth_pass" id="smtp_auth_pass" readonly value=""/>
   </fieldset>
+   <fieldset>
+     <legend>   <img src="https://cdn1.iconfinder.com/data/icons/New-Social-Media-Icon-Set-V11/512/email.png" width="32px" height="32px">
+       Mensajes de Correo
+     </legend>
 
-    <input type="button" disabled onClick="/*enviar_formulario_configuracion();*/" class="pure-button pure-button-primary" name="submit" value="Actualizar Configuración" id="submitbutton"/>
+     <label for="smtp_ip">Remitente</label>
+     <input type="text"  name="smtp_ip" id="smtp_ip" readonly value="Notificador PAPE ASDRA"/>
+     <label for="smtp_port">Asunto</label>
+     <input type="text"  name="smtp_ip" id="smtp_port" readonly value="Sr/a. Papá/Mamá"/>
+     
+  </fieldset>
+
+    <input type="button" disabled onClick="/*enviar_formulario_configuracion();*/" class="pure-button pure-button-primary" name="submit" value="Actualizar Todas las Configuraciones" id="submitbutton"/>
 
   </form>
+  
 </div>
   <div class="col-derecha">
 

@@ -48,6 +48,9 @@ class AdministracionController < ApplicationController
 
     ids.each do | id |
       p = EntrevistasEstados.find Integer(id)
+      
+      next if p.id == 1 # TODO: FIXME: Estado Id=1 Creada/Pendiente no se puede borrar...
+      
       p.vigente = "N"
       p.save
     end
