@@ -5,6 +5,19 @@ class WelcomeController < ApplicationController
   def index
   end
 
+  def login
+      render :action => "login", :layout => false
+  end
+  
+  def do_login
+    if params[:username] == "GGV"
+        session[:logged] = "SI"
+    end
+    
+    redirect_to welcome_index_path
+  end
+  
+    
   def resumen
     @mensajes_novedades = MensajesNovedades.last(5).reverse
     @cantidad_entrevistas = Entrevista.count

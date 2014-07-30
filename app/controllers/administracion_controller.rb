@@ -4,7 +4,7 @@ class AdministracionController < ApplicationController
   def do_mantenimiento
     plan_mantenimiento = params[:id_mantenimiento]
 
-    case plan_mantenimiento
+    case plan_mantenimiento # TODO: Refactor!
       when "MANT00"
         MensajesNovedades.delete_all
       when "MANT01"

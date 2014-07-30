@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  get 'welcome/login'
+  
+  post 'welcome/do_login'
+  
   get 'welcome/index'
 
   get 'welcome/resumen'
