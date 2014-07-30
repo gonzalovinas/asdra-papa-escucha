@@ -86,7 +86,7 @@
         }
 
         if(rows_selected > 1 && command != 'Notificar') {
-            alert('No puede Consultar/Modificar más de una Padre a la vez, quite de su selección ' + (rows_selected-1) + ' Entrevistas.')
+            alert('No puede Consultar/Modificar más de una Padre a la vez, quite de su selección ' + (rows_selected-1) + ' Padres.')
             return;
         }
         else if(rows_selected == 0) {
@@ -105,7 +105,6 @@
         switch(command) {
             case "Modificar":
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
-                //alert('Modificando Entrevista: ' + id);
                 break;
             case "Consultar":
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');

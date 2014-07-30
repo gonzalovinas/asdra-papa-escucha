@@ -202,7 +202,7 @@
                 mostrar_consulta_entrevista(id);
                 break;
             case "Eliminar":
-                enviar_eliminacion_padres(ids);
+                enviar_eliminacion_entrevistas(ids);
                 break;
         }
     }
@@ -241,7 +241,7 @@
         window.location = '/entrevista/do_buscar_entrevistas_excel?qtype=' + qtype + '&query=' + query;
     }
 
-    function enviar_eliminacion_padres(ids) {
+    function enviar_eliminacion_entrevistas(ids) {
         $.ajax({
             url: 'entrevista/eliminar_entrevistas',
             type: 'POST',

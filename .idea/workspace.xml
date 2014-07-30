@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e48761b-a684-4cc7-8759-b67c03a83b41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" afterPath="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="papaescucha.iws" />
@@ -30,11 +31,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="entrevista_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="entrevista_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6126878" vertical-offset="6581" max-vertical-offset="7182">
-              <caret line="386" column="116" selection-start-line="386" selection-start-column="116" selection-end-line="386" selection-end-column="116" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6581" max-vertical-offset="7182">
+              <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DDL" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/DDL">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16274865" vertical-offset="162" max-vertical-offset="2520">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="administracion_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/administracion_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="4266">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buscar_padres.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.518518" vertical-offset="2632" max-vertical-offset="3204">
+              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alta_nueva_entrevista.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3018868" vertical-offset="5477" max-vertical-offset="6678">
+              <caret line="314" column="26" selection-start-line="314" selection-start-column="18" selection-end-line="314" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buscar_entrevistas.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.4444447" vertical-offset="4173" max-vertical-offset="6318">
+              <caret line="243" column="43" selection-start-line="243" selection-start-column="43" selection-end-line="243" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -63,12 +117,10 @@
         <option value="$PROJECT_DIR$/app/views/entrevista/actualizar_entrevista.html.erb" />
         <option value="$PROJECT_DIR$/app/views/entrevista/asignar_padres_entrevistas.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/flexigrid.js" />
         <option value="$PROJECT_DIR$/app/controllers/administracion_controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/jasper_rails_enhancement.rb" />
         <option value="$PROJECT_DIR$/app/views/administracion/administrar_estados_entrevistas.erb" />
-        <option value="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
         <option value="$USER_HOME$/jasper-rails/lib/jasper-rails.rb" />
         <option value="$PROJECT_DIR$/app/views/administracion/configuracion.erb" />
         <option value="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
@@ -86,6 +138,8 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb" />
       </list>
     </option>
   </component>
@@ -259,6 +313,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="papaescucha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asdra-papa-escucha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entrevista" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="papaescucha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asdra-papa-escucha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="administracion" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -565,7 +663,11 @@
       <created>1406680116643</created>
       <updated>1406680116643</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=".">
+      <created>1406680251778</created>
+      <updated>1406680251778</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -711,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.1520979" vertical-offset="3093" max-vertical-offset="6678">
-          <caret line="167" column="0" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4339623" vertical-offset="286" max-vertical-offset="2556">
@@ -737,6 +832,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35064936" vertical-offset="378" max-vertical-offset="2142">
           <caret line="27" column="177" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="177" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -878,6 +974,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.049861494" vertical-offset="0" max-vertical-offset="361">
           <caret line="1" column="19" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -966,17 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/DDL">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53125" vertical-offset="162" max-vertical-offset="2520">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.78702164" vertical-offset="355" max-vertical-offset="972">
@@ -987,10 +1073,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/entrevista_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6126878" vertical-offset="6581" max-vertical-offset="7182">
-          <caret line="386" column="116" selection-start-line="386" selection-start-column="116" selection-end-line="386" selection-end-column="116" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6581" max-vertical-offset="7182">
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/administracion_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="4266">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.518518" vertical-offset="2632" max-vertical-offset="3204">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3018868" vertical-offset="5477" max-vertical-offset="6678">
+          <caret line="314" column="26" selection-start-line="314" selection-start-column="18" selection-end-line="314" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/entrevista/buscar_entrevistas.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.4444447" vertical-offset="4173" max-vertical-offset="6318">
+          <caret line="243" column="43" selection-start-line="243" selection-start-column="43" selection-end-line="243" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/DDL">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16274865" vertical-offset="162" max-vertical-offset="2520">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>
