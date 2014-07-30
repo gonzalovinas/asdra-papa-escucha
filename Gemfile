@@ -43,6 +43,6 @@ gem 'mime'
 gem 'mime-types'
 gem 'rjb'
 gem 'jasper-rails', :git => 'https://github.com/gonzalovinas/jasper-rails', :branch => 'master'
-gem 'hashed-jasper-rails'
+gem 'hashed-jasper-rails', :git => 'https://github.com/gonzalovinas/hashed-jasper-rails', :branch => 'master'
 
 
