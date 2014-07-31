@@ -10,11 +10,22 @@ class WelcomeController < ApplicationController
   end
   
   def do_login
+    session[:iniciado]=true
     if params[:username] == "GGV"
         session[:logged] = "SI"
+
+        render :json => {
+            :status => "OK",
+            :data => nil
+        }, :layout=> false
+
+    else
+      render :json => {
+          :status => "ERROR",
+          :data => nil
+      }, :layout=> false
+
     end
-    
-    redirect_to welcome_index_path
   end
   
     

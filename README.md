@@ -24,30 +24,25 @@ Para más información sobre ASDRA visitar http://asdra.org.ar/
 
 
 
-<h2>Ubuntu Deploy</h2>
+<h2>Ubuntu (14.x Thar) Deploy</h2>
 <ul>
 <li>apache2</li>
 <li>sqlite3</li>
 <li>git-core</li>
 </ul>
-<br>
 <ul>
 <li>ruby 1.9.1</li>
 <li>default-jdk</li>
-<li>default-jre</li>
+<li>default-jre (remember to set JAVA_HOME environment variable (ex: export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386)</li>
 <li>bundler</li>
 <li>libxml2-dev  (nokogiri gem)</li>
 <li>libxslt1-dev (nokogiri gem)</li>
+<li>libsqlite3-dev</li>
 </ul>
-<br>
 <ul>
 <li>passenger</li>
 </ul>
-<br>
 <ul>
 <li>bundle install</li>
 </ul>
-
-<br>
-
 </html>

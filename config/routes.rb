@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'welcome/login'
   
-  post 'welcome/do_login'
+  post '/welcome/do_login'
   
   get 'welcome/index'
 
