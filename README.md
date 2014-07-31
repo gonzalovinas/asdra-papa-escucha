@@ -22,6 +22,32 @@ Puede ingresar al sitio de reporte de incidencias en: http://youtrack.myzeta.tk/
 Para más información sobre ASDRA visitar http://asdra.org.ar/
 <br>
 
+
+
+<h2>Ubuntu Deploy</h2>
+<ul>
+<li>apache2</li>
+<li>sqlite3</li>
+<li>git-core</li>
+</ul>
+<br>
+<ul>
+<li>ruby 1.9.1</li>
+<li>default-jdk</li>
+<li>default-jre</li>
+<li>bundler</li>
+<li>libxml2-dev  (nokogiri gem)</li>
+<li>libxslt1-dev (nokogiri gem)</li>
+</ul>
+<br>
+<ul>
+<li>passenger</li>
+</ul>
+<br>
+<ul>
+<li>bundle install</li>
+</ul>
+
 <br>
 
 </html>
