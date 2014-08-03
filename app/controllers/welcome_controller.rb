@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
   
   def do_login
     session[:iniciado]=true
-    if params[:username] == "GGV"
+    if params[:password] == "asdrapape2014"
         session[:logged] = "SI"
 
         render :json => {

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     session[:iniciado]=true
 
     if !(session[:logged] == "SI")
-      redirect_to welcome_login_path
+      render :action => 'redirect_login', :layout=>'redirect_login'
     end
 
   end

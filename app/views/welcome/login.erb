@@ -15,12 +15,8 @@
 <body>
     <form id="inicio_sesion" name="inicio_sesion" action="" method="">
         
-    <label for="username">Usuario</label>
-    <input type="text" id="username" name="username" placeholder="Escriba su nombre de usuario"/>
-    
     <label for="password">Contraseña</label>
     <input type="password" id="password" name="password" />
-
 
     <input type="button" onClick="iniciar_sesion();" class="pure-button pure-button-primary" name="submit" value="Iniciar" id="submitbutton"/>
 
@@ -39,9 +35,7 @@
 
 <script type="text/javascript">
 
-
     function iniciar_sesion(sender) {
-
 
         $("#inicio_sesion").validate();
 
@@ -53,7 +47,6 @@
             url : formURL,
             type: "POST",
             data : {
-                username: $("#username").val(),
                 password: $("#password").val()
             },
             success:function(data, textStatus, jqXHR) {
@@ -88,7 +81,6 @@
         submitHandler: function() {
         },
         rules: {
-            "usrename"     : { required: true, minlength: 3},
             "password"     : { required: true, minlength: 3}
         }
     });
