@@ -74,7 +74,7 @@
                         return false;
                     }
                     else {
-                        ui.panel.html('<div><img src="/assets/loading.gif" /></div>');
+                        ui.panel.html('<div><img src="<%=image_url('loading.gif')%>" /></div>');
                         return true;
                     }
                 }
@@ -87,7 +87,8 @@
                         return false;
                     }
                     else {
-                        ui.panel.html('<center><div><img src="/assets/loading.gif" /></div></center>');
+                        ui.panel.html('<div><img src="<%=image_url('loading.gif')%>" /></div>');
+
                         return true;
                     }
                 }

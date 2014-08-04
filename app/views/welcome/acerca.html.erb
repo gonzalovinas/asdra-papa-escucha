@@ -1,8 +1,8 @@
   <div id="tab-acerca" >
     <ul>
-      <li><a href="/welcome/acerca_sistema">Sistema y Autor</a></li>
-      <li><a href="/welcome/acerca_marcas">Marcas, Plataformas y Comunidad</a></li>
-      <li><a href="/welcome/acerca_soporte">Soporte</a></li>
+      <li><a href="<%=welcome_acerca_sistema_path%>>">Sistema y Autor</a></li>
+      <li><a href="<%=welcome_acerca_marcas_path%>">Marcas, Plataformas y Comunidad</a></li>
+      <li><a href="<%=welcome_acerca_soporte_path%>">Soporte</a></li>
     </ul>
   </div>
 
@@ -19,7 +19,7 @@
                         return false;
                     }
                     else {
-                        ui.panel.html('<div><img src="/assets/loading.gif" /></div>');
+                        ui.panel.html('<div><img src="<%=image_url('loading.gif')%>" /></div>');
                         return true;
                     }
                 }

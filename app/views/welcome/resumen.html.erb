@@ -7,7 +7,7 @@
   <fieldset>
     <legend>Ultimas Novedades
 
-      <a href="/welcome/mensajes_novedades_rss">
+      <a href="<%=welcome_mensajes_novedades_rss_path%>>">
         <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678060-rss-20.png" alt="Novedades RSS" title="Suscribir a las novedades RSS"/>
       </a>
     </legend>
@@ -26,7 +26,7 @@
               <%= DateTime.now.strftime("%H:%M:%S") %>
               <br>
               <div style="font-size: large">
-                Nadie publicó novedades aún! <img src="assets/smiley_bad.png" width="24" height="24">
+                Nadie publicó novedades aún! <img src="<%=image_url('smiley_bad.png')%>" width="24" height="24">
               </div>
             </div>
           </article>
@@ -58,7 +58,7 @@
   <fieldset>
 
     <legend>Estadísticas
-        <img src="/assets/statistics.png" width="20px" height="20px" alt="Estadísticas"/>
+        <img src="<%=image_url('statistics.png')%>" width="20px" height="20px" alt="Estadísticas"/>
     </legend>
 
     <center>
