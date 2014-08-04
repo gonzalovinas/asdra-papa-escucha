@@ -16,7 +16,7 @@
     });
 
     $("#flex2").flexigrid({
-                url: 'administracion/do_buscar_padres',
+                url: '<%=administracion_do_buscar_padres_path%>',
                 dataType: 'json',
                 colModel : [
                     { hide: true, display: 'Identificador'  , name: 'r_id', width : 70, sortable : true, align: 'right' },
@@ -116,7 +116,7 @@
     }
 
     function descargar_padres_excel(qtype, query) {
-        window.location = '/administracion/do_buscar_padres_excel?qtype=' + qtype + '&query=' + query;
+        window.location = <%=administracion_do_buscar_padres_excel_path%> + '?qtype=' + qtype + '&query=' + query;
     }
 
     function enviar_eliminacion_padres(ids) {
@@ -146,7 +146,7 @@
     function mostrar_alta_nuevo_padre() {
 
         $.ajax({
-            url: '/administracion/alta_nuevo_padre',
+            url: '<%=administracion_alta_nuevo_padre_path%>',
             method: 'GET',
             contentType: 'text/html',
             success: function(data) {
