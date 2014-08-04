@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e48761b-a684-4cc7-8759-b67c03a83b41" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" afterPath="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="papaescucha.iws" />
@@ -49,14 +50,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entrevista.jrxml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="entrevista.jrxml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reports/entrevista.jrxml">
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33211678" vertical-offset="736" max-vertical-offset="2646">
+            <state vertical-scroll-proportion="-3.5686274" vertical-offset="736" max-vertical-offset="2646">
               <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buscar_padres.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36363637" vertical-offset="1916" max-vertical-offset="3204">
+              <caret line="118" column="79" selection-start-line="118" selection-start-column="79" selection-end-line="118" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -108,7 +119,6 @@
         <option value="$PROJECT_DIR$/app/views/welcome/acerca.html.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/acerca_sistema.html.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/acerca_soporte.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/administrar_estados_entrevistas.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/alta_nuevo_estado_entrevista.erb" />
         <option value="$PROJECT_DIR$/app/views/administracion/alta_nuevo_mensaje_novedad.erb" />
@@ -124,6 +134,7 @@
         <option value="$PROJECT_DIR$/app/views/administracion/configuracion.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/resumen.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reports/entrevista.jrxml" />
+        <option value="$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb" />
       </list>
     </option>
   </component>
@@ -882,7 +893,11 @@
       <created>1407174701519</created>
       <updated>1407174701519</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary=".">
+      <created>1407174705386</created>
+      <updated>1407174705386</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1195,13 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7272725" vertical-offset="2874" max-vertical-offset="3204">
-          <caret line="18" column="61" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/administracion/alta_nuevo_estado_entrevista.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.4174229" vertical-offset="1411" max-vertical-offset="1962">
@@ -1227,6 +1235,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.71790236" vertical-offset="395" max-vertical-offset="2142">
           <caret line="44" column="67" selection-start-line="44" selection-start-column="67" selection-end-line="44" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1319,8 +1328,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33211678" vertical-offset="736" max-vertical-offset="2646">
+        <state vertical-scroll-proportion="-3.5686274" vertical-offset="736" max-vertical-offset="2646">
           <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/administracion/buscar_padres.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36363637" vertical-offset="1916" max-vertical-offset="3204">
+          <caret line="118" column="79" selection-start-line="118" selection-start-column="79" selection-end-line="118" selection-end-column="79" />
           <folding />
         </state>
       </provider>
