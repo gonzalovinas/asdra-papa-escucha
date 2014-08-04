@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e48761b-a684-4cc7-8759-b67c03a83b41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/entrevista.jrxml" afterPath="$PROJECT_DIR$/app/views/reports/entrevista.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/welcome/resumen.html.erb" afterPath="$PROJECT_DIR$/app/views/welcome/resumen.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="papaescucha.iws" />
@@ -880,7 +878,11 @@
       <created>1407174555723</created>
       <updated>1407174555723</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary=".">
+      <created>1407174701519</created>
+      <updated>1407174701519</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
