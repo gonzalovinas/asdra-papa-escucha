@@ -54,7 +54,7 @@
                     alert('No se puede iniciar sesion con las credenciales ingresadas!');
                 }
                 else if(data.status==="OK") {
-                    window.location="/";
+                    window.location="<%=welcome_index_path%>";
                 }
                 else {
                     mostrar_error_tecnico();
