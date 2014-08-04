@@ -172,7 +172,7 @@ class="pure-form  pure-form-stacked" >
 
         var postData = $("#alta_nueva_entrevista").find('input, select, textarea, button').serializeArray();
 
-        var formURL = "entrevista/do_alta_nueva_entrevista";
+        var formURL = "<%=entrevista_do_alta_nueva_entrevista_path%>";
 
             $.ajax({
                 url : formURL,

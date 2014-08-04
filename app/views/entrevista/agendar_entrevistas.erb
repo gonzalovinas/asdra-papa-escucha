@@ -18,7 +18,7 @@ class="pure-form  pure-form-stacked" >
 
         if(!$("#agendar_entrevistas").valid()) return;
 
-        var formURL = "entrevista/do_agendar_entrevistas";
+        var formURL = "<%=entrevista_agendar_entrevistas_path%>";
         var a = <%=raw @ids_entrevistas.to_s%>;
         var b = $('#fecha_entrevista').val();
 

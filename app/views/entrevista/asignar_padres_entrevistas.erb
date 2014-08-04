@@ -39,7 +39,7 @@ class="pure-form  pure-form-stacked" >
 
         if(!$("#asignar_padres_entrevistas").valid()) return;
 
-        var formURL = "entrevista/do_asignar_padres_entrevistas";
+        var formURL = "<%=entrevista_do_asignar_padres_entrevistas_path%>";
 
             $.ajax({
                 url : formURL,
