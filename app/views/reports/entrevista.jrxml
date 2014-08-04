@@ -49,7 +49,7 @@
 			</staticText>
 			<image>
 				<reportElement x="450" y="15" width="96" height="45" uuid="921c2449-a04b-41e0-a654-caedb028412f"/>
-				<imageExpression><![CDATA["/home/gvinas/asdra-papa-escucha/app/views/reports/company-logo.gif"]]></imageExpression>
+				<imageExpression><![CDATA["./company-logo.gif"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="302" y="14" width="100" height="20" uuid="41973270-805d-4ea4-b83f-d947ce4b1383"/>
