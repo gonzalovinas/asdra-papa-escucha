@@ -42,7 +42,7 @@ class="pure-form  pure-form-stacked" >
 
         var postData = $("#alta_nuevo_padre").find('input, select, textarea, button').serializeArray();
 
-        var formURL = "administracion/do_alta_nuevo_padre";
+        var formURL = "<%=administracion_do_alta_nuevo_padre_path%>";
 
             $.ajax({
                 url : formURL,

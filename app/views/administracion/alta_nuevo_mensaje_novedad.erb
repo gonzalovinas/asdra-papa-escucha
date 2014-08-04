@@ -36,7 +36,7 @@ class="pure-form  pure-form-stacked" >
 
         var postData = $("#alta_nuevo_mensaje_novedd").find('input, select, textarea, button').serializeArray();
 
-        var formURL = "administracion/do_alta_nuevo_mensaje_novedad";
+        var formURL = "<%=administracion_do_alta_nuevo_mensaje_novedad_path%>";
 
             $.ajax({
                 url : formURL,

@@ -16,7 +16,7 @@
     });
 
     $("#flex3").flexigrid({
-                url: 'administracion/do_buscar_estados_entrevistas',
+                url: '<%=administracion_do_buscar_estados_entrevistas_path%>',
                 dataType: 'json',
                 colModel : [
                     { display: 'Identificador'  , name: 'r_id', width : 70, sortable : true, align: 'right' },
@@ -104,7 +104,7 @@
 
     function enviar_eliminacion_estados_entrevistas(ids) {
         $.ajax({
-            url: 'administracion/eliminar_estados_entrevistas',
+            url: '<%=administracion_eliminar_estados_entrevistas_path%>',
             type: 'POST',
             data: JSON.stringify({
                 ids: ids
@@ -129,7 +129,7 @@
     function mostrar_alta_nuevo_estado_entrevista() {
 
         $.ajax({
-            url: '/administracion/alta_nuevo_estado_entrevista',
+            url: '<%=administracion_alta_nuevo_estado_entrevista_path%>',
             method: 'GET',
             contentType: 'text/html',
             success: function(data) {

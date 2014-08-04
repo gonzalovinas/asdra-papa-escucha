@@ -121,7 +121,7 @@
 
     function enviar_eliminacion_padres(ids) {
         $.ajax({
-            url: 'administracion/eliminar_padres',
+            url: '<%=administracion_eliminar_padres_path%>',
             type: 'POST',
             data: JSON.stringify({
                 ids: ids
