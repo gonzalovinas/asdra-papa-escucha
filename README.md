@@ -29,6 +29,7 @@ Para más información sobre ASDRA visitar http://asdra.org.ar/
 <li>apache2</li>
 <li>sqlite3</li>
 <li>git-core</li>
+<li>postfix</li>
 <li>v8 javascript engine (it's ok to install nodejs for example...)</li>
 </ul>
 <ul>
