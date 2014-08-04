@@ -16,7 +16,7 @@
     });
 
     $("#flex1").flexigrid({
-                url: 'entrevista/do_buscar_entrevistas',
+                url: '<%=entrevista_do_buscar_entrevistas_path%>',
                 dataType: 'json',
                 colModel : [
                     { display: 'Diferencia L/E', name: 'cantidad_dias', width : 70, sortable : true, align: 'right', process: renderDiffLEColumn },
@@ -209,7 +209,7 @@
 
     function enviar_notificaciones() {
         $.ajax({
-            url: 'entrevista/notificar',
+            url: '<%=entrevista_notificar_path%>',
             type: 'POST',
             data: null,
             dataType: 'json',
@@ -234,16 +234,16 @@
         });
     }
     function descargar_entrevistas_pdf(id) {
-        window.location = '/entrevista/entrevistas_pdf?ids_entrevistas=' + id
+        window.location = '<%=entrevista_entrevistas_pdf_path%>' + '?ids_entrevistas=' + id
     }
 
     function descargar_entrevistas_excel(qtype, query) {
-        window.location = '/entrevista/do_buscar_entrevistas_excel?qtype=' + qtype + '&query=' + query;
+        window.location = '<%=entrevista_do_buscar_entrevistas_excel_path%>' + '?qtype=' + qtype + '&query=' + query;
     }
 
     function enviar_eliminacion_entrevistas(ids) {
         $.ajax({
-            url: 'entrevista/eliminar_entrevistas',
+            url: '<%entrevista_eliminar_entrevistas_path%>',
             type: 'POST',
             data: JSON.stringify({
                 ids: ids
@@ -269,7 +269,7 @@
 
     function mostrar_asignar_padres_entrevista(ids) {
         $.ajax({
-            url: '/entrevista/asignar_padres_entrevistas',
+            url: '<%=entrevista_asignar_padres_entrevistas_path%>',
             data: { 'ids_entrevistas' : ids },
             method: 'GET',
             contentType: 'text/html',
@@ -281,7 +281,7 @@
 
     function mostrar_agendar_entrevista(ids) {
         $.ajax({
-            url: '/entrevista/agendar_entrevistas',
+            url: '<%=entrevista_agendar_entrevistas_path%>',
             data: { 'ids_entrevistas' : ids },
             method: 'GET',
             contentType: 'text/html',
@@ -293,7 +293,7 @@
 
     function mostrar_cambiar_estado_entrevista(ids) {
         $.ajax({
-            url: '/entrevista/cambiar_estado_entrevistas',
+            url: '<%=entrevista_cambiar_estado_entrevistas_path%>',
             data: { 'ids_entrevistas' : ids },
             method: 'GET',
             contentType: 'text/html',
@@ -306,7 +306,7 @@
     function mostrar_alta_nueva_entrevista() {
 
         $.ajax({
-            url: '/entrevista/alta_nueva_entrevista',
+            url: '<%=entrevista_alta_nueva_entrevista_path%>',
             method: 'GET',
             contentType: 'text/html',
             success: function (data) {
@@ -318,7 +318,7 @@
     function mostrar_actualizar_entrevista(id_entrevista) {
 
         $.ajax({
-            url: '/entrevista/actualizar_entrevista',
+            url: '<%=entrevista_actualizar_entrevista_path%>',
             data: { 'id_entrevista' : id_entrevista },
             method: 'GET',
             contentType: 'text/html',
@@ -331,7 +331,7 @@
 
     function mostrar_consulta_entrevista(id_entrevista) {
         $.ajax({
-            url: '/entrevista/consulta_entrevista',
+            url: '<%=entrevista_consulta_entrevista_path%>',
             data: { 'id_entrevista' : id_entrevista },
             method: 'GET',
             contentType: 'text/html',
