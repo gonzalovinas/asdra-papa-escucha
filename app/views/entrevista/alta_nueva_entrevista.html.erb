@@ -86,7 +86,7 @@ class="pure-form  pure-form-stacked" >
 
     <fieldset>
       <legend>
-        <img src="/<%=image_url('baby.png')%>" width="24px" height="24px">
+        <img src="<%=image_url('baby.png')%>" width="24px" height="24px">
 
         Datos del Hijo/Hija</legend>
       <label for="nombres">Nombre(s)</label>
@@ -196,7 +196,7 @@ class="pure-form  pure-form-stacked" >
                         $('#flex1').flexReload();
                     }
                     else {
-                        mostrar_error_tecnico();
+                        do_sesion_expiro();
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
