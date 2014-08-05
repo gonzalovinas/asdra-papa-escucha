@@ -129,7 +129,11 @@
         initStatus: 'Kies een datum', isRTL: false};
 
     $.datepicker.setDefaults($.datepicker.regional['es']);
-
+    
+    function do_sesion_expiro() {
+        alert('Su sesión expiró. Se rederigirá a la página de inicio de sesión, y luego podrá continuar');
+        window.location = '<%= welcome_login_path %>'
+    }
 
 </script>
 
