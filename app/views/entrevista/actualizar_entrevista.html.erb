@@ -4,6 +4,7 @@
 class="pure-form  pure-form-stacked" >
 
 
+    <span class="ui-helper-hidden-accessible"><input type="text"/></span>
    <fieldset>
    <legend>
      <img src="https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/256/checklist.png"
@@ -26,7 +27,7 @@ class="pure-form  pure-form-stacked" >
    </fieldset>
    <fieldset>
    <legend>
-     <img src="assets/padre.png')%>" width="24px" height="24px">
+     <img src="<%=image_url('padre.png')%>" width="24px" height="24px">
      Datos del Papá</legend>
 
      <label for="papa_nombre_apellido">Nombre y Apellido del Papá</label>
@@ -48,7 +49,7 @@ class="pure-form  pure-form-stacked" >
 
     <fieldset>
       <legend>
-        <img src="assets/madre.png')%>" width="24px" height="24px">
+        <img src="<%image_url('madre.png')%>" width="24px" height="24px">
 
         Datos de la Mamá</legend>
 
@@ -132,8 +133,11 @@ class="pure-form  pure-form-stacked" >
 
     <input type="hidden" id="hermanos_json" name="hermanos_json" value=""/>
 
+<br>
+    <center>
+      <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar esta Entrevista" id="submitbutton"/>
 
-    <input type="button" onClick="enviar_formulario();" class="pure-button pure-button-primary" name="submit" value="Actualizar esta Entrevista" id="submitbutton"/>
+    </center>
 
 </form>
 
