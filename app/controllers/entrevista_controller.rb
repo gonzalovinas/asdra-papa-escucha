@@ -384,7 +384,7 @@ class EntrevistaController < ApplicationController
   def enviar_correo_notificar_entrevistas_sin_asignar nombre, correo
       logger.debug "enviando correo a: #{nombre} - #{correo}"
       
-      message = "From: Notificador ASDRA PAPE <pape-noreply@pape-noreply>\nTo: Sr/a. Papa/Mama #{nombre} <#{correo}>\nSubject: Hay entrevistas sin asignar\n\nPara asignarse una o mas entrevistas ingrese a http://asdra.org.ar\n"
+      message = "From: Notificador ASDRA PAPE <pape-noreply@pape-noreply>\nTo: Sr/a. Papa/Mama #{nombre} <#{correo}>\nSubject: Hay entrevistas sin asignar!\n/\n"
       Net::SMTP.start('localhost') do |smtp|
         smtp.send_message message, 'pape-noreply@pape-noreply', "#{correo}"
       end
