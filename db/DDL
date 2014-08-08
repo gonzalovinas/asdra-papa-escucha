@@ -108,6 +108,7 @@ insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_aut
 insert into configuracion (modulo, clave, valor) values ('correo', 'smtp_srv_auth_pass', '');
 insert into configuracion (modulo, clave, valor) values ('novedades', 'cantidad_presentacion', '5');
 insert into configuracion (modulo, clave, valor) values ('novedades', 'velocidad_contadores', '');
+insert into configuracion (modulo, clave, valor) values ('seguridad', 'minutos_sesion', '60');
 
 insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
 ('MANT00', 'Eliminar TODOS los Mensajes Novedades', '');
