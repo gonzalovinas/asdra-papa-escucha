@@ -117,7 +117,7 @@ insert into mantenimientos (plan, descripcion_corta, descripcion_larga) values
 ('MANT01', 'Eliminar Mensajes Novedades que NO se muestran en pantalla', 'Los Mensajes Novedades que se muestran en pantalla son los últimas N entradas cronologicas del registro/repositorio de mensajes, donde N es el valor del campo homonimo configurado en la solapa Administración->Sistema');
 
 insert into entrevistas_estados (descripcion, descripcion_uso, color)
-values ('Creada/Pendiente', 'Estado inicial, sin padre(s) asignados', '');
+values ('Nueva', 'Estado inicial, sin padre(s) asignados', '');
 
 insert into entrevistas_ubicaciones (codigo, descripcion)
 values ('I', 'Institucion');
