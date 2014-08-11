@@ -116,12 +116,16 @@
 			</image>
 			<staticText>
 				<reportElement x="398" y="1" width="94" height="20" uuid="fe8fe404-d02f-44ba-954c-bd02b07739c8"/>
-				<textElement verticalAlignment="Middle"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<text><![CDATA[Fecha Impresión:]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy h.mm a">
 				<reportElement x="477" y="1" width="78" height="20" uuid="b6bf389d-c68e-4021-bab7-420e1dddfa00"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
