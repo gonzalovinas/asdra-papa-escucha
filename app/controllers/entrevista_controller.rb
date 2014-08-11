@@ -29,7 +29,24 @@ class EntrevistaController < ApplicationController
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
         "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
         'eu.descripcion as descripcion_ubicacion',
-        :fecha_nacimiento
+        :fecha_nacimiento,
+        :como_supo,
+        :papa_edad,
+        :papa_ocupacion,
+        :papa_correo,
+        :mama_edad,
+        :mama_ocupacion,
+        :mama_correo,
+        :sexo,
+        :institucion_nacimiento,
+        :observacion_institucion,
+        :meses_nacimiento,
+        :parto_normal,
+        :sabia_sdown,
+        :recepcion_flia,
+        :patologia_agregada,
+        :observaciones
+        # TODO: Falta Hnos!
     )
 
     r_pdf = [r[0].attributes]
