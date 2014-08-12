@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e48761b-a684-4cc7-8759-b67c03a83b41" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/reports/entrevista_sub_hnos.jasper" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/reports/entrevista_sub_hnos.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/welcome/acerca.html.erb" afterPath="$PROJECT_DIR$/app/views/welcome/acerca.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/actualizar_entrevista.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/actualizar_entrevista.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/entrevista/alta_nuevo_hermano.erb" afterPath="$PROJECT_DIR$/app/views/entrevista/alta_nuevo_hermano.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/entrevista.jasper" afterPath="$PROJECT_DIR$/app/views/reports/entrevista.jasper" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/entrevista.jrxml" afterPath="$PROJECT_DIR$/app/views/reports/entrevista.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/entrevista_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="papaescucha.iws" />
@@ -41,7 +34,7 @@
       <file leaf-file-name="alta_nueva_entrevista.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31707317" vertical-offset="2950" max-vertical-offset="6732">
+            <state vertical-scroll-proportion="0.3181818" vertical-offset="2950" max-vertical-offset="6732">
               <caret line="174" column="58" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="58" />
               <folding />
             </state>
@@ -916,7 +909,11 @@
       <created>1407760875934</created>
       <updated>1407760875934</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary=".">
+      <created>1407842819508</created>
+      <updated>1407842819508</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -943,12 +940,13 @@
     <frame x="47" y="69" width="1338" height="757" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19938177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19938177" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3137558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3137558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.378125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39813375" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -959,7 +957,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1381,7 +1378,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/entrevista/alta_nueva_entrevista.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31707317" vertical-offset="2950" max-vertical-offset="6732">
+        <state vertical-scroll-proportion="0.3181818" vertical-offset="2950" max-vertical-offset="6732">
           <caret line="174" column="58" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="58" />
           <folding />
         </state>

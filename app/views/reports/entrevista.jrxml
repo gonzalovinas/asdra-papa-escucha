@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69bf06f7-01d5-4b05-997d-d7c240a6900e">
 	<property name="ireport.zoom" value="0.9090909090909105"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="166"/>
+	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["/home/gvinas/asdra-papa-escucha/app/views/reports/"]]></defaultValueExpression>
@@ -209,7 +209,7 @@
 				<text><![CDATA[Lugar:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="361" y="28" width="189" height="20" uuid="77226c7d-e6a9-4112-9711-cbe2add8e6df"/>
+				<reportElement x="361" y="28" width="184" height="20" uuid="77226c7d-e6a9-4112-9711-cbe2add8e6df"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -223,7 +223,7 @@
 				<text><![CDATA[Telefono(s):]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="383" y="115" width="163" height="20" uuid="a4a1e37a-6b29-4ac1-867a-bcba97dfb5d3"/>
+				<reportElement x="383" y="115" width="162" height="20" uuid="a4a1e37a-6b29-4ac1-867a-bcba97dfb5d3"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -237,7 +237,7 @@
 				<text><![CDATA[Domicilio:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="129" y="135" width="417" height="20" uuid="9971f605-cc49-48fe-88e2-0849ff58298c"/>
+				<reportElement x="129" y="135" width="173" height="20" uuid="9971f605-cc49-48fe-88e2-0849ff58298c"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -251,7 +251,7 @@
 				<text><![CDATA[Apellido(s) y Nombre(s):]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="129" y="115" width="140" height="20" uuid="42d01bbf-91bd-419a-992e-2e58092c0c2d"/>
+				<reportElement x="129" y="115" width="173" height="20" uuid="42d01bbf-91bd-419a-992e-2e58092c0c2d"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -265,7 +265,7 @@
 				<text><![CDATA[Telefono(s):]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="383" y="167" width="163" height="20" uuid="fd5b23bf-53ba-41f1-8e8e-5d50289e6152"/>
+				<reportElement x="387" y="167" width="158" height="20" uuid="fd5b23bf-53ba-41f1-8e8e-5d50289e6152"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -279,7 +279,7 @@
 				<text><![CDATA[Domicilio:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="129" y="187" width="417" height="20" uuid="fc0f296c-5076-492e-9242-41dfabf77f2f"/>
+				<reportElement x="129" y="187" width="173" height="20" uuid="fc0f296c-5076-492e-9242-41dfabf77f2f"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -293,7 +293,7 @@
 				<text><![CDATA[Apellido(s) y Nombre(s):]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="127" y="167" width="143" height="20" uuid="009d106d-c4ce-43b9-810f-98658cfa6d6d"/>
+				<reportElement x="127" y="167" width="175" height="20" uuid="009d106d-c4ce-43b9-810f-98658cfa6d6d"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -321,7 +321,7 @@
 				<text><![CDATA[Estado:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="361" y="48" width="185" height="20" uuid="c733faa4-d16d-4799-929c-c57d985df97f"/>
+				<reportElement x="361" y="48" width="184" height="20" uuid="c733faa4-d16d-4799-929c-c57d985df97f"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
@@ -409,7 +409,8 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{observaciones}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[
+($F{observaciones} == null) ? "Sin especificar" :$F{observaciones}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="29" y="550" width="100" height="20" uuid="58d87cf6-b527-4816-94a5-6e32be8a7b4d"/>
@@ -556,7 +557,13 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{institucion_nacimiento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[
+
+
+
+
+
+($F{institucion_nacimiento} == null) ? "Sin especificar" :$F{institucion_nacimiento}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="29" y="336" width="100" height="20" uuid="440738b5-2207-4395-bfad-fb82ead3ac94"/>
@@ -570,7 +577,11 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{observacion_institucion}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[
+
+
+
+($F{observacion_institucion} == null) ? "Sin especificar" :$F{observacion_institucion}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="254" y="619" width="230" height="23" uuid="969d9822-d9b4-4d0c-8a53-cc3aa1917216"/>
@@ -584,7 +595,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{patologia_agregada}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[($F{patologia_agregada} == null) ? "Sin especificar" :$F{patologia_agregada}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="316" y="363" width="230" height="23" uuid="4fc0785b-bcb1-4eec-a011-31ee66f580cc"/>
@@ -598,7 +609,9 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{recepcion_flia}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[
+
+($F{recepcion_flia} == null) ? "Sin especificar" :$F{recepcion_flia}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="287" y="69" width="74" height="20" uuid="627063b1-42e5-49d5-acb4-a47f5cda76c8"/>
@@ -621,6 +634,34 @@
 				</subreportParameter>
 				<dataSourceExpression><![CDATA[$P{net.sf.jasperreports.xml.source}]]></dataSourceExpression>
 			</subreport>
+			<staticText>
+				<reportElement x="317" y="187" width="66" height="20" uuid="f34dd492-4d0b-4203-8ee3-057004cb2f87"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ocupación:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="386" y="187" width="159" height="20" uuid="5e0856c2-b343-4463-9e85-9210de04093f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mama_ocupacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="317" y="135" width="66" height="20" uuid="22c21a59-d384-4fe3-8bc1-a4f774d54a1c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ocupación:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="387" y="135" width="158" height="20" uuid="be165298-aea0-4433-998d-aee83cf6afd2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{papa_ocupacion}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<summary>
