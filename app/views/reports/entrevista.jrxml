@@ -2,8 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="69bf06f7-01d5-4b05-997d-d7c240a6900e">
 	<property name="ireport.zoom" value="0.9090909090909105"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="166"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/home/gvinas/asdra-papa-escucha/app/views/reports/"]]></defaultValueExpression>
+	</parameter>
 	<queryString language="xPath">
 		<![CDATA[/entrevistas/entrevista]]>
 	</queryString>
@@ -97,6 +100,9 @@
 	</field>
 	<field name="sabia_sdown" class="java.lang.String">
 		<fieldDescription><![CDATA[sabia_sdown]]></fieldDescription>
+	</field>
+	<field name="hernamos_json" class="java.lang.String">
+		<fieldDescription><![CDATA[hernamos_json]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -195,9 +201,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fecha_entrevista}]]></textFieldExpression>
 			</textField>
-			<subreport>
-				<reportElement x="29" y="391" width="273" height="101" uuid="09089fc5-3c9e-4b71-93ac-cad4d17a16d0"/>
-			</subreport>
 			<staticText>
 				<reportElement x="287" y="28" width="46" height="20" uuid="30a7bbbd-f560-4af1-b912-cf7f06dbc01f"/>
 				<textElement>
@@ -611,6 +614,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sabia_sdown}]]></textFieldExpression>
 			</textField>
+			<subreport isUsingCache="false" runToBottom="false">
+				<reportElement x="29" y="391" width="258" height="101" uuid="5a8bb1f2-3c69-4e49-8946-4ffc983072dd"/>
+				<subreportParameter name="f">
+					<subreportParameterExpression><![CDATA[1]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[$P{net.sf.jasperreports.xml.source}]]></dataSourceExpression>
+			</subreport>
 		</band>
 	</detail>
 	<summary>

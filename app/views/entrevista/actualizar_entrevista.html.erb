@@ -49,7 +49,7 @@ class="pure-form  pure-form-stacked" >
 
     <fieldset>
       <legend>
-        <img src="<%image_url('madre.png')%>" width="24px" height="24px">
+        <img src="<%=image_url('madre.png')%>" width="24px" height="24px">
 
         Datos de la Mamá</legend>
 
@@ -127,7 +127,7 @@ class="pure-form  pure-form-stacked" >
       <legend>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwwsPjW_fuAQqMBgbDXmbHHzxtC4O_eRD2UfNLOCKwKmL_ndH00w" width="24" height="24">
         Observaciones</legend>
-      <textarea rows="4" cols="50" id="observaciones" name="observaciones" readonly="readonly"><%=@entrevista.observaciones%></textarea>
+      <textarea rows="4" cols="50" id="observaciones" name="observaciones"><%=@entrevista.observaciones%></textarea>
     </fieldset>
 
 
@@ -143,11 +143,25 @@ class="pure-form  pure-form-stacked" >
 
   <script type="text/javascript">
 
+      $('#ventana_hermano').dialog({
+          autoOpen: false,
+          resizable: false,
+          modal: true,
+          width:'auto',
+          height: 'auto',
+          draggable: false,
+          position: 'center'
+      });
+
+
+
     function enviar_formulario(sender) {
 
         $("#actualizar_entrevista").validate();
 
         if(!$("#actualizar_entrevista").valid()) return;
+
+        $("#hermanos_json").val(JSON.stringify(testData));
 
         var postData = $("#actualizar_entrevista").find('input, select, textarea, button').serializeArray();
 
@@ -232,8 +246,108 @@ class="pure-form  pure-form-stacked" >
             max: 9,
             min: 5
         });
-
     });
+
+    var testData = 'sin hermanos cargados';
+
+    $(document).ready(function() {
+
+        $("#tabs-consulta-entrevista").tabs();
+        var hermanos_json = '<%=raw @entrevista.hermanos_json%>';
+
+        testData = JSON.parse(hermanos_json);
+
+        $("#flex-hermanos").flexigrid({
+                    dataType: 'json',
+                    width: 382,
+                    height: 142,
+                    buttons: [
+                        {name: 'Nuevo', bclass: 'iconButtonAdd', onpress: comandosGrillaHermanos },
+                        {name: 'Modificar', bclass: 'iconButtonEdit', onpress: comandosGrillaHermanos },
+                        {name: 'Eliminar', bclass: 'iconButtonDelete', onpress: comandosGrillaHermanos }
+                    ],
+                    colModel: [
+                        {hide: true, display: 'Identificador', name: 'r_id', width: 100, sortable: true, align: 'left'},
+                        {display: 'Nombre(s)', name: 'nombres', width: 100, sortable: true, align: 'left'},
+                        {display: 'Fecha Nacimiento', name: 'fecha_nacimiento', width: 100, sortable: true, align: 'left'},
+                        {display: '¿Convive?', name: 'convive', width: 100, sortable: true, align: 'left'}
+                    ],
+                    //    sortname: "r_id",
+                    sortorder: "asc",
+                    usepager: false,
+                    useRp: false,
+                    rp: 5,
+                    showTableToggleBtn: false,
+                    resizable: false,
+                    singleSelect: true
+                }
+        );
+
+        $("#flex-hermanos").flexAddData(testData);
+    });
+
+    function comandosGrillaHermanos(command, grid) {
+        var rows = $('.trSelected', grid);
+        var rows_selected = rows.size();
+
+        if(command === "Nuevo") {
+            mostrar_alta_nuevo_hermano();
+            return;
+        }
+
+        else if(rows_selected == 0) {
+            alert('No hay ningun Hermano seleccionado para iniciar la acción.');
+            return;
+        }
+
+        var id = null;
+        var ids = [];
+
+        rows.each(function() {
+            id = $(this).find("[abbr='r_id']")[0].innerText.trim();
+            ids.push(id);
+        });
+
+        switch(command) {
+            case "Modificar":
+                alert('Funcionalidad no disponible, se ecuentra en desarrollo actualmente...');
+                return;
+                mostrar_actualizar_hermano(id);
+                break;
+            case "Eliminar":
+                alert('Funcionalidad no disponible, se ecuentra en desarrollo actualmente...');
+                return;
+                enviar_eliminacion_hermano(ids);
+                break;
+        }
+    }
+
+    function mostrar_alta_nuevo_hermano() {
+
+        $.ajax({
+            url: '<%=entrevista_alta_nuevo_hermano_path%>',
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_hermano").html(data).dialog('open', { title: 'Alta de Nuevo Hermano'});
+            }
+        });
+    }
+
+    function mostrar_actualizar_hermano(id) {
+    }
+
+    function enviar_eliminacion_hermano(id) {
+
+        for(var i=0;i<testData.rows.length -1;i++) {
+            if(id === testData.rows[i].cell[0]) {
+                testData[i].splice(i, 1);
+            }
+        }
+        testData.total = testData.rows.length;
+        $("#flex-hermanos").flexAddData(testData);
+
+    }
 
 </script>
 
@@ -245,5 +359,8 @@ class="pure-form  pure-form-stacked" >
   <div id="modal_entrevista_actualizacion_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
     La entrevista no puede ser actualizada porque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
   </div>
+
+
+  <div id="ventana_hermano"  style="display:none;"></div>
 
 </div>

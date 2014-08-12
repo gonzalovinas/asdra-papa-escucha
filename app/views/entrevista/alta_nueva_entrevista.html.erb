@@ -290,7 +290,6 @@ class="pure-form  pure-form-stacked" >
     });
 
     function comandosGrillaHermanos(command, grid) {
-
         var rows = $('.trSelected', grid);
         var rows_selected = rows.size();
 
@@ -327,9 +326,8 @@ class="pure-form  pure-form-stacked" >
     }
 
     function mostrar_alta_nuevo_hermano() {
-
         $.ajax({
-            url: '/entrevista/alta_nuevo_hermano',
+            url: '<%=entrevista_alta_nuevo_hermano_path%>',
             method: 'GET',
             contentType: 'text/html',
             success: function(data) {
@@ -353,7 +351,6 @@ class="pure-form  pure-form-stacked" >
         $("#flex-hermanos").flexAddData(testData);
 
     }
-
 
 </script>
 

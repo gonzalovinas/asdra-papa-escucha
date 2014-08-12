@@ -45,8 +45,8 @@ class EntrevistaController < ApplicationController
         :sabia_sdown,
         :recepcion_flia,
         :patologia_agregada,
-        :observaciones
-        # TODO: Falta Hnos!
+        :observaciones,
+        :hermanos_json
     )
 
     r_pdf = [r[0].attributes]
@@ -323,7 +323,7 @@ class EntrevistaController < ApplicationController
     ne.id_ubicacion     = params[:id_ubicacion].size>0? params[:id_ubicacion] : nil
     ne.nombres          = params[:nombres]
     ne.cantidad_dias    = calcular_cantidad_dias params[:fecha_llamada], params[:fecha_entrevista]
-
+    ne.hermanos_json    = params[:hermanos_json]
     ne.save
 
     render :json => {:status => "OK"}, :layout=> false
