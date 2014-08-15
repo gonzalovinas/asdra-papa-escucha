@@ -51,7 +51,15 @@ class EntrevistaController < ApplicationController
 
     r_pdf = [r[0].attributes]
 
-    jasper_pdf :resource => r_pdf,
+    master_ds = JasperSourceBuilder.new(r_pdf, "entrevistas", "entrevista")
+
+    hermanos = [{:hno=>"gonzalo"}]
+
+    slave_ds = JasperSourceBuilder.new(hermanos, "entrevista_hermanos", "hermano")
+
+    master_ds.add_subreport(slave_ds)
+
+    jasper_pdf :resource => master_ds,
                :template => 'reports/entrevista',
                :model    => 'entrevistas',
                :record   => 'entrevista',
