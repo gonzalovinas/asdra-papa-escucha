@@ -98,13 +98,14 @@
         var diff = Math.abs(parseInt(col.innerHTML));
         var diffText = "";
         var unidadesText = "días";
+
         if(diff == 0) {
             diffText = "En el día";
             unidadesText = "";
         }
         else {
-            if (diff > 31) {
-                diff = (diff % 30 ) + 1;
+            if (diff > 31 ) {
+                diff = Math.floor(diff/30) + (( (diff % 30) > 0)? 1 : 0);
                 unidadesText = "meses";
                 diffText = Math.abs(diff) + " " + unidadesText;
             }
@@ -113,7 +114,7 @@
                 if(diff == 7) { 
                     unidadesText = "semana";
                 }
-                diff = (diff % 7) + 1;
+                diff = Math.floor(diff/7) + (( (diff % 7) > 0)? 1 : 0);
                 
                 diffText = Math.abs(diff) + " " + unidadesText;
             }
