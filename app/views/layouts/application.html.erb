@@ -24,7 +24,7 @@
     <li><a href="<%=welcome_resumen_path%>">Últimas Novedades</a></li>
     <li><a href="<%=entrevista_buscar_entrevistas_path%>">Entrevistas</a></li>
     <li><a href="#tab-administracion">Administración</a></li>
-    <li><a href="<%=welcome_acerca_path%>">Acerca</a></li>
+<!--    <li><a href="<%=welcome_acerca_path%>">Acerca</a></li>-->
   </ul>
 
   <div id="tab-administracion">
@@ -45,18 +45,28 @@
   <p>Ha ocurrido un error técnico. Contacte al administrador del sistema.</p>
 </div>
 
+
+<div class="footer">
+<center>
+  Desarrollado por <a href="http://www.linkedin.com/in/gonzalovinas">Gonzalo Viñas</a>
+  <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+  <script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/gonzalovinas" data-format="hover" data-related="false"></script>
+</center>
+</div>
+
+<!--
 <center>
   <br>
   <a href="http://youtrack.myzeta.tk/issues/PAPE/issues#newissue=yes">Reportar Defecto o Incidente</a>
 </center>
-</body>
+-->
 
+</body>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
 <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 

@@ -116,3 +116,18 @@ input[readonly="readonly"] {
 textarea {
     resize: vertical;
 }
+
+.footer {
+    background-color: #54545d;
+    height: 15px;
+    text-align: center;
+    font-size:10px;
+    color: white;
+    font-family:Verdana;
+    font-size: xx-small
+    padding-top: 10px;
+    width: 100%;
+    position:fixed;
+    left: 0px;
+    bottom: 0px;
+}
