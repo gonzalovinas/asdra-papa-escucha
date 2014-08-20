@@ -38,8 +38,8 @@
 	<detail>
 		<band height="125" splitType="Stretch">
 			<staticText>
-				<reportElement x="62" y="13" width="128" height="20" uuid="4f328a06-ca3c-4255-a720-08255db85744"/>
-				<text><![CDATA[Hola soy un subreporte]]></text>
+				<reportElement x="86" y="52" width="78" height="20" uuid="4f328a06-ca3c-4255-a720-08255db85744"/>
+				<text><![CDATA[Sín Hermanos]]></text>
 			</staticText>
 		</band>
 	</detail>

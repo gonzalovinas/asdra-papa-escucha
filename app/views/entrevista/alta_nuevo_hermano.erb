@@ -6,8 +6,8 @@ class="pure-form  pure-form-stacked" >
     <label for="nombres_hermano">Nombre(s)</label>
     <input type="text" id="nombres_hermano" name="nombres_hermano"/>
 
-    <label for="fecha_nacimiento_hermano">Fecha de Nacimiento</label>
-    <input type="text" id="fecha_nacimiento_hermano" name="fecha_nacimiento_hermano"/>
+    <label for="edad_hno">Edad</label>
+    <input type="text" id="edad_hno" name="edad_hno"/>
 
     <label for="convive">Tilde si este Hermano/a convive con el Hijo/a</label>
     <input type="checkbox" class="pure-checkbox" name="convive" id="convive" />
@@ -20,8 +20,6 @@ class="pure-form  pure-form-stacked" >
 
   <script type="text/javascript">
 
-    $( '#fecha_nacimiento_hermano' ).datepicker({ dateFormat: 'dd-mm-yy' });
-
     function enviar_formulario_alta_nuevo_hermano(sender) {
         $("#alta_nuevo_hermano").validate();
 
@@ -31,7 +29,7 @@ class="pure-form  pure-form-stacked" >
             cell: [
                 testData.rows.length+1,
                 $('#nombres_hermano').val(),
-                $('#fecha_nacimiento_hermano').val(),
+                $('#edad_hno').val(),
                 $('#convive').val()
             ]
         });
@@ -40,6 +38,11 @@ class="pure-form  pure-form-stacked" >
 
         $("#ventana_hermano").dialog("close");
     }
+
+    $( '#edad' ).spinner({
+        max: 99,
+        min: 0
+    });
 
     $("#alta_nuevo_hermano").validate({
         invalidHandler: function(event, validator) {
@@ -59,8 +62,9 @@ class="pure-form  pure-form-stacked" >
             "nombres_hermano": {
                 minlength: 3
             },
-            "fecha_nacimiento_hermano"  : {
-                minlength: 10
+            "edad_hno"  : {
+                minlength: 1,
+                maxlength: 2
             }
         }
     });
