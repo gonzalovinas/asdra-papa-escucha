@@ -43,6 +43,7 @@ CREATE TABLE entrevistas
   id_estado TEXT NOT NULL,
   hermanos_json TEXT,
   cantidad_dias INTEGER,
+  cobertura_medica TEXT,
   vigente TEXT NULL
 );
 CREATE TABLE mensajes_novedades

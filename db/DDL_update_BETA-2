@@ -1,0 +1,2 @@
+alter TABLE entrevistas add column  cobertura_medica TEXT;
+

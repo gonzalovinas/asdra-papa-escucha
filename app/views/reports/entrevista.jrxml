@@ -104,6 +104,9 @@
 	<field name="hermanos_json" class="java.lang.String">
 		<fieldDescription><![CDATA[hermanos_json]]></fieldDescription>
 	</field>
+	<field name="cobertura_medica" class="java.lang.String">
+		<fieldDescription><![CDATA[cobertura_medica]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -514,7 +517,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Meses Nacimiento:]]></text>
+				<text><![CDATA[Semanas de Nacimiento:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
 				<reportElement x="477" y="258" width="69" height="20" uuid="60970048-2aae-42f6-b460-271c9a2d6400"/>
@@ -646,6 +649,20 @@
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{papa_ocupacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="361" y="316" width="74" height="20" uuid="4ff6a597-a5b4-432d-a978-560f4db09be1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cobertura Médica:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="316" width="110" height="20" uuid="9dd76ab4-815e-477c-bd8a-73acaee3f255"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{cobertura_medica} == null) ? "Sin especificar" :$F{cobertura_medica}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

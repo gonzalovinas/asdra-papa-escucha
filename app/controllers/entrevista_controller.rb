@@ -46,7 +46,8 @@ class EntrevistaController < ApplicationController
         :recepcion_flia,
         :patologia_agregada,
         :observaciones,
-        :hermanos_json
+        :hermanos_json,
+        :cobertura_medica
     )
 
     r_pdf = [r[0].attributes]
@@ -220,8 +221,9 @@ class EntrevistaController < ApplicationController
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
         "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
         'eu.descripcion as descripcion_ubicacion',
-        :fecha_nacimiento
-
+        :meses_nacimiento,
+        :cobertura_medica,
+        :fecha_nacimiento,
     )
 
     p = Axlsx::Package.new
@@ -233,7 +235,7 @@ class EntrevistaController < ApplicationController
                      'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
                      'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)',
                      'Nombre(s) del Hijo/Hija', 'Estado', 'Papa Escucha', 'Mama Escucha',
-                     'Ubicacion', 'Fecha de Nacimiento del Hijo/Hija', 'Edad del Hijo/Hija']
+                     'Ubicacion', 'Semanas de Nacimiento', 'Cobertura Medica', 'Fecha de Nacimiento del Hijo/Hija', 'Edad del Hijo/Hija']
 
       r.each do | row |
         if !(row[-1].empty? && row[-1])
@@ -292,6 +294,7 @@ class EntrevistaController < ApplicationController
     ne.id_estado        = 1 # TODO: Estado Pendiente - Refactorizar!
     ne.nombres          = params[:nombres]
     ne.hermanos_json    = params[:hermanos_json]
+    ne.cobertura_medica = params[:cobertura_medica]
     ne.cantidad_dias    = 0
     ne.save
 
@@ -332,6 +335,7 @@ class EntrevistaController < ApplicationController
     ne.nombres          = params[:nombres]
     ne.cantidad_dias    = calcular_cantidad_dias params[:fecha_llamada], params[:fecha_entrevista]
     ne.hermanos_json    = params[:hermanos_json]
+    ne.cobertura_medica = params[:cobertura_medica]
     ne.save
 
     render :json => {:status => "OK"}, :layout=> false
