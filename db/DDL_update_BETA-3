@@ -1,17 +1,17 @@
 update entrevistas
-set fecha_llamada =  (select substr(fecha_llamada, 7, 4) || '-' ||
+set fecha_llamada =  substr(fecha_llamada, 7, 4) || '-' ||
        substr(fecha_llamada, 4, 2) || '-' ||
-       substr(fecha_llamada, 1, 2)  from entrevistas)
-where fecha_nacimiento <> '' or fecha_nacimiento is not null;
+       substr(fecha_llamada, 1, 2)
+where fecha_llamada <> '' and fecha_llamada is not null;
 
 update entrevistas
-set fecha_entrevista =  (select substr(fecha_entrevista, 7, 4) || '-' ||
+set fecha_entrevista =  substr(fecha_entrevista, 7, 4) || '-' ||
                              substr(fecha_entrevista, 4, 2) || '-' ||
-                             substr(fecha_entrevista, 1, 2)  from entrevistas)
-where fecha_nacimiento <> '' or fecha_nacimiento is not null;
+                             substr(fecha_entrevista, 1, 2) 
+where fecha_entrevista <> '' and fecha_entrevista is not null;
 
 update entrevistas
-set fecha_nacimiento =  (select substr(fecha_nacimiento, 7, 4) || '-' ||
+set fecha_nacimiento =  substr(fecha_nacimiento, 7, 4) || '-' ||
                              substr(fecha_nacimiento, 4, 2) || '-' ||
-                             substr(fecha_nacimiento, 1, 2)  from entrevistas)
-where fecha_nacimiento <> '' or fecha_nacimiento is not null;
+                             substr(fecha_nacimiento, 1, 2) 
+where fecha_nacimiento <> '' and fecha_nacimiento is not null;
