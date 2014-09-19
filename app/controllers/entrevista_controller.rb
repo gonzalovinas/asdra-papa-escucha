@@ -351,7 +351,7 @@ class EntrevistaController < ApplicationController
       filter = "AND #{params[:qtype]} like '%#{params[:query]}%'"
     end
 
-    r = Entrevista.where("entrevistas.VIGENTE IS NULL #{filter}").order("entrevistas.r_ID DESC")
+    r = Entrevista.where("entrevistas.VIGENTE IS NULL #{filter}").order("entrevistas.fecha_llamada DESC")
         .joins('INNER JOIN entrevistas_estados ee on ee.r_id = entrevistas.id_estado')
         .joins('LEFT JOIN padres_escuchan peP on peP.r_id = entrevistas.id_papa_escucha')
         .joins('LEFT JOIN padres_escuchan peM on peM.r_id = entrevistas.id_mama_escucha')
@@ -379,10 +379,10 @@ class EntrevistaController < ApplicationController
     r2 = []
 
     r.each do | e |
-      # e[-1] es fecha_nacimiento
-      if !(e[-2].empty? && e[-2])
+       # e[-1] es fecha_nacimiento
+       if !(e[-2] || e[-2].empty?)
         e[-2] = baby_date(Date.parse(e[-2]))
-      end
+       end
 
       r2  << {:cell=>e}
     end

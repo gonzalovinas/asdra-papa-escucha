@@ -12,7 +12,7 @@ class="pure-form  pure-form-stacked" >
      Datos de la Entrevista</legend>
 
    <label for="fecha_llamada">Fecha Llamada</label>
-   <input type="text"  name="fecha_llamada" id="fecha_llamada" placeholder="<%=Time.now.strftime('%d-%m-%Y') %>"/>
+   <input type="text"  name="fecha_llamada" id="fecha_llamada" placeholder="<%=Time.now.strftime('%Y-%m-%d') %>"/>
    <label for="lugar">Lugar</label>
    <input type="text"  name="lugar" id="lugar" placeholder="Ciudad Autónoma de Buenos Aires"/>
    <label for="mama_escucha">Mamá Escucha</label>
@@ -109,7 +109,7 @@ class="pure-form  pure-form-stacked" >
           <option value="F">Femenino</option>
         </select>
         <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-        <input type="text"  name="fecha_nacimiento" id="fecha_nacimiento" placeholder="<%=Time.now.strftime('%d-%m-%Y') %>"/>
+        <input type="text"  name="fecha_nacimiento" id="fecha_nacimiento" placeholder="<%=Time.now.strftime('%Y-%m-%d') %>"/>
         <label for="institucion_nacimiento">Institucion Nacimiento</label>
         <input type="text"  name="institucion_nacimiento" id="institucion_nacimiento" />
         <label for="observacion_institucion">Observaciones de la Institución</label>
@@ -231,7 +231,7 @@ class="pure-form  pure-form-stacked" >
         submitHandler: function() {
         },
         rules: {
-            "fecha_llamada"     : { required: true, minlength: 10},
+            "fecha_llamada"     : { required: true, minlength: 10}
         }
     });
 
@@ -239,9 +239,9 @@ class="pure-form  pure-form-stacked" >
     var testData = 'sin hermanos cargados';
 
     $(function() {
-        $( '#fecha_llamada' ).datepicker({ dateFormat: 'dd-mm-yy' });
-        $( '#fecha_entrevista' ).datepicker({ dateFormat: 'dd-mm-yy' });
-        $( '#fecha_nacimiento' ).datepicker({ dateFormat: 'dd-mm-yy' });
+        $( '#fecha_llamada' ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( '#fecha_entrevista' ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( '#fecha_nacimiento' ).datepicker({ dateFormat: 'yy-mm-dd' });
         $( '#papa_edad' ).spinner({
             max: 120,
             min: 12
