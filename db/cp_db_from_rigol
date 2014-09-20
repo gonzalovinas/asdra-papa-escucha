@@ -1,0 +1,2 @@
+scp horacio@rigolnet.ddns.net:~/asdra-papa-escucha/db/development.sqlite3 development.sqlite3
+
