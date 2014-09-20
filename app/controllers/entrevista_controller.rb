@@ -380,7 +380,7 @@ class EntrevistaController < ApplicationController
 
     r.each do | e |
        # e[-1] es fecha_nacimiento
-       if !(e[-2] || e[-2].empty?)
+       if !(e[-2] && e[-2].empty?)
         e[-2] = baby_date(Date.parse(e[-2]))
        end
 
