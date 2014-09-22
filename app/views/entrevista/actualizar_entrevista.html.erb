@@ -272,7 +272,7 @@ class="pure-form  pure-form-stacked" >
                         {hide: true, display: 'Identificador', name: 'r_id', width: 100, sortable: true, align: 'left'},
                         {display: 'Nombre(s)', name: 'nombres', width: 100, sortable: true, align: 'left'},
                         {display: 'Edad', name: 'edad_hno', width: 100, sortable: true, align: 'left'},
-                        {display: '¿Convive?', name: 'convive', width: 100, sortable: true, align: 'left'}
+                        {display: '¿Convive?', name: 'convive', width: 100, sortable: true, align: 'left',  process: renderConvive}
                     ],
                     //    sortname: "r_id",
                     sortorder: "asc",
@@ -288,6 +288,19 @@ class="pure-form  pure-form-stacked" >
         $("#flex-hermanos").flexAddData(testData);
     });
 
+    function renderConvive(col, id) { 
+        // TODO: PAPE-93
+        if(col.innerHTML === "true") { 
+            col.innerHTML = "Si";
+        }
+        else if (col.innerHTML === "false") {
+            col.innerHTML = "No";
+        }
+        else {
+            col.innerHTML = "Corregir";
+        }
+     };
+     
     function comandosGrillaHermanos(command, grid) {
         var rows = $('.trSelected', grid);
         var rows_selected = rows.size();
