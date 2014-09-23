@@ -92,6 +92,8 @@ class AdministracionController < ApplicationController
         :nombres,
         :correo,
         :telefonos,
+        :telefonos_sms,
+        :zona,
         :tipo
     )
 
@@ -100,7 +102,7 @@ class AdministracionController < ApplicationController
     wb = p.workbook
 
     wb.add_worksheet(:name => "Padres que Escuchan") do |sheet|
-      sheet.add_row ["Identificador", "Apellido(s)", 'Nombre(s)', 'Correo', 'Telefono(s)', 'Papa o Mama']
+      sheet.add_row ["Identificador", "Apellido(s)", 'Nombre(s)', 'Correo', 'Telefono(s)', 'Telefono(s) SMS', 'Zona Geografica', 'Papa o Mama']
       r.each do | row |
           sheet.add_row(row)
       end
@@ -154,6 +156,8 @@ class AdministracionController < ApplicationController
         :nombres,
         :correo,
         :telefonos,
+        :telefonos_sms,
+        :zona,
         :tipo
     )
 
@@ -207,6 +211,8 @@ class AdministracionController < ApplicationController
     pe.correo   = params[:correo]
     pe.telefonos= params[:telefonos]
     pe.tipo     = params[:tipo]
+    pe.telefonos_sms = params[:telefonos_sms]
+    pe.zona     = params[:zona]
 
     pe.save
 

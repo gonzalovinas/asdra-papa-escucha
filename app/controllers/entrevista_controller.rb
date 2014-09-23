@@ -147,8 +147,8 @@ class EntrevistaController < ApplicationController
 
   def asignar_padres_entrevistas
     @ids_entrevistas = params[:ids_entrevistas]
-    @papas_escuchan = PadresEscuchan.where("tipo = 'P' and vigente is null").select(:r_id, :nombres, :apellidos)
-    @mamas_escuchan = PadresEscuchan.where("tipo = 'M' and vigente is null").select(:r_id, :nombres, :apellidos)
+    @papas_escuchan = PadresEscuchan.where("tipo = 'P' and vigente is null").select(:r_id, :nombres, :apellidos, :zona)
+    @mamas_escuchan = PadresEscuchan.where("tipo = 'M' and vigente is null").select(:r_id, :nombres, :apellidos, :zona)
     render :action => "asignar_padres_entrevistas", :layout=> false
   end
 

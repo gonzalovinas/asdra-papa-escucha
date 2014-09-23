@@ -1,0 +1,5 @@
+alter table padres_escuchan add column zona TEXT;
+alter table padres_escuchan add column telefonos_sms TEXT;
+
+update padres_escuchan set zona = '';
+update padres_escuchan set telefonos_sms = telefonos;

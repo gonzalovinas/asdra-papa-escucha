@@ -8,7 +8,7 @@ class="pure-form  pure-form-stacked" >
        <option value=""></option>
        <%@mamas_escuchan.each do | mama_escucha |%>
            <option value="<%=mama_escucha.r_id%>">
-             <%= "#{mama_escucha.apellidos}, #{mama_escucha.nombres}" %>
+             <%= "#{mama_escucha.apellidos}, #{mama_escucha.nombres} (#{mama_escucha.zona})" %>
            </option>
        <%
           end
@@ -20,7 +20,7 @@ class="pure-form  pure-form-stacked" >
        <option value=""></option>
        <%@papas_escuchan.each do | papa_escucha |%>
            <option value="<%=papa_escucha.r_id%>">
-             <%= "#{papa_escucha.apellidos}, #{papa_escucha.nombres}" %>
+             <%= "#{papa_escucha.apellidos}, #{papa_escucha.nombres} (#{papa_escucha.zona})" %>
            </option>
        <%
           end
