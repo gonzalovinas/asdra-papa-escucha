@@ -223,17 +223,15 @@ class EntrevistaController < ApplicationController
         :nombres,
         'ee.descripcion as descripcion_estado',
         "peP.apellidos || ' ' || peP.nombres as papa_escucha", # TODO: PAPE-28
-       # 'peP.telefonos as papa_telefonos',
-       # 'peP.telefonos_sms as papa_telefonos_sms', # TODO: PAPE-84, PAPE-95
-       # 'peP.zona as papa_zona',                   # TODO: PAPE-84, PAPE-95
+        'peP.telefonos_sms as papa_telefonos_sms', # TODO: PAPE-84, PAPE-95
+        'peP.zona as papa_zona',                   # TODO: PAPE-84, PAPE-95
         "peM.apellidos || ' ' || peM.nombres as mama_escucha", # TODO: PAPE-28
-       # 'peM.telefonos as mama_telefonos',
-       # 'peM.telefonos_sms as mama_telefonos_sms', # TODO: PAPE-84, PAPE-95
-       # 'peM.zona as mama_zona',                   # TODO: PAPE-84, PAPE-95
+        'peM.telefonos_sms as mama_telefonos_sms', # TODO: PAPE-84, PAPE-95
+        'peM.zona as mama_zona',                   # TODO: PAPE-84, PAPE-95
         'eu.descripcion as descripcion_ubicacion',
         :meses_nacimiento,
         :cobertura_medica,
-        :fecha_nacimiento,
+        :fecha_nacimiento
     )
 
     p = Axlsx::Package.new
@@ -245,8 +243,8 @@ class EntrevistaController < ApplicationController
                      'Papa Telefonos', 'Papa Domicilio', 'Papa Nombre(s) y Apellido(s)',
                      'Mama Telefonos', 'Mama Domicilio', 'Mama Nombre(s) y Apellido(s)',
                      'Nombre(s) del Hijo/Hija', 'Estado',
-                     'Papa Escucha',# 'Papa Telefono(s)', 'Papa Telefono(s) SMS', 'Papa Zona Geografica',
-                     'Mama Escucha',# 'Mama Telefono(s)', 'Mama Telefono(s) SMS', 'Mama Zona Geografica',
+                     'Papa Escucha', 'Papa Telefono(s) SMS', 'Papa Zona Geografica',
+                     'Mama Escucha', 'Mama Telefono(s) SMS', 'Mama Zona Geografica',
                      'Ubicacion', 'Semanas de Nacimiento', 'Cobertura Medica', 'Fecha de Nacimiento del Hijo/Hija', 'Edad del Hijo/Hija']
 
       r.each do | row |
