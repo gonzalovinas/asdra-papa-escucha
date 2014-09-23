@@ -330,9 +330,9 @@ class="pure-form  pure-form-stacked" >
                 mostrar_actualizar_hermano(id);
                 break;
             case "Eliminar":
-                alert('Funcionalidad no disponible, se ecuentra en desarrollo actualmente...');
-                return;
-                enviar_eliminacion_hermano(ids);
+                //alert('Funcionalidad no disponible, se ecuentra en desarrollo actualmente...');
+                //return;
+                enviar_eliminacion_hermano(id);
                 break;
         }
     }
@@ -354,9 +354,11 @@ class="pure-form  pure-form-stacked" >
 
     function enviar_eliminacion_hermano(id) {
 
-        for(var i=0;i<testData.rows.length -1;i++) {
+        id = parseInt(id);
+
+        for(var i=0;i<testData.rows.length;i++) {
             if(id === testData.rows[i].cell[0]) {
-                testData[i].splice(i, 1);
+                testData.rows.splice(i, 1);
             }
         }
         testData.total = testData.rows.length;
