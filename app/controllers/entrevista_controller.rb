@@ -47,7 +47,11 @@ class EntrevistaController < ApplicationController
         :patologia_agregada,
         :observaciones,
         :hermanos_json,
-        :cobertura_medica
+        :cobertura_medica,
+        'peP.zona as zona_papa',
+        'peM.zona as zona_mama',
+        'peP.telefonos_sms as telefonos_sms_papa',
+        'peM.telefonos_sms as telefonos_sms_mama'
     )
 
     r_pdf = [r[0].attributes]
