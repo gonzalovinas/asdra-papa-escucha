@@ -96,4 +96,9 @@
       <primary-key columns="r_id"/>
     </table>
   </data-source>
+  <data-source source="LOCAL" name="Rails papaescucha: test" uuid="baa604f1-69c3-46c8-99b4-b38c827c63f0">
+    <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+  </data-source>
 </component>
