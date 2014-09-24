@@ -106,7 +106,7 @@
 
         switch(command) {
             case "Modificar":
-                alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
+                mostrar_actualizar_padre(id);
                 break;
             case "Consultar":
                 alert('Funcionalidad aun no disponible, actualmente esta en desarollo');
@@ -117,6 +117,18 @@
         }
     }
 
+    function mostrar_actualizar_padre(id) {
+        $.ajax({
+            url: '<%=administracion_actualizar_padre_path%>',
+            data: { 'id_padre': id },
+            method: 'GET',
+            contentType: 'text/html',
+            success: function(data) {
+                $("#ventana_padre").html(data).dialog('open', { title: 'Actualizar Padre'});
+            }
+        });
+    }
+    
     function descargar_padres_excel(qtype, query) {
         window.location = '<%=administracion_do_buscar_padres_excel_path%>' + '?qtype=' + qtype + '&query=' + query;
     }

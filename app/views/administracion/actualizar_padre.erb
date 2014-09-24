@@ -1,0 +1,120 @@
+<div class="contenido-tab">
+
+  <form action="" method="post" id="actualizar_nuevo_padre"
+class="pure-form  pure-form-stacked" >
+
+   <fieldset>
+     <legend>   <img src="/assets/padres.png" width="32px" height="32px">
+       Actualizar Padre
+     </legend>
+
+     <label for="apellidos">Apellido(s)</label>
+     <input type="text"  name="apellidos" id="apellidos" value="<%= @padre_escucha.apellidos %>"/>
+     <label for="nombres">Nombre(s)</label>
+     <input type="text"  name="nombres" id="nombres" value="<%= @padre_escucha.nombres %>"/>
+     <label for="correo">Correo electrónico</label>
+     <input type="text"  name="correo" id="correo" value="<%= @padre_escucha.correo %>"/>
+     <label for="telefonos">Telefono(s)</label>
+     <input type="text"  name="telefonos" id="telefonos" value="<%= @padre_escucha.telefonos %>"/>
+     <label for="telefonos_sms">Telefono(s) SMS</label>
+     <input type="text"  name="telefonos_sms" id="telefonos_sms" value="<%= @padre_escucha.telefonos_sms %>"/>
+     <label for="zona">Zona Geográfica</label>
+     <input type="text"  name="zona" id="zona" value="<%= @padre_escucha.zona %>"/>
+     <label for="tipo">¿Papá o Mamá?</label>
+     <select id="tipo" name="tipo">
+       <option value=""></option>
+       <option value="P">Papá</option>
+       <option value="M">Mamá</option>
+     </select>
+
+
+   </fieldset>
+<br>
+    <center>
+      <input type="button" onClick="enviar_formulario_actualizar_nuevo_padre();" class="pure-button pure-button-primary" name="submit" value="Actualizar Padre" id="submitbutton"/>
+
+    </center>
+
+
+  </form>
+
+  <script type="text/javascript">
+
+    function enviar_formulario_actualizar_nuevo_padre(sender) {
+
+
+        $("#actualizar_nuevo_padre").validate();
+
+        if(!$("#actualizar_nuevo_padre").valid()) return;
+
+        var postData = $("#actualizar_nuevo_padre").find('input, select, textarea, button').serializeArray();
+
+        var formURL = "<%=administracion_do_actualizar_nuevo_padre_path%>";
+
+            $.ajax({
+                url : formURL,
+                type: "POST",
+                data : postData,
+                //contentType:"application/json; charset=utf-8",
+                // dataType:"json",
+                success:function(data, textStatus, jqXHR) {
+                    if(data.status==="OK") {
+                        $("#modal_padre_actualizar_exitosa").dialog({
+                            modal: true,
+                            buttons: {
+                                Ok: function () {
+                                    $(this).dialog("close");
+                                    $("#ventana_padre").dialog("close");
+                                }
+                            }
+                        });
+                    $('#flex2').flexReload();
+                    }
+                    else {
+                        do_sesion_expiro();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    mostrar_error_tecnico();
+                }
+            });
+    }
+
+
+    $("#actualizar_padre").validate({
+        invalidHandler: function(event, validator) {
+            $("#modal_padre_actualizar_fallida_revisar_campos_obligatorios").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    }
+            );
+        },
+        submitHandler: function() {
+
+        },
+        rules: {
+            "apellidos"     : { required: true, minlength: 2 },
+            "nombres"       : { required: true, minlength: 2 },
+            "correo"        : { required: true, email: true },
+            "tipo"          : { required: true }
+        }
+    });
+
+    $.validator.messages.required = 'Este campo es de carga obligatoria.';
+
+</script>
+
+<div id="modal_padre_actualizar_exitosa" title="Mensaje" style="display:none;">
+  El nuevo Padré ha sido actualizado en forma exitosa!
+</div>
+
+
+  <div id="modal_padre_actualizar_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
+    El nuevo Pádre no puede ser actualizado porrque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
+  </div>
+
+</div>

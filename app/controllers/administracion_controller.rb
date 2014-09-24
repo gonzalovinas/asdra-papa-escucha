@@ -42,7 +42,12 @@ class AdministracionController < ApplicationController
   def buscar_padres
     render :action => "buscar_padres", :layout=> false
   end
-
+  
+  def actualizar_padre
+    @padre_escucha = PadresEscuchan.find(params[:id_padre])
+    render :action => "actualizar_padre", :layout=> false
+  end
+  
   def eliminar_estados_entrevistas
     ids = params[:ids]
 
