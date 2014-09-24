@@ -1,12 +1,14 @@
 <div class="contenido-tab">
 
-  <form action="" method="post" id="actualizar_nuevo_padre"
+  <form action="" method="post" id="actualizar_padre"
 class="pure-form  pure-form-stacked" >
 
    <fieldset>
-     <legend>   <img src="/assets/padres.png" width="32px" height="32px">
+     <legend>   <img src="<%=image_url('padres.png')%>" width="32px" height="32px">
        Actualizar Padre
      </legend>
+
+     <input type="hidden"  name="id_padre" id="id_padre" value="<%=@padre_escucha.r_id %>"/>
 
      <label for="apellidos">Apellido(s)</label>
      <input type="text"  name="apellidos" id="apellidos" value="<%= @padre_escucha.apellidos %>"/>
@@ -31,7 +33,7 @@ class="pure-form  pure-form-stacked" >
    </fieldset>
 <br>
     <center>
-      <input type="button" onClick="enviar_formulario_actualizar_nuevo_padre();" class="pure-button pure-button-primary" name="submit" value="Actualizar Padre" id="submitbutton"/>
+      <input type="button" onClick="enviar_formulario_actualizar_padre();" class="pure-button pure-button-primary" name="submit" value="Actualizar Padre" id="submitbutton"/>
 
     </center>
 
@@ -40,16 +42,16 @@ class="pure-form  pure-form-stacked" >
 
   <script type="text/javascript">
 
-    function enviar_formulario_actualizar_nuevo_padre(sender) {
+    function enviar_formulario_actualizar_padre(sender) {
 
 
-        $("#actualizar_nuevo_padre").validate();
+        $("#actualizar_padre").validate();
 
-        if(!$("#actualizar_nuevo_padre").valid()) return;
+        if(!$("#actualizar_padre").valid()) return;
 
-        var postData = $("#actualizar_nuevo_padre").find('input, select, textarea, button').serializeArray();
+        var postData = $("#actualizar_padre").find('input, select, textarea, button').serializeArray();
 
-        var formURL = "<%=administracion_do_actualizar_nuevo_padre_path%>";
+        var formURL = "<%=administracion_do_actualizar_padre_path%>";
 
             $.ajax({
                 url : formURL,
@@ -109,12 +111,12 @@ class="pure-form  pure-form-stacked" >
 </script>
 
 <div id="modal_padre_actualizar_exitosa" title="Mensaje" style="display:none;">
-  El nuevo Padré ha sido actualizado en forma exitosa!
+  El Padré ha sido actualizado en forma exitosa!
 </div>
 
 
   <div id="modal_padre_actualizar_fallida_revisar_campos_obligatorios" title="Mensaje" style="display:none;">
-    El nuevo Pádre no puede ser actualizado porrque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
+    El Pádre no puede ser actualizado porrque algunos campos son obligatorios y no fueron completados, revise los campos indicados (*) y luego vuelva a aceptar.
   </div>
 
 </div>

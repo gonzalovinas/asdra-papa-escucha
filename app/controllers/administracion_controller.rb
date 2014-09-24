@@ -47,6 +47,20 @@ class AdministracionController < ApplicationController
     @padre_escucha = PadresEscuchan.find(params[:id_padre])
     render :action => "actualizar_padre", :layout=> false
   end
+
+  def do_actualizar_padre
+    pe = PadresEscuchan.find(params[:id_padre])
+
+    pe.apellidos = params[:apellidos]
+    pe.nombres   = params[:nombres]
+    pe.telefonos = params[:telefonos]
+    pe.telefonos_sms = params[:telefonos_sms]
+    pe.zona      = params[:zona]
+    pe.correo    = params[:correo]
+
+    pe.save
+    render :json => {:status => "OK"}, :layout=> false
+  end
   
   def eliminar_estados_entrevistas
     ids = params[:ids]
