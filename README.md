@@ -33,7 +33,7 @@ Para más información sobre ASDRA visitar http://asdra.org.ar/
 <li>v8 javascript engine (it's ok to install nodejs for example...)</li>
 </ul>
 <ul>
-<li>ruby 1.9.1</li>
+<li>ruby 1.9.3</li>
 <li>default-jdk</li>
 <li>default-jre (remember to set JAVA_HOME environment variable (ex: export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386)</li>
 <li>bundler</li>
