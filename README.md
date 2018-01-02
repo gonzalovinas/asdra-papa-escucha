@@ -17,7 +17,6 @@ al comentarme su necesidad de pasar de manejar una base de datos MS-ACCESS que s
 por correo electrónico surgio la idea de llevarlo a la Web, y se lo hice.
 
 Puede encontrar los fuentes en el repositorio GitHub: https://github.com/gonzalovinas/asdra-papa-escucha
-Puede ingresar al sitio de reporte de incidencias en: http://youtrack.myzeta.tk/issues/PAPE
 
 Para más información sobre ASDRA visitar http://asdra.org.ar/
 <br>
