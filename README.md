@@ -39,6 +39,7 @@ Para más información sobre ASDRA visitar http://asdra.org.ar/
 <li>libxml2-dev  (nokogiri gem)</li>
 <li>libxslt1-dev (nokogiri gem)</li>
 <li>libsqlite3-dev</li>
+  <li>ruby-dev</li>
 </ul>
 <ul>
 <li>passenger</li>
