@@ -34,7 +34,7 @@ Para más información sobre ASDRA visitar http://asdra.org.ar/
 <ul>
 <li>ruby 1.9.3</li>
 <li>default-jdk</li>
-<li>default-jre (remember to set JAVA_HOME environment variable (ex: export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386)</li>
+<li>default-jre (remember to set JAVA_HOME environment variable (ex: export JAVA_HOME=/usr/lib/jvm/{insert your version here} - edit /etc/environment)</li>
 <li>bundler</li>
 <li>libxml2-dev  (nokogiri gem)</li>
 <li>libxslt1-dev (nokogiri gem)</li>
